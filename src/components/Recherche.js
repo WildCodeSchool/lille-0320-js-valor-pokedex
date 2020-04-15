@@ -1,5 +1,4 @@
 import React from "react";
-import TestPokemon from "./TestPokemon";
 
 class Recherche extends React.Component {
   constructor(props) {
@@ -8,18 +7,27 @@ class Recherche extends React.Component {
       needle: "",
     };
     this.handleChange = this.handleChange.bind(this);
-    this.searchPokemon = this.searchPokemon.bind(this);
+    /*this.searchPokemon = this.searchPokemon.bind(this);*/
   }
 
   handleChange(event) {
     this.setState({ needle: event.target.value });
   }
 
-  searchPokemon(event) {
-    dkzajb.filter((pokemon) => {
-      return name.includes(needle);
+  /*displayPokemon(event) {
+    const display = TestPokemon.forEach((pokemon) => {
+      return (
+        
+      );
     });
-  }
+    return display;
+  }*/
+
+  /*searchPokemon(event) {
+    dkzajb.filter((pokemon) => {
+      return dkzajb.name.includes(this.state.needle);
+    });
+  }*/
 
   render() {
     return (
@@ -31,7 +39,11 @@ class Recherche extends React.Component {
           value={this.state.needle}
           onChange={this.handleChange}
         />
-        <div>{this.searchPokemon}</div>
+        <div>
+          <h3 className="name">{this.props.name}</h3>
+          <p className="pokemonId">{this.props.id}</p>
+          <img src={this.props.url} alt={this.props.name} />
+        </div>
       </div>
     );
   }
