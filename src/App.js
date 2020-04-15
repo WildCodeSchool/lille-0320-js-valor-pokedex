@@ -1,11 +1,19 @@
 import React from "react";
-import Wilder from "./components/Wilder";
+import Header from "./components/header-footer-bandeau/Header";
+import Footer from "./components/header-footer-bandeau/Footer";
+import Bandeau from "./components/header-footer-bandeau/Bandeau";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hi there !</h1>
-      <Wilder />
+    <div>
+      <header>
+        <Header />
+      </header>
+      <Bandeau />
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
