@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-
+import "./PokemonCard.css";
 class PokemonCard extends React.Component {
   constructor(props) {
     super(props);
@@ -30,15 +30,19 @@ class PokemonCard extends React.Component {
       });
   }
   render() {
+    /*on crée une carte de pokemon qui va afficjer la photo, le numéro et le nom de chaque pokemon*/
+    /*on fait un ternaire pour que la carte s'applique à chaque pokemon. Si le pokemon à un id, renvoi la carte, sinon renvoi "toto"
+    le ternaire est nécessaire car la class renvoi le render, puis fait appel à l'api puis re renvoi le render. */
     return (
       <div>
         {this.state.data.id ? (
-          <div>
+          <div className="global">
             <img
               src={this.state.data.sprites.front_default}
               alt={this.state.data.name}
+              className="carte"
             />
-            <p>
+            <p className="titre">
               {this.state.data.id} {this.state.data.name}
             </p>
           </div>

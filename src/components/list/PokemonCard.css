@@ -1,0 +1,17 @@
+.carte {
+  background-color: rgba(255, 255, 255, 0.432);
+  border-radius: 10px 10px 0 0;
+}
+
+.titre {
+  background-color: rgba(128, 128, 128, 0.534);
+  text-align: center;
+  margin: 0;
+  border-radius: 0 0 10px 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.global {
+  margin: 35px;
+}

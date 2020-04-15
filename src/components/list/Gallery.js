@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import PokemonCard from "./PokemonCard";
+import "./Gallery.css";
 /*fonction URL pour sortir les url de data*/
 
 class Gallery extends React.Component {
@@ -30,7 +31,7 @@ class Gallery extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="gallery">
         {this.state.pokemons.map((pokemon) => {
           return (
             <article>
