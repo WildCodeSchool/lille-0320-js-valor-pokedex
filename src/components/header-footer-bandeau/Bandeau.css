@@ -1,8 +1,13 @@
-.background {
-  height: 12em;
-  width: 100%;
-}
-
 .pikachu {
   height: 6em;
+}
+
+.bandeau {
+  background-image: url(background-top.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 12em;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }

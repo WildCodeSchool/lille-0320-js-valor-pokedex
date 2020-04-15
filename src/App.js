@@ -10,7 +10,9 @@ function App() {
       <header>
         <Header />
       </header>
-      <Bandeau />
+      <main>
+        <Bandeau />
+      </main>
       <footer>
         <Footer />
       </footer>

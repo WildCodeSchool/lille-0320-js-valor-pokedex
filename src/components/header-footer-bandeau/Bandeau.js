@@ -6,10 +6,7 @@ import pikachu from "./pikachu.gif";
 function Bandeau() {
   return (
     <div className="bandeau">
-      <img src={background} alt="background" className="background" />
-      <div className="run">
-        <img src={pikachu} alt="pikachu" className="pikachu" />
-      </div>
+      <img src={pikachu} alt="pikachu" className="pikachu" />
     </div>
   );
 }
