@@ -1,25 +1,13 @@
 import React from "react";
 import axios from "axios";
-import IdCard from "./Idcard";
-
-/*const onePokemon = {
-  url: "https://pokeapi.co/api/v2/pokemon/1/",
-};*/
-
+import PokemonCard from "./PokemonCard";
 /*fonction URL pour sortir les url de data*/
-const URL = (obj) => {
-  return (
-    <div>
-      <p>{obj.url}</p>
-    </div>
-  );
-};
 
-class Extract extends React.Component {
+class Gallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokemon: { name: "carapuce", url: " " }, // faire avec le live de loic
+      pokemons: [],
     };
   }
 
@@ -35,25 +23,27 @@ class Extract extends React.Component {
       .then((response) => response.data.results)
       // utilise le data pour mettre à jour le state
       .then((data) => {
-        console.log(data); //permet de vérifier les données dans la console
+        this.setState({
+          pokemons: data,
+        });
       });
   }
   render() {
-    return;
-    <div>
-      <p>
-        {this.getPokemon()}
-        <p />
-        <p>blablabla</p>
-        /*
-        <URL obj={this.state.pokemon} />
-        ;*/
-      </p>
-    </div>;
+    return (
+      <div>
+        {this.state.pokemons.map((pokemon) => {
+          return (
+            <article>
+              <PokemonCard {...pokemon} />
+            </article>
+          );
+        })}
+      </div>
+    );
   }
 }
 
-export default Extract;
+export default Gallery;
 
 /* const adress = () => (
       <div>
