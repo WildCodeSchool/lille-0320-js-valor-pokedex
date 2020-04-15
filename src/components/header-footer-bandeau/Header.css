@@ -1,0 +1,13 @@
+.header {
+  background-color: #cb0809;
+  display: flex;
+  justify-content: center;
+  height: 7em;
+  border-bottom: blue solid 0.5em;
+  box-shadow: 0 0 10px black;
+  margin-bottom: 5em;
+}
+
+.logo {
+  height: 10em;
+}

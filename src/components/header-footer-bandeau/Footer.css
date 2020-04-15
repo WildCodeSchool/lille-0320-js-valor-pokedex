@@ -1,0 +1,11 @@
+.footer {
+  height: 6em;
+  background-color: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.valor {
+  height: 3em;
+}
