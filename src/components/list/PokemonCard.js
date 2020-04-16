@@ -54,15 +54,4 @@ class PokemonCard extends React.Component {
   }
 }
 
-/*function PokemonCard({ pokemon }) {
-  return (
-    <div>
-      <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-      <p>
-        {pokemon.id} {pokemon.name}
-      </p>
-    </div>
-  );
-}*/
-
 export default PokemonCard;
