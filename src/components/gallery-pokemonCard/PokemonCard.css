@@ -1,6 +1,8 @@
 .carte {
   background-color: rgba(255, 255, 255, 0.432);
   border-radius: 10px 10px 0 0;
+  height: 110px;
+  width: 110px;
 }
 
 .titre {
@@ -14,4 +16,9 @@
 
 .global {
   margin: 35px;
+}
+
+.pokeball {
+  height: 80px;
+  width: 80px;
 }

@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   align-content: flex-start;
   padding: 0 200px;
-  background-image: url(background-bottom.jpg);
+  background-image: url("/img/background-bottom.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   min-height: 80vh;
