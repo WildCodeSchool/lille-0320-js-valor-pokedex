@@ -19,7 +19,7 @@ class Gallery extends React.Component {
   getPokemon() {
     //demande de l'API
     axios
-      .get("https://pokeapi.co/api/v2/pokemon/")
+      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=649")
       // extrait les data de l'api et l'enregistre dans reponse
       .then((response) => response.data.results)
       // utilise le data pour mettre à jour le state
