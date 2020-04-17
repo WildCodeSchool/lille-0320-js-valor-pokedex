@@ -1,6 +1,6 @@
 import React from "react";
 
-import Gallery from "./components/list/Gallery";
+import Gallery from "./components/gallery-pokemonCard/Gallery";
 
 function App() {
   return (
