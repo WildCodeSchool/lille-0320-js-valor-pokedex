@@ -1,11 +1,11 @@
 import React from "react";
 import "./Bandeau.css";
-import pikachu from "/img/pikachu.gif";
-
+/* allows to integrate a background-image with pikachu which runs above */
+/*permet d'intégrer une backgroud-image avec pikachu qui court au dessus*/
 function Bandeau() {
   return (
     <div className="bandeau">
-      <img src={pikachu} alt="pikachu" className="pikachu" />
+      <img src="/img/pikachu.gif" alt="pikachu" className="pikachu" />
     </div>
   );
 }
