@@ -1,7 +1,6 @@
 import React from "react";
 import "./Bandeau.css";
-import background from "./background-top.jpg";
-import pikachu from "./pikachu.gif";
+import pikachu from "./src/img/pikachu.gif";
 
 function Bandeau() {
   return (
@@ -12,5 +11,3 @@ function Bandeau() {
 }
 
 export default Bandeau;
-
-//mettre le background en image ou l'importer dans le css en background-image.
