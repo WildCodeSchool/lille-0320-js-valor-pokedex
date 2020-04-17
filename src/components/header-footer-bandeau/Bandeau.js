@@ -1,6 +1,6 @@
 import React from "react";
 import "./Bandeau.css";
-import pikachu from "./src/img/pikachu.gif";
+import pikachu from "/img/pikachu.gif";
 
 function Bandeau() {
   return (

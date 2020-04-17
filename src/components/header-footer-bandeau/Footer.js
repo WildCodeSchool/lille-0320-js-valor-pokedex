@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import teamvalor from "./src/img/teamvalor.png";
+import teamvalor from "/img/teamvalor.png";
 
 function Footer() {
   return (
