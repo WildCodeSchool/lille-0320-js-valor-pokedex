@@ -1,0 +1,24 @@
+.pikachu {
+  min-height: 15vh;
+  max-width: 100vw;
+  max-height: 15vh;
+}
+
+.bandeau {
+  background-image: url("/img/background-top.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 28vh;
+  max-width: 100vw;
+  max-height: 28vh;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/*responsive*/
+@media screen and (min-width: 200px) and (max-width: 800px) {
+  .bandeau {
+    display: none;
+  }
+}
