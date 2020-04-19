@@ -32,13 +32,17 @@ class Gallery extends React.Component {
   render() {
     return (
       <div className="gallery">
-        {this.state.pokemons.map((pokemon) => {
-          return (
-            <article>
-              <PokemonCard {...pokemon} />
-            </article>
-          );
-        })}
+        {this.state.pokemons
+          .filter((pokemon) => {
+            return pokemon.name.includes();
+          })
+          .map((pokemon) => {
+            return (
+              <article>
+                <PokemonCard {...pokemon} />
+              </article>
+            );
+          })}
       </div>
     );
   }
