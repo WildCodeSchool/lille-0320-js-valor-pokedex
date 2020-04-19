@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import PokemonCard from "./PokemonCard";
 import "./Gallery.css";
+import RechercheNom from "./RechercheNom";
 /*fonction URL pour sortir les url de data -- function URL to take out URL from data*/
 
 class Gallery extends React.Component {
@@ -9,7 +10,9 @@ class Gallery extends React.Component {
     super(props);
     this.state = {
       pokemons: [],
+      needle: "",
     };
+    this.rechercheHandleChange = this.rechercheHandleChange.bind(this);
   }
 
   componentDidMount() {
@@ -29,20 +32,43 @@ class Gallery extends React.Component {
         });
       });
   }
+
+  rechercheHandleChange(event) {
+    this.setState({ needle: event.target.value });
+  }
+
   render() {
     return (
-      <div className="gallery">
-        {this.state.pokemons
-          .filter((pokemon) => {
-            return pokemon.name.includes();
-          })
-          .map((pokemon) => {
-            return (
-              <article>
-                <PokemonCard {...pokemon} />
-              </article>
-            );
-          })}
+      <div>
+        <div className="searchBar">
+          <label htmlFor="search">Search: </label>
+          <input
+            id="search"
+            type="text"
+            name="searchBar"
+            value={this.state.needle}
+            onChange={this.rechercheHandleChange}
+          />
+        </div>
+        <div className="gallery">
+          {this.state.pokemons
+            .filter((pokemon) => {
+              /*if (Number(this.needle) && this.needle !== 0) {
+                return pokemon.id === this.needle;
+              } else*/ if (
+                this.needle !== ""
+              ) {
+                return pokemon.name.includes(this.needle);
+              } else return pokemon;
+            })
+            .map((pokemon) => {
+              return (
+                <article>
+                  <PokemonCard {...pokemon} />
+                </article>
+              );
+            })}
+        </div>
       </div>
     );
   }
