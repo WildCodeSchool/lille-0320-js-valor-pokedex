@@ -9,8 +9,8 @@ class Gallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokemons: [],
       needle: "",
+      pokemons: [],
     };
     this.rechercheHandleChange = this.rechercheHandleChange.bind(this);
   }
@@ -38,37 +38,24 @@ class Gallery extends React.Component {
   }
 
   render() {
+    let filtered = this.state.pokemons.filter((pokemon) => {
+      const goodPokemon = { pokemon };
+      return goodPokemon.name
+        .toLowerCase()
+        .includes(this.state.needle.toLowerCase());
+    });
+    this.setState({ pokemons: filtered });
+
     return (
-      <div>
-        <div className="searchBar">
-          <label htmlFor="search">Search: </label>
-          <input
-            id="search"
-            type="text"
-            name="searchBar"
-            value={this.state.needle}
-            onChange={this.rechercheHandleChange}
-          />
-        </div>
-        <div className="gallery">
-          {this.state.pokemons
-            .filter((pokemon) => {
-              /*if (Number(this.needle) && this.needle !== 0) {
-                return pokemon.id === this.needle;
-              } else*/ if (
-                this.needle !== ""
-              ) {
-                return pokemon.name.includes(this.needle);
-              } else return pokemon;
-            })
-            .map((pokemon) => {
-              return (
-                <article>
-                  <PokemonCard {...pokemon} />
-                </article>
-              );
-            })}
-        </div>
+      <div className="gallery">
+        <RechercheNom rechercheHandleChange={this.rechercheHandleChange} />
+        {this.state.pokemons.map((pokemon) => {
+          return (
+            <article>
+              <PokemonCard {...pokemon} />
+            </article>
+          );
+        })}
       </div>
     );
   }
