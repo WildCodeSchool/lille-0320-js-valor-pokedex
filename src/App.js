@@ -6,17 +6,16 @@ import Gallery from "./components/gallery-pokemonCard/Gallery";
 import Pokecall from "./components/fichePokemon/PokeCall";
 import "./App.css";
 
-
 function App() {
   return (
     <div>
       <Header />
       <main>
         <Bandeau />
-        <Pokecall/>
+
+        <Pokecall />
       </main>
       <Footer />
-
     </div>
   );
 }
