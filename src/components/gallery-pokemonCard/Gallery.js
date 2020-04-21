@@ -39,17 +39,15 @@ class Gallery extends React.Component {
 
   render() {
     let filtered = this.state.pokemons.filter((pokemon) => {
-      const goodPokemon = { pokemon };
-      return goodPokemon.name
+      return pokemon.name
         .toLowerCase()
         .includes(this.state.needle.toLowerCase());
     });
-    this.setState({ pokemons: filtered });
 
     return (
       <div className="gallery">
         <RechercheNom rechercheHandleChange={this.rechercheHandleChange} />
-        {this.state.pokemons.map((pokemon) => {
+        {filtered.map((pokemon) => {
           return (
             <article>
               <PokemonCard {...pokemon} />
