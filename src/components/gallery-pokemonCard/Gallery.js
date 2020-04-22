@@ -34,6 +34,7 @@ class Gallery extends React.Component {
   }
 
   rechercheHandleChange(event) {
+    console.log(event.target.value);
     this.setState({ needle: event.target.value });
   }
 
