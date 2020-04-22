@@ -15,7 +15,7 @@ class Gallery extends React.Component {
     };
     this.rechercheHandleChange = this.rechercheHandleChange.bind(this);
   }
-
+  //appelle l'APi après le premier rendu pour éviter la page blanche au démarrage -- call the API after the first render to avoid the white page
   componentDidMount() {
     this.getPokemon();
   }
@@ -23,7 +23,7 @@ class Gallery extends React.Component {
   getPokemon() {
     //demande de l'API -- API's request
     axios
-      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=50")
+      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=50") // WARNING: only 50 pokemon retrieved for easier tests
       // extrait les data de l'api et l'enregistre dans reponse -- extract datas from API and register the answers
       .then((response) => response.data.results)
       // utilise le data pour mettre à jour le state -- use data to update the state.
@@ -34,14 +34,17 @@ class Gallery extends React.Component {
         });
       });
   }
-
+  //récupère les caractères tapés dans la barre de recherche -- fetch input entered in the searchbar
   rechercheHandleChange(event) {
-    console.log(event.target.value);
+    console.log(event.target.value); //affiche dans la console pour faciliter le développement WARNING
+    //création d'une constante qui va stocker le tableau filtré des pokemons dont le nom inclu les caractères tapés dans la barre de recherche --
+    //declaration of a constante which stock the filtered array of pokemons when the name includes inputs entered in the searchbar
     let filtered = this.state.pokemons.filter((pokemon) => {
       return pokemon.name
         .toLowerCase()
         .includes(this.state.needle.toLowerCase());
     });
+    //met à jour les states de la valeur recherchée et du tableau filtré -- update states of search value and filtered array
     this.setState({ needle: event.target.value });
     this.setState({ filteredPokemons: filtered });
   }
@@ -49,7 +52,9 @@ class Gallery extends React.Component {
   render() {
     return (
       <div className="gallery">
+        {/*appelle RechercheNom en envoyant les props de rechercheHandleChange -- call RechercheNom sending rechercheHandleChange's props*/}
         <RechercheNom rechercheHandleChange={this.rechercheHandleChange} />
+        {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
         {this.state.filteredPokemons.map((pokemon) => {
           return (
             <article>
