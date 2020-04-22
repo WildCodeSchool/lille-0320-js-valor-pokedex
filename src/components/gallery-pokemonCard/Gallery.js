@@ -11,6 +11,7 @@ class Gallery extends React.Component {
     this.state = {
       needle: "",
       pokemons: [],
+      filteredPokemons: [],
     };
     this.rechercheHandleChange = this.rechercheHandleChange.bind(this);
   }
@@ -22,33 +23,34 @@ class Gallery extends React.Component {
   getPokemon() {
     //demande de l'API -- API's request
     axios
-      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=649")
+      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=50")
       // extrait les data de l'api et l'enregistre dans reponse -- extract datas from API and register the answers
       .then((response) => response.data.results)
       // utilise le data pour mettre à jour le state -- use data to update the state.
       .then((data) => {
         this.setState({
           pokemons: data,
+          filteredPokemons: data,
         });
       });
   }
 
   rechercheHandleChange(event) {
     console.log(event.target.value);
-    this.setState({ needle: event.target.value });
-  }
-
-  render() {
     let filtered = this.state.pokemons.filter((pokemon) => {
       return pokemon.name
         .toLowerCase()
         .includes(this.state.needle.toLowerCase());
     });
+    this.setState({ needle: event.target.value });
+    this.setState({ filteredPokemons: filtered });
+  }
 
+  render() {
     return (
       <div className="gallery">
         <RechercheNom rechercheHandleChange={this.rechercheHandleChange} />
-        {filtered.map((pokemon) => {
+        {this.state.filteredPokemons.map((pokemon) => {
           return (
             <article>
               <PokemonCard {...pokemon} />

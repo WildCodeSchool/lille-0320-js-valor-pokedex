@@ -15,6 +15,10 @@ class PokemonCard extends React.Component {
     this.getPokemon();
   }
 
+  componentDidUpdate() {
+    this.getPokemon();
+  }
+
   getPokemon() {
     //demande de l'API -- API request
     axios
