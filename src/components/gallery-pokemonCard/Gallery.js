@@ -2,14 +2,17 @@ import React from "react";
 import axios from "axios";
 import PokemonCard from "./PokemonCard";
 import "./Gallery.css";
+import RechercheNom from "./RechercheNom";
 /*fonction URL pour sortir les url de data -- function URL to take out URL from data*/
 
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      needle: "",
       pokemons: [],
     };
+    this.rechercheHandleChange = this.rechercheHandleChange.bind(this);
   }
 
   componentDidMount() {
@@ -29,10 +32,22 @@ class Gallery extends React.Component {
         });
       });
   }
+
+  rechercheHandleChange(event) {
+    this.setState({ needle: event.target.value });
+  }
+
   render() {
+    let filtered = this.state.pokemons.filter((pokemon) => {
+      return pokemon.name
+        .toLowerCase()
+        .includes(this.state.needle.toLowerCase());
+    });
+
     return (
       <div className="gallery">
-        {this.state.pokemons.map((pokemon) => {
+        <RechercheNom rechercheHandleChange={this.rechercheHandleChange} />
+        {filtered.map((pokemon) => {
           return (
             <article>
               <PokemonCard {...pokemon} />
