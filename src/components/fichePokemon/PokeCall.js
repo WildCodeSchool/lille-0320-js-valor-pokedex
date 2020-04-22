@@ -9,7 +9,7 @@ class Pokecall extends React.Component {
     super(props);
     this.state = {
       pokemons: {
-        sprites: { font_default: "" },
+        sprites: {},
         id: 0,
         name: "",
         height: 0,
@@ -19,7 +19,19 @@ class Pokecall extends React.Component {
             type: { name: "" },
           },
         ],
-        moves: "",
+        moves: [
+          {
+            version_group_details: [
+              { version_group: { name: "" }, move_learn_method: { name: "" } },
+            ],
+          },
+        ],
+        stats: [
+          {
+            base_stat: 0,
+            stat: { name: "" },
+          },
+        ],
       },
     };
   }
@@ -72,7 +84,6 @@ class Pokecall extends React.Component {
           <li>
             weight: <strong>{this.state.pokemons.weight}</strong>
           </li>
-
           <li>
             types:
             {this.state.pokemons.types.map((obj) => {
@@ -83,13 +94,18 @@ class Pokecall extends React.Component {
               );
             })}
           </li>
-          <li>moves : </li>
-          <p>
-            NOTE: il faut retrouver les attaques de la version
-            "ultra-sun-ultra-moon" UNIQUEMENT. Où ? Il faut aller dans moves >
-            numéro (ex: 66) > "version_group_details" > numéro (ex: 4) >
-            version_group > name. On retrouve > ultra-sun-ultra-moon
-          </p>
+          <li>
+            stats:
+            {this.state.pokemons.stats.map((obj) => {
+              return (
+                <p>
+                  <strong>
+                    {obj.stat.name}: {obj.base_stat}
+                  </strong>
+                </p>
+              );
+            })}
+          </li>
         </ul>
       </div>
     );
@@ -98,19 +114,22 @@ class Pokecall extends React.Component {
 
 export default Pokecall;
 
-/*<li>attaques : {this.state.pokemons.moves}</li>
-<p>
-  NOTE: il faut retrouver les attaques de la version
-  "ultra-sun-ultra-moon" UNIQUEMENT. Où ? Il faut aller dans moves >
-  numéro (ex: 66) > "version_group_details" > numéro (ex: 4) >
-  version_group > name. On retrouve > ultra-sun-ultra-moon
-</p>
- <div className="gallery">
-        {this.state.pokemons.type.map((pokemon) => {
-          return (
-            <article>
-              <PokemonCard {...pokemon} />
-            </article>
-          );
-        })}
-    </div>*/
+/*<p>
+            NOTE: il faut retrouver les attaques de la version
+            "ultra-sun-ultra-moon" UNIQUEMENT. Où ? Il faut aller dans: moves >
+            numéro (ex: 66) > "version_group_details" > numéro (ex: 4) >
+            version_group > name. On retrouve > ultra-sun-ultra-moon
+          </p>
+<li>
+            moves :
+            {this.state.pokemons.moves.map((obj) => {
+              {
+                obj.version_group_details.filter((obj2) => {
+                  {
+                    obj2.version_group.name ? "yes" : "no";
+                  }
+                });
+              }
+            })}
+            })}
+          </li>*/
