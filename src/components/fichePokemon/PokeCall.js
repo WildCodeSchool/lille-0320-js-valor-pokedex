@@ -21,6 +21,16 @@ class Pokecall extends React.Component {
         ],
         moves: [
           {
+            move: {},
+            version_group_details: [
+              {
+                level_learned_at: 0,
+                move_learn_method: { name: "", url: "" },
+                version_group: { name: "", url: "" },
+              },
+            ],
+          },
+          {
             version_group_details: [
               { version_group: { name: "" }, move_learn_method: { name: "" } },
             ],
@@ -66,6 +76,20 @@ class Pokecall extends React.Component {
       });
     });
   }
+  rechercheHandleChange(event) {
+    console.log(event.target.value); //affiche dans la console pour faciliter le développement WARNING
+    //création d'une constante qui va stocker le tableau filtré des pokemons dont le nom inclu les caractères tapés dans la barre de recherche --
+    //declaration of a constante which stock the filtered array of pokemons when the name includes inputs entered in the searchbar
+    let filtered = this.state.pokemons.filter((pokemon) => {
+      return pokemon.name
+        .toLowerCase()
+        .includes(this.state.needle.toLowerCase());
+    });
+    //met à jour les states de la valeur recherchée et du tableau filtré -- update states of search value and filtered array
+    this.setState({ needle: event.target.value });
+    this.setState({ filteredPokemons: filtered });
+  }
+
   //#2 //#5 //#10
   render() {
     return (
@@ -106,6 +130,16 @@ class Pokecall extends React.Component {
               );
             })}
           </li>
+          <li>
+            moves:
+            {this.state.pokemons.moves.map((obj) => {
+              {
+                obj.version_group_details.map((array) => {
+                  return <p> {array.version_group.name}</p>;
+                });
+              }
+            })}
+          </li>
         </ul>
       </div>
     );
@@ -124,12 +158,9 @@ export default Pokecall;
             moves :
             {this.state.pokemons.moves.map((obj) => {
               {
-                obj.version_group_details.filter((obj2) => {
-                  {
-                    obj2.version_group.name ? "yes" : "no";
-                  }
+                obj.version_group_details.map((obj2) => {
+                  return <p>{obj2.version_group.name}</p>;
                 });
               }
-            })}
             })}
           </li>*/
