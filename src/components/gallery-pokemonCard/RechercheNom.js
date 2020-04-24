@@ -7,6 +7,7 @@ function RechercheNom(props) {
       <input
         id="search"
         type="text"
+        placeholder="ex: pikachu, ..."
         name="searchBar"
         onChange={props.rechercheHandleChange}
       />
