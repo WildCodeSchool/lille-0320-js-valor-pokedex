@@ -6,6 +6,9 @@ import "./FichePokemon.css";
 //FichePokemon function extracts, via a "pokemon" accessory, the API data saved in this.state.OnePokemon in the PokeCall class
 // will allow to set up via the css all the elements
 function FichePokemon({ pokemon }) {
+  console.log("----------");
+  console.log(pokemon.moves);
+  console.log("----------");
   return (
     <div className="fiche">
       <div className="identity">
@@ -26,7 +29,7 @@ function FichePokemon({ pokemon }) {
           types:
           {pokemon.types.map((obj) => {
             return (
-              <p>
+              <p key={obj.type.name}>
                 <strong>{obj.type.name}</strong>
               </p>
             );
@@ -37,7 +40,7 @@ function FichePokemon({ pokemon }) {
         stats:
         {pokemon.stats.map((obj) => {
           return (
-            <p>
+            <p key={obj.stat.name}>
               <strong>
                 {obj.stat.name}: {obj.base_stat}
               </strong>
@@ -46,13 +49,28 @@ function FichePokemon({ pokemon }) {
         })}
       </div>
       <div className="moves">
-        moves:
         {pokemon.moves.map((obj) => {
-          {
-            obj.version_group_details.map((array) => {
-              return <p> {array.version_group}</p>;
+          const details = obj.version_group_details;
+          return details //renvoies le tableau version_group_details
+            .filter((array) => {
+              //dans version_group_detail, prendre que ce qui contient USUM et level-up uniquement
+              console.log("--------");
+              return (
+                array.version_group.name === "ultra-sun-ultra-moon" &&
+                array.move_learn_method.name === "level-up"
+              );
+            })
+            .sort((ob1, ob2) => {
+              return -1;
+            })
+            .map((array) => {
+              //renvoi le level_lernead_at de chaque élément
+              return (
+                <li>
+                  {obj.move.name}: {array.level_learned_at}
+                </li>
+              );
             });
-          }
         })}
       </div>
     </div>
