@@ -1,0 +1,22 @@
+.fiche {
+  background-color: yellow;
+  margin-left: 20px;
+  margin-top: 200px;
+  height: 100%;
+  width: 100%;
+}
+
+.identity {
+  border: 2px solid red;
+  width: 50%;
+}
+
+.stats {
+  border: 2px solid black;
+  width: 50%;
+}
+
+.moves {
+  border: 2px solid blue;
+  width: 50%;
+}

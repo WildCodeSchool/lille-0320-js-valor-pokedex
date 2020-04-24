@@ -7,22 +7,22 @@ import "./FichePokemon.css";
 // will allow to set up via the css all the elements
 function FichePokemon({ pokemon }) {
   return (
-    <div>
-      <img src={pokemon.sprites.front_default} alt={pokemon.id} />
-      <ul>
-        <li>
+    <div className="fiche">
+      <div className="identity">
+        <img src={pokemon.sprites.front_default} alt={pokemon.id} />
+        <p>
           ID: <strong>{pokemon.id}</strong>
-        </li>
-        <li>
+        </p>
+        <p>
           Name: <strong>{pokemon.name}</strong>
-        </li>
-        <li>
+        </p>
+        <p>
           height: <strong>{pokemon.height}</strong>
-        </li>
-        <li>
+        </p>
+        <p>
           weight: <strong>{pokemon.weight}</strong>
-        </li>
-        <li>
+        </p>
+        <div>
           types:
           {pokemon.types.map((obj) => {
             return (
@@ -31,30 +31,30 @@ function FichePokemon({ pokemon }) {
               </p>
             );
           })}
-        </li>
-        <li>
-          stats:
-          {pokemon.stats.map((obj) => {
-            return (
-              <p>
-                <strong>
-                  {obj.stat.name}: {obj.base_stat}
-                </strong>
-              </p>
-            );
-          })}
-        </li>
-        <li>
-          moves:
-          {pokemon.moves.map((obj) => {
-            {
-              obj.version_group_details.map((array) => {
-                return <p> {array.version_group}</p>;
-              });
-            }
-          })}
-        </li>
-      </ul>
+        </div>
+      </div>
+      <div className="stats">
+        stats:
+        {pokemon.stats.map((obj) => {
+          return (
+            <p>
+              <strong>
+                {obj.stat.name}: {obj.base_stat}
+              </strong>
+            </p>
+          );
+        })}
+      </div>
+      <div className="moves">
+        moves:
+        {pokemon.moves.map((obj) => {
+          {
+            obj.version_group_details.map((array) => {
+              return <p> {array.version_group}</p>;
+            });
+          }
+        })}
+      </div>
     </div>
   );
 }
