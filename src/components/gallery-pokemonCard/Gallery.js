@@ -42,11 +42,14 @@ class Gallery extends React.Component {
     let filtered = this.state.pokemons.filter((pokemon) => {
       return pokemon.name
         .toLowerCase()
-        .includes(this.state.needle.toLowerCase());
+        .includes(event.target.value.toLowerCase()); // <- Last error: you must use the NEW value of needle (in event.target.value), not the old one (this.state.needle)
     });
     //met à jour les states de la valeur recherchée et du tableau filtré -- update states of search value and filtered array
-    this.setState({ needle: event.target.value });
-    this.setState({ filteredPokemons: filtered });
+    // Ne pas faire plusieurs setStates quand on oeut éviter: chacun d'entre eux va redéclencher un render.
+    this.setState({
+      needle: event.target.value,
+      filteredPokemons: filtered,
+    });
   }
 
   render() {
