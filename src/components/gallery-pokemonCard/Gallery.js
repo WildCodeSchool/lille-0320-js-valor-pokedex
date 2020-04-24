@@ -35,18 +35,21 @@ class Gallery extends React.Component {
       });
   }
   //récupère les caractères tapés dans la barre de recherche -- fetch input entered in the searchbar
-  rechercheHandleChange(event) {
+  async rechercheHandleChange(event) {
     console.log(event.target.value); //affiche dans la console pour faciliter le développement WARNING
     //création d'une constante qui va stocker le tableau filtré des pokemons dont le nom inclu les caractères tapés dans la barre de recherche --
     //declaration of a constante which stock the filtered array of pokemons when the name includes inputs entered in the searchbar
     let filtered = this.state.pokemons.filter((pokemon) => {
       return pokemon.name
         .toLowerCase()
-        .includes(this.state.needle.toLowerCase());
+        .includes(event.target.value.toLowerCase()); // <- Last error: you must use the NEW value of needle (in event.target.value), not the old one (this.state.needle)
     });
     //met à jour les states de la valeur recherchée et du tableau filtré -- update states of search value and filtered array
-    this.setState({ needle: event.target.value });
-    this.setState({ filteredPokemons: filtered });
+    // Ne pas faire plusieurs setStates quand on oeut éviter: chacun d'entre eux va redéclencher un render.
+    await this.setState({
+      needle: event.target.value,
+      filteredPokemons: filtered,
+    });
   }
 
   render() {
