@@ -11,11 +11,9 @@ function App() {
     <div>
       <Header />
       <main>
-        <Bandeau />
-
         <Pokecall />
       </main>
-      <Footer />
+      <Footer className="Footer" />
     </div>
   );
 }
