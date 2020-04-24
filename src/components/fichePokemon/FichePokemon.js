@@ -1,42 +1,62 @@
 import React from "react";
 import axios from "axios";
 import "./FichePokemon.css";
-
-class FichePokemon extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: props.name,
-      id: props.id,
-      data: props.data,
-    };
-  }
-
-  componentDidMount() {
-    this.getPokemon();
-  }
-
-  getPokemon() {
-    //demande de l'API -- API request
-    axios.get(this.state.data).then(({ id }) => {
-      console.log(id);
-
-      this.setState({
-        pokemons: id,
-      });
-    });
-  }
-  render() {
-    /*on crée une carte de pokemon qui va afficher la photo, le numéro et le nom de chaque pokemon -- creation of a card that will show a picture, number and name of each pokemon*/
-
-    /*on fait un ternaire pour que la carte s'applique à chaque pokemon. Si le pokemon à un id, renvoi la carte, sinon renvoi "loading" -- we create a ternary to let the card applying for all the pokemon. if the pokemon have an id, show the card, else show "loading"
-      le ternaire est nécessaire car la class renvoi le render, puis fait appel à l'api puis re renvoi le render. -- the ternary is necessary because the class show the render, then ask then reshow the render*/
-    return (
-      <div>
-        <p>{this.state.name}</p>
-      </div>
-    );
-  }
+//fonction FichePokemon extrait, via un props "pokemon" les données de l'API enregistré dans this.state.OnePokemon dans la class PokeCall
+//va permettre de mettre en place via le css tous les éléments
+//FichePokemon function extracts, via a "pokemon" accessory, the API data saved in this.state.OnePokemon in the PokeCall class
+// will allow to set up via the css all the elements
+function FichePokemon({ pokemon }) {
+  return (
+    <div>
+      <img src={pokemon.sprites.front_default} alt={pokemon.id} />
+      <ul>
+        <li>
+          ID: <strong>{pokemon.id}</strong>
+        </li>
+        <li>
+          Name: <strong>{pokemon.name}</strong>
+        </li>
+        <li>
+          height: <strong>{pokemon.height}</strong>
+        </li>
+        <li>
+          weight: <strong>{pokemon.weight}</strong>
+        </li>
+        <li>
+          types:
+          {pokemon.types.map((obj) => {
+            return (
+              <p>
+                <strong>{obj.type.name}</strong>
+              </p>
+            );
+          })}
+        </li>
+        <li>
+          stats:
+          {pokemon.stats.map((obj) => {
+            return (
+              <p>
+                <strong>
+                  {obj.stat.name}: {obj.base_stat}
+                </strong>
+              </p>
+            );
+          })}
+        </li>
+        <li>
+          moves:
+          {pokemon.moves.map((obj) => {
+            {
+              obj.version_group_details.map((array) => {
+                return <p> {array.version_group}</p>;
+              });
+            }
+          })}
+        </li>
+      </ul>
+    </div>
+  );
 }
 
 export default FichePokemon;

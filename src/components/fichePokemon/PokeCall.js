@@ -2,13 +2,14 @@ import React from "react";
 import axios from "axios";
 import FichePokemon from "./FichePokemon";
 
-/*fonction URL pour sortir les url de data -- function URL to take out URL from data*/
+//fonction PokeCall pour sortir les éléments de data -- function PokeCall to take out elements from data
+//les éléments nécessaires sont stockés dans le state de OnePokemon -- the necessary elements are stored in the state of OnePokemon
 //#1 //#9
 class Pokecall extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokemons: {
+      OnePokemon: {
         sprites: {},
         id: 0,
         name: "",
@@ -21,18 +22,11 @@ class Pokecall extends React.Component {
         ],
         moves: [
           {
-            move: {},
             version_group_details: [
               {
-                level_learned_at: 0,
                 move_learn_method: { name: "", url: "" },
                 version_group: { name: "", url: "" },
               },
-            ],
-          },
-          {
-            version_group_details: [
-              { version_group: { name: "" }, move_learn_method: { name: "" } },
             ],
           },
         ],
@@ -65,6 +59,9 @@ class Pokecall extends React.Component {
     const pokemonId = 1;
     this.getPokemon(pokemonId);
   }
+
+  //récupère les éléments dans l'API selon l'id du pokemon (pokemonId) puis met à jour le state de OnePokemon
+  //get the elements in the API according to the pokemon id (pokemonId) then update the state of OnePokemon
   //#4 //#8
   getPokemon(pokemonId) {
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
@@ -72,10 +69,12 @@ class Pokecall extends React.Component {
     axios.get(url).then(({ data }) => {
       console.log(data); // a supprimer pour le merge
       this.setState({
-        pokemons: data,
+        OnePokemon: data,
       });
     });
   }
+
+  //utile pour la barre de recherche -- useful for the search bar
   rechercheHandleChange(event) {
     console.log(event.target.value); //affiche dans la console pour faciliter le développement WARNING
     //création d'une constante qui va stocker le tableau filtré des pokemons dont le nom inclu les caractères tapés dans la barre de recherche --
@@ -91,56 +90,12 @@ class Pokecall extends React.Component {
   }
 
   //#2 //#5 //#10
+  //on renvoi tout les éléments d'un pokemon (OnePokemon) dans "FichePokemon" pour mettre les éléments en place.
+  // we return all the elements of a pokemon (OnePokemon) in "FichePokemon" to put the elements in place.
   render() {
     return (
       <div className="Pokecall">
-        <img src={this.state.pokemons.sprites.front_default} />
-        <ul>
-          <li>
-            ID: <strong>{this.state.pokemons.id}</strong>
-          </li>
-          <li>
-            Name: <strong>{this.state.pokemons.name}</strong>
-          </li>
-          <li>
-            height: <strong>{this.state.pokemons.height}</strong>
-          </li>
-          <li>
-            weight: <strong>{this.state.pokemons.weight}</strong>
-          </li>
-          <li>
-            types:
-            {this.state.pokemons.types.map((obj) => {
-              return (
-                <p>
-                  <strong>{obj.type.name}</strong>
-                </p>
-              );
-            })}
-          </li>
-          <li>
-            stats:
-            {this.state.pokemons.stats.map((obj) => {
-              return (
-                <p>
-                  <strong>
-                    {obj.stat.name}: {obj.base_stat}
-                  </strong>
-                </p>
-              );
-            })}
-          </li>
-          <li>
-            moves:
-            {this.state.pokemons.moves.map((obj) => {
-              {
-                obj.version_group_details.map((array) => {
-                  return <p> {array.version_group.name}</p>;
-                });
-              }
-            })}
-          </li>
-        </ul>
+        <FichePokemon pokemon={this.state.OnePokemon} />
       </div>
     );
   }
@@ -154,13 +109,4 @@ export default Pokecall;
             numéro (ex: 66) > "version_group_details" > numéro (ex: 4) >
             version_group > name. On retrouve > ultra-sun-ultra-moon
           </p>
-<li>
-            moves :
-            {this.state.pokemons.moves.map((obj) => {
-              {
-                obj.version_group_details.map((obj2) => {
-                  return <p>{obj2.version_group.name}</p>;
-                });
-              }
-            })}
-          </li>*/
+*/
