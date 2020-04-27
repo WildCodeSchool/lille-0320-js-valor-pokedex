@@ -69,7 +69,9 @@ function FichePokemon({ pokemon }) {
             });
         })}
       </div>
-      <DescriptionPokemon />
+      <div className="description">
+        <DescriptionPokemon />
+      </div>
     </div>
   );
 }

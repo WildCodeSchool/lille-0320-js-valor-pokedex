@@ -20,3 +20,8 @@
   border: 2px solid blue;
   width: 50%;
 }
+
+.description {
+  border: 2px solid rgb(21, 255, 0);
+  width: 50%;
+}
