@@ -7,16 +7,7 @@ class DescriptionPokemon extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      OnePokemon: {
-        flavor_text_entries: [
-          {
-            flavor_text: "",
-            language: {
-              name: "",
-            },
-          },
-        ],
-      },
+      OnePokemon: {},
     };
   }
 
@@ -29,9 +20,8 @@ class DescriptionPokemon extends React.Component {
     const url = `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`;
     //demande de l'API -- API's request
     axios.get(url).then(({ data }) => {
-      console.log(data);
       this.setState({
-        Onepokemon: data,
+        OnePokemon: data,
       });
     });
   }
