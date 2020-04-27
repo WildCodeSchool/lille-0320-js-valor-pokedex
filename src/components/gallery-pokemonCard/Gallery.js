@@ -61,16 +61,20 @@ class Gallery extends React.Component {
   render() {
     return (
       <div className="gallery">
-        {/*appelle RechercheNom en envoyant les props de rechercheHandleChange -- call RechercheNom sending rechercheHandleChange's props*/}
-        <RechercheNom rechercheHandleChange={this.rechercheHandleChange} />
-        {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
-        {this.state.filteredPokemons.slice(0, 50).map((pokemon) => {
-          return (
-            <article>
-              <PokemonCard {...pokemon} />
-            </article>
-          );
-        })}
+        <div className="recherche-nom">
+          {/*appelle RechercheNom en envoyant les props de rechercheHandleChange -- call RechercheNom sending rechercheHandleChange's props*/}
+          <RechercheNom rechercheHandleChange={this.rechercheHandleChange} />
+          {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
+        </div>
+        <div className="pokemon-cards">
+          {this.state.filteredPokemons.slice(0, 50).map((pokemon) => {
+            return (
+              <article>
+                <PokemonCard {...pokemon} />
+              </article>
+            );
+          })}
+        </div>
       </div>
     );
   }

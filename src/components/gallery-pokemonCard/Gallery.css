@@ -1,8 +1,6 @@
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  padding: 0 200px;
+  display: block;
+  padding: 0 50px;
   background-image: url("/img/background-bottom.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -10,4 +8,17 @@
   max-width: 100vw;
   max-height: 80vh;
   overflow: auto;
+}
+
+.pokemon-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.recherche-nom {
+  border: 1px solid black;
+  text-align: center;
+  padding: 75px 0;
+  margin: 0 75px;
 }
