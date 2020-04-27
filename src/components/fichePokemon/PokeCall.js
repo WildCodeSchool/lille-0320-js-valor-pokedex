@@ -38,6 +38,7 @@ class Pokecall extends React.Component {
             stat: { name: "" },
           },
         ],
+        species: { url: "" },
       },
     };
   }
@@ -66,7 +67,6 @@ class Pokecall extends React.Component {
   //get the elements in the API according to the pokemon id (pokemonId) then update the state of OnePokemon
   //#4 //#8
   getPokemon(pokemonId) {
-    console.log("xxxxxxxxxxxxxxxx");
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
     //demande de l'API -- API's request
     axios.get(url).then(({ data }) => {

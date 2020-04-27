@@ -6,9 +6,6 @@ import "./FichePokemon.css";
 //FichePokemon function extracts, via a "pokemon" accessory, the API data saved in this.state.OnePokemon in the PokeCall class
 // will allow to set up via the css all the elements
 function FichePokemon({ pokemon }) {
-  console.log("----------");
-  console.log(pokemon.moves);
-  console.log("----------");
   return (
     <div className="fiche">
       <div className="identity">
