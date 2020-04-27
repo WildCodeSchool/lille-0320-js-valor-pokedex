@@ -5,17 +5,15 @@ import Bandeau from "./components/header-footer-bandeau/Bandeau";
 import Gallery from "./components/gallery-pokemonCard/Gallery";
 import "./App.css";
 
-
 function App() {
   return (
     <div>
       <Header />
-      <main>
+      <main className="main">
         <Bandeau />
         <Gallery />
       </main>
       <Footer />
-
     </div>
   );
 }
