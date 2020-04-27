@@ -1,14 +1,11 @@
 import React from "react";
-import axios from "axios";
+
 import "./FichePokemon.css";
 //fonction FichePokemon extrait, via un props "pokemon" les données de l'API enregistré dans this.state.OnePokemon dans la class PokeCall
 //va permettre de mettre en place via le css tous les éléments
 //FichePokemon function extracts, via a "pokemon" accessory, the API data saved in this.state.OnePokemon in the PokeCall class
 // will allow to set up via the css all the elements
 function FichePokemon({ pokemon }) {
-  console.log("----------");
-  console.log(pokemon.moves);
-  console.log("----------");
   return (
     <div className="fiche">
       <div className="identity">

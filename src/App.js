@@ -5,13 +5,14 @@ import Bandeau from "./components/header-footer-bandeau/Bandeau";
 import Gallery from "./components/gallery-pokemonCard/Gallery";
 import Pokecall from "./components/fichePokemon/PokeCall";
 import "./App.css";
+import DescriptionPokemon from "./components/description/DescriptionPokemon";
 
 function App() {
   return (
     <div>
       <Header />
       <main>
-        <Pokecall />
+        <DescriptionPokemon />
       </main>
       <Footer className="Footer" />
     </div>
