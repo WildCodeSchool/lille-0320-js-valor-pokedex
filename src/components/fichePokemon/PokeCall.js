@@ -22,8 +22,10 @@ class Pokecall extends React.Component {
         ],
         moves: [
           {
+            move: { name: "" },
             version_group_details: [
               {
+                level_learned_at: 0,
                 move_learn_method: { name: "", url: "" },
                 version_group: { name: "", url: "" },
               },
@@ -64,10 +66,10 @@ class Pokecall extends React.Component {
   //get the elements in the API according to the pokemon id (pokemonId) then update the state of OnePokemon
   //#4 //#8
   getPokemon(pokemonId) {
+    console.log("xxxxxxxxxxxxxxxx");
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
     //demande de l'API -- API's request
     axios.get(url).then(({ data }) => {
-      console.log(data); // a supprimer pour le merge
       this.setState({
         OnePokemon: data,
       });
@@ -76,7 +78,6 @@ class Pokecall extends React.Component {
 
   //utile pour la barre de recherche -- useful for the search bar
   rechercheHandleChange(event) {
-    console.log(event.target.value); //affiche dans la console pour faciliter le développement WARNING
     //création d'une constante qui va stocker le tableau filtré des pokemons dont le nom inclu les caractères tapés dans la barre de recherche --
     //declaration of a constante which stock the filtered array of pokemons when the name includes inputs entered in the searchbar
     let filtered = this.state.pokemons.filter((pokemon) => {
@@ -85,8 +86,7 @@ class Pokecall extends React.Component {
         .includes(this.state.needle.toLowerCase());
     });
     //met à jour les states de la valeur recherchée et du tableau filtré -- update states of search value and filtered array
-    this.setState({ needle: event.target.value });
-    this.setState({ filteredPokemons: filtered });
+    this.setState({ needle: event.target.value, filteredPokemons: filtered });
   }
 
   //#2 //#5 //#10

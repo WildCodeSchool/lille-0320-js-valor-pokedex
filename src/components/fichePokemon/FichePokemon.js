@@ -54,7 +54,6 @@ function FichePokemon({ pokemon }) {
           return details //renvoies le tableau version_group_details
             .filter((array) => {
               //dans version_group_detail, prendre que ce qui contient USUM et level-up uniquement
-              console.log("--------");
               return (
                 array.version_group.name === "ultra-sun-ultra-moon" &&
                 array.move_learn_method.name === "level-up"
