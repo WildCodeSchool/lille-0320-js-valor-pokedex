@@ -7,31 +7,41 @@ import "./FichePokemon.css";
 // will allow to set up via the css all the elements
 function FichePokemon({ pokemon }) {
   return (
-    <div className="fiche">
-      <div className="flex">
-        <div className="backgroundGeneral principal">
-          <div className="title">
-            <p className="nomId">
-              {pokemon.name} - N°{pokemon.id}
-            </p>
-          </div>
-          <div className="Infos">
-            <div>
-              <img src={pokemon.sprites.front_default} alt={pokemon.id} />
+    <section className="fiche">
+      <article className="flex">
+        <article className="column">
+          <div className="backgroundGeneral principal">
+            <div className="PokemonName">
+              <p className="nomId">
+                {pokemon.name} - N°{pokemon.id}
+              </p>
             </div>
-            <div>
-              <p className="sousTitre">Main information </p>
-              <p>Number: {pokemon.id}</p>
-              <p>types:</p>
-              {pokemon.types.map((obj) => {
-                return <p key={obj.type.name}>{obj.type.name}</p>;
-              })}
-              <p>height: {pokemon.height}</p>
-              <p>weight: {pokemon.weight}</p>
+            <div className="Infos">
+              <div>
+                <img
+                  src={pokemon.sprites.front_default}
+                  alt={pokemon.id}
+                  className="img"
+                />
+              </div>
+              <div>
+                <p className="sousTitre">Main information </p>
+                <p>Number: {pokemon.id}</p>
+                <p>types:</p>
+                {pokemon.types.map((obj) => {
+                  return <p key={obj.type.name}>{obj.type.name}</p>;
+                })}
+                <p>height: {pokemon.height}</p>
+                <p>weight: {pokemon.weight}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="backgroundGeneral statMove">
+          <div className="backgroundGeneral description">
+            <p className="sousTitre">Description </p>
+            <DescriptionPokemon />
+          </div>
+        </article>
+        <article className="backgroundGeneral statMove">
           <div>
             <p className="sousTitre">Basic statistics</p>
             {pokemon.stats.map((obj) => {
@@ -45,8 +55,7 @@ function FichePokemon({ pokemon }) {
           <div>
             <p className="sousTitre">Attacks learned by level</p>
             <div className="titleBoard">
-              <p>Attacks</p>
-              <p>USUL</p>
+              <p>Attacks</p> <p> Ultra Sun-Ultra Moon</p>
             </div>
             {pokemon.moves.map((obj) => {
               const details = obj.version_group_details;
@@ -71,12 +80,9 @@ function FichePokemon({ pokemon }) {
                 });
             })}
           </div>
-        </div>
-      </div>
-      <div>
-        <DescriptionPokemon />
-      </div>
-    </div>
+        </article>
+      </article>
+    </section>
     //faire le css de la description dans DescriptionPokemonCard
   );
 }

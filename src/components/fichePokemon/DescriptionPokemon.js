@@ -28,9 +28,7 @@ class DescriptionPokemon extends React.Component {
   render() {
     return (
       <div>
-        <article key={this.state.OnePokemon}>
-          <DescriptionPokemonCard pokemon={this.state.OnePokemon} />
-        </article>
+        <DescriptionPokemonCard pokemon={this.state.OnePokemon} />
       </div>
     );
   }

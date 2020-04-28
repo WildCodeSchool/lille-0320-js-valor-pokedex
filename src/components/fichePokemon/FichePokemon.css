@@ -2,11 +2,15 @@
 .fiche {
   margin-left: 2px;
   height: 80vh;
-  width: 100%;
   background-color: #73dbdb;
   background-image: url("/img/bg-pokeball.png");
   font-weight: bold;
-  margin-top: 14vh;
+  margin-top: 11vh;
+}
+/*background color de l'image du pokemon*/
+.img {
+  margin: 10px;
+  background-color: rgba(177, 170, 170, 0.63);
 }
 
 /*background général des sous cartes*/
@@ -16,14 +20,14 @@
   border-radius: 5%;
 }
 
-.title {
+.PokemonName {
   display: flex;
   justify-content: center;
 }
-/*met tous les sous titreau même format*/
+/*met tous les sous titre au même format*/
 .sousTitre {
-  background-color: #deeefb;
   margin-top: 10px;
+  background-color: #deeefb;
 }
 /*dimensionne la section nom et Id de infoBase*/
 .nomId {
@@ -32,29 +36,44 @@
   color: white;
   width: 50%;
 }
-
+/*dimensionne le carte avec les infos principales*/
 .principal {
-  margin-top: 20px;
   height: 25vh;
   width: 25vw;
 }
+/*sous catégorie de principal*/
 .Infos {
   display: flex;
   justify-content: space-around;
-  margin-top: 1vh;
-}
-.flex {
-  display: flex;
-  justify-content: space-evenly;
-}
-.statMove {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-evenly;
-  height: 40vh;
 }
 
+/*positionne 2 cartes cote à cote*/
+.flex {
+  padding-top: 10vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+/*positionne les éléments en colonne*/
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+/*positionne les éléments de la carte statisiques et attaques*/
+.statMove {
+  display: flex;
+  justify-content: space-evenly;
+  min-height: 20vh;
+  max-height: 90vh;
+}
+/*titres du tableau des attaques*/
 .titleBoard {
   display: flex;
   justify-content: space-evenly;
+}
+/*dimensionne la carte description*/
+.description {
+  height: 12vh;
+  width: 25vw;
 }
