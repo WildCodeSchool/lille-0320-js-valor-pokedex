@@ -9,7 +9,7 @@ function FichePokemon({ pokemon }) {
   return (
     <div className="fiche">
       <div className="backgroundGeneral">
-        <div className="titre">
+        <div>
           <p className="nomId">
             {pokemon.name} - N°{pokemon.id}
           </p>

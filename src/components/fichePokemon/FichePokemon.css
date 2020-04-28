@@ -1,3 +1,4 @@
+/*css générale de la fiche*/
 .fiche {
   margin-left: 2px;
   margin-top: 106px;
@@ -9,6 +10,7 @@
   font-weight: bold;
 }
 
+/*background général des sous cartes*/
 .backgroundGeneral {
   width: 35vw;
   height: 25vh;
@@ -16,22 +18,18 @@
   border-radius: 5%;
 }
 
-.titre {
-  background-color: white;
-  display: flex;
-  justify-content: center;
-}
-
+/*met tous les sous titreau même format*/
 .sousTitre {
   background-color: #deeefb;
 }
-
+/*dimensionne la section nom et Id de infoBase*/
 .nomId {
   text-align: center;
   background-color: black;
   color: white;
   width: 50%;
 }
+
 .Infos {
   display: flex;
   justify-content: space-around;
