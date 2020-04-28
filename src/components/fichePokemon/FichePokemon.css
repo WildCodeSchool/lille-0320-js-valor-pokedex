@@ -1,26 +1,29 @@
 /*css générale de la fiche*/
 .fiche {
   margin-left: 2px;
-  margin-top: 106px;
-  height: 100%;
-  width: 100vw;
+  height: 80vh;
+  width: 100%;
   background-color: #73dbdb;
   background-image: url("/img/bg-pokeball.png");
-  margin-top: 14vh;
   font-weight: bold;
+  margin-top: 14vh;
 }
 
 /*background général des sous cartes*/
 .backgroundGeneral {
   width: 35vw;
-  height: 25vh;
   background-color: white;
   border-radius: 5%;
 }
 
+.title {
+  display: flex;
+  justify-content: center;
+}
 /*met tous les sous titreau même format*/
 .sousTitre {
   background-color: #deeefb;
+  margin-top: 10px;
 }
 /*dimensionne la section nom et Id de infoBase*/
 .nomId {
@@ -30,16 +33,25 @@
   width: 50%;
 }
 
+.principal {
+  margin-top: 20px;
+  height: 25vh;
+  width: 25vw;
+}
 .Infos {
   display: flex;
   justify-content: space-around;
   margin-top: 1vh;
 }
-
-.statMove {
+.flex {
   display: flex;
   justify-content: space-evenly;
-  height: 55vh;
+}
+.statMove {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  height: 40vh;
 }
 
 .titleBoard {
