@@ -93,7 +93,7 @@ class Pokecall extends React.Component {
   // we return all the elements of a pokemon (OnePokemon) in "FichePokemon" to put the elements in place.
   render() {
     return (
-      <section className="Pokecall">
+      <section className="Pokecall" key={this.state.OnePokemon.i}>
         <FichePokemon pokemon={this.state.OnePokemon} />
       </section>
     );

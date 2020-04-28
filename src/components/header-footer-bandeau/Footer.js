@@ -6,9 +6,7 @@ function Footer() {
   return (
     <footer>
       <div className="footer">
-        <a href="">
-          <img src="/img/teamvalor.png" alt="logo valor" className="valor" />
-        </a>
+        <img src="/img/teamvalor.png" alt="logo valor" className="valor" />
       </div>
     </footer>
   );

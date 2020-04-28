@@ -35,9 +35,8 @@ class Gallery extends React.Component {
     return (
       <div className="gallery">
         {this.state.pokemons.map((pokemon) => {
-          console.log(pokemon);
           return (
-            <article>
+            <article key={pokemon.name}>
               <Link to={`/Pokemon/${pokemon.name}`}>
                 <PokemonCard {...pokemon} />
               </Link>

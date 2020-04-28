@@ -4,8 +4,6 @@ import Footer from "./components/header-footer-bandeau/Footer";
 import Homepage from "./components/Homepage";
 import Pokecall from "./components/fichePokemon/PokeCall";
 import "./App.css";
-
-import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //router et switch permette de faire les liens entre les différentes liens du site

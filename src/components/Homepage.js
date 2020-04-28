@@ -8,8 +8,8 @@ import Gallery from "./gallery-pokemonCard/Gallery";
 function Homepage() {
   return (
     <div>
-      <Bandeau />
-      <Gallery />
+      <Bandeau key={Bandeau} />
+      <Gallery key={Gallery} />
     </div>
   );
 }
