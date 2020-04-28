@@ -12,45 +12,45 @@ function FichePokemon({ pokemon }) {
   console.log("----------");
   return (
     <div className="fiche">
-      <div className="identity">
-        <img src={urlSprites} alt={pokemon.id} />
-        <p>
-          ID: <strong>{pokemon.id}</strong>
-        </p>
-        <p>
-          Name: <strong>{pokemon.name}</strong>
-        </p>
-        <p>
-          height: <strong>{pokemon.height}</strong>
-        </p>
-        <p>
-          weight: <strong>{pokemon.weight}</strong>
-        </p>
-        <div>
-          types:
-          {pokemon.types.map((obj) => {
-            return (
-              <p key={obj.type.name}>
-                <strong>{obj.type.name}</strong>
-              </p>
-            );
-          })}
+      <div className="backgroundGeneral">
+        <div className="titre">
+          <p className="nomId">
+            {pokemon.name} - N°{pokemon.id}
+          </p>
+        </div>
+        <div className="Infos">
+          <div>
+            <img src={pokemon.sprites.front_default} alt={pokemon.id} />
+          </div>
+          <div>
+            <p className="sousTitre">Main information </p>
+            <p>Number: {pokemon.id}</p>
+            <p>types:</p>
+            {pokemon.types.map((obj) => {
+              return <p key={obj.type.name}>{obj.type.name}</p>;
+            })}
+            <p>height: {pokemon.height}</p>
+            <p>weight: {pokemon.weight}</p>
+          </div>
         </div>
       </div>
-      <div className="statsmove">
-        <div className="stats">
-          stats:
+      <div className="backgroundGeneral statMove">
+        <div>
+          <p className="sousTitre">Basic statistics</p>
           {pokemon.stats.map((obj) => {
             return (
               <p key={obj.stat.name}>
-                <strong>
-                  {obj.stat.name}: {obj.base_stat}
-                </strong>
+                {obj.stat.name}: {obj.base_stat}
               </p>
             );
           })}
         </div>
-        <div className="moves">
+        <div>
+          <p className="sousTitre">Attacks learned by level</p>
+          <div className="titleBoard">
+            <p>Attacks</p>
+            <p>USUL</p>
+          </div>
           {pokemon.moves.map((obj) => {
             const details = obj.version_group_details;
             return details //renvoies le tableau version_group_details
@@ -67,18 +67,19 @@ function FichePokemon({ pokemon }) {
               .map((array) => {
                 //renvoi le level_lernead_at de chaque élément
                 return (
-                  <li>
+                  <p>
                     {obj.move.name}: {array.level_learned_at}
-                  </li>
+                  </p>
                 );
               });
           })}
         </div>
       </div>
-      <div className="description">
+      <div>
         <DescriptionPokemon />
       </div>
     </div>
+    //faire le css de la description dans DescriptionPokemonCard
   );
 }
 
