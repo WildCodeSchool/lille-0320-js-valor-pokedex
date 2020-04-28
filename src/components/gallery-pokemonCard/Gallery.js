@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import PokemonCard from "./PokemonCard";
 import "./Gallery.css";
+
+import { Link } from "react-router-dom";
 /*fonction URL pour sortir les url de data -- function URL to take out URL from data*/
 
 class Gallery extends React.Component {
@@ -33,9 +35,12 @@ class Gallery extends React.Component {
     return (
       <div className="gallery">
         {this.state.pokemons.map((pokemon) => {
+          console.log(pokemon);
           return (
             <article>
-              <PokemonCard {...pokemon} />
+              <Link to={`/Pokemon/${pokemon.name}`}>
+                <PokemonCard {...pokemon} />
+              </Link>
             </article>
           );
         })}
