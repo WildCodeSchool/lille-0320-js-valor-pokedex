@@ -38,36 +38,35 @@ class Pokecall extends React.Component {
             stat: { name: "" },
           },
         ],
+        species: { url: "" },
       },
     };
   }
 
   //#6
-  /*componentDidUpdate(prevProps) {
-    const pokemonId = 25;
-    /*extractCHaracterId sort l'id de l'appel suivant*/
-  //const extractpokemonId = this.props.match.params.pokemonId;
-  /*prevCharacter sors l'id enregistré précédemment*/
-  //const prevpokemonId = prevProps.match.params.pokemonId;
-  /*le if compare les 2 constantes si elles sont différentes, il 
-  renvoi le dernier character extrait*/
-  /*if (prevpokemonId !== extractpokemonId) {
-      this.getPokemon(extractpokemonId);
+  componentDidUpdate(prevProps) {
+    /*prevpokemonName sors le nom enregistré précédemment -- prevpokemonName output the previously saved name*/
+    const prevpokemonName = this.props.match.params.pokemonName;
+    /*extractpokemonName sort le nom  de l'appel suivant -- extractpokemonName sort the name of the next call*/
+    const extractpokemonName = prevProps.match.params.pokemonName;
+    /*le if compare les 2 constantes si elles sont différentes, il 
+  renvoi le dernier character extrait -- the if compares the 2 constants if they are different, it
+   returns the last character extracted*/
+    if (prevpokemonName !== extractpokemonName) {
+      this.getPokemon(extractpokemonName);
     }
-  }*/
+  }
   //#3 //#7
   componentDidMount() {
-    //const pokemonId = this.props.match.params.pokemonId;
-    const pokemonId = 1;
-    this.getPokemon(pokemonId);
+    const pokemonName = this.props.match.params.pokemonName;
+    this.getPokemon(pokemonName);
   }
 
   //récupère les éléments dans l'API selon l'id du pokemon (pokemonId) puis met à jour le state de OnePokemon
   //get the elements in the API according to the pokemon id (pokemonId) then update the state of OnePokemon
   //#4 //#8
-  getPokemon(pokemonId) {
-    console.log("xxxxxxxxxxxxxxxx");
-    const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
+  getPokemon(pokemonName) {
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
     //demande de l'API -- API's request
     axios.get(url).then(({ data }) => {
       this.setState({
@@ -94,7 +93,7 @@ class Pokecall extends React.Component {
   // we return all the elements of a pokemon (OnePokemon) in "FichePokemon" to put the elements in place.
   render() {
     return (
-      <section className="Pokecall">
+      <section className="Pokecall" key={this.state.OnePokemon.i}>
         <FichePokemon pokemon={this.state.OnePokemon} />
       </section>
     );
@@ -102,11 +101,3 @@ class Pokecall extends React.Component {
 }
 
 export default Pokecall;
-
-/*<p>
-            NOTE: il faut retrouver les attaques de la version
-            "ultra-sun-ultra-moon" UNIQUEMENT. Où ? Il faut aller dans: moves >
-            numéro (ex: 66) > "version_group_details" > numéro (ex: 4) >
-            version_group > name. On retrouve > ultra-sun-ultra-moon
-          </p>
-*/

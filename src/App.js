@@ -1,24 +1,29 @@
 import React from "react";
 import Header from "./components/header-footer-bandeau/Header";
 import Footer from "./components/header-footer-bandeau/Footer";
-import Bandeau from "./components/header-footer-bandeau/Bandeau";
-import Gallery from "./components/gallery-pokemonCard/Gallery";
+import Homepage from "./components/Homepage";
 import Pokecall from "./components/fichePokemon/PokeCall";
 import FichePokemon from "./components/fichePokemon/FichePokemon";
 
 import "./App.css";
-import DescriptionPokemon from "./components/description/DescriptionPokemon";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+//router et switch permette de faire les liens entre les différentes liens du site
+// router and switch allows to make the links between the different links of the site
 function App() {
   return (
-    <div>
-      <Header />
-      <main>
-        <Pokecall />
-        <DescriptionPokemon />
-      </main>
-      <Footer className="Footer" />
-    </div>
+    <Router>
+      <Switch>
+        <div>
+          <Header />
+          <main>
+            <Route exact path="/" component={Homepage} />
+            <Route path="/Pokemon/:pokemonName" component={Pokecall} />
+          </main>
+          <Footer className="Footer" />
+        </div>
+      </Switch>
+    </Router>
   );
 }
 

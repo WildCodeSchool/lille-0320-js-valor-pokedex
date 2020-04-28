@@ -1,9 +1,9 @@
 .fiche {
   background-color: yellow;
-  margin-top: 200px;
+  margin-left: 2px;
+  margin-top: 106px;
   height: 100%;
-  width: 100%;
-  display: flex;
+  width: 100vw;
 }
 
 .identity {
@@ -29,4 +29,9 @@
 .moves {
   border: 2px solid blue;
   width: 100%;
+}
+
+.description {
+  border: 2px solid rgb(21, 255, 0);
+  width: 50%;
 }
