@@ -3,11 +3,12 @@ import React from "react";
 function RechercheNom(props) {
   return (
     <div>
-      <label htmlFor="search">Search by name:</label>
+      <label htmlFor="search"></label>
       <input
+        className="searchBar"
         id="search"
         type="text"
-        placeholder="ex: pikachu, ..."
+        placeholder="Search by Name"
         name="searchBar"
         onChange={props.rechercheHandleChange}
       />

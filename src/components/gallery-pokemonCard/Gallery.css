@@ -1,6 +1,4 @@
 .gallery {
-  display: block;
-  padding: 0 50px;
   background-image: url("/img/background-bottom.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -11,14 +9,37 @@
 }
 
 .pokemon-cards {
+  padding: 0 50px;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
 }
 
 .recherche-nom {
-  border: 1px solid black;
-  text-align: center;
-  padding: 75px 0;
-  margin: 0 75px;
+  background-image: url("/img/bg-pokeball.png");
+  background-color: #363636;
+  border-top: 10px solid #ebc715;
+  border-bottom: 10px solid #ebc715;
+}
+
+.pokedex {
+  background-image: url("/img/pokedex.png");
+  height: 200px;
+  background-size: 90% 95%;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-size: 2.5 vh;
+  text-align: end;
+  padding: 75px 5%;
+}
+
+.searchBar {
+  border: none;
+  background-color: yellowgreen;
+  color: black;
+  width: 20%;
+  font-size: 150%;
+  margin-top: 3%;
+  margin-right: 18%;
+  padding: 10px;
 }
