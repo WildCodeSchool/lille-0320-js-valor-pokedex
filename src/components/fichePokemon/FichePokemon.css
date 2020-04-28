@@ -1,22 +1,32 @@
 .fiche {
   background-color: yellow;
-  margin-left: 20px;
   margin-top: 200px;
   height: 100%;
   width: 100%;
+  display: flex;
 }
 
 .identity {
   border: 2px solid red;
+  width: 40%;
+}
+.identity img {
+  width: 25%;
+}
+
+.statsmove {
+  display: flex;
+  flex-direction: column;
   width: 50%;
+  padding: 10px 10px;
 }
 
 .stats {
   border: 2px solid black;
-  width: 50%;
+  width: 100%;
 }
 
 .moves {
   border: 2px solid blue;
-  width: 50%;
+  width: 100%;
 }
