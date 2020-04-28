@@ -8,71 +8,74 @@ import "./FichePokemon.css";
 function FichePokemon({ pokemon }) {
   return (
     <div className="fiche">
-      <div className="identity">
-        <img src={pokemon.sprites.front_default} alt={pokemon.id} />
-        <p>
-          ID: <strong>{pokemon.id}</strong>
-        </p>
-        <p>
-          Name: <strong>{pokemon.name}</strong>
-        </p>
-        <p>
-          height: <strong>{pokemon.height}</strong>
-        </p>
-        <p>
-          weight: <strong>{pokemon.weight}</strong>
-        </p>
+      <div className="backgroundGeneral">
+        <div className="titre">
+          <p className="nomId">
+            {pokemon.name} - N°{pokemon.id}
+          </p>
+        </div>
+        <div className="Infos">
+          <div>
+            <img src={pokemon.sprites.front_default} alt={pokemon.id} />
+          </div>
+          <div>
+            <p className="sousTitre">Main information </p>
+            <p>Number: {pokemon.id}</p>
+            <p>types:</p>
+            {pokemon.types.map((obj) => {
+              return <p key={obj.type.name}>{obj.type.name}</p>;
+            })}
+            <p>height: {pokemon.height}</p>
+            <p>weight: {pokemon.weight}</p>
+          </div>
+        </div>
+      </div>
+      <div className="backgroundGeneral statMove">
         <div>
-          types:
-          {pokemon.types.map((obj) => {
+          <p className="sousTitre">Basic statistics</p>
+          {pokemon.stats.map((obj) => {
             return (
-              <p key={obj.type.name}>
-                <strong>{obj.type.name}</strong>
+              <p key={obj.stat.name}>
+                {obj.stat.name}: {obj.base_stat}
               </p>
             );
           })}
         </div>
+        <div>
+          <p className="sousTitre">Attacks learned by level</p>
+          <div className="titleBoard">
+            <p>Attacks</p>
+            <p>USUL</p>
+          </div>
+          {pokemon.moves.map((obj) => {
+            const details = obj.version_group_details;
+            return details //renvoies le tableau version_group_details
+              .filter((array) => {
+                //dans version_group_detail, prendre que ce qui contient USUM et level-up uniquement
+                return (
+                  array.version_group.name === "ultra-sun-ultra-moon" &&
+                  array.move_learn_method.name === "level-up"
+                );
+              })
+              .sort((ob1, ob2) => {
+                return -1;
+              })
+              .map((array) => {
+                //renvoi le level_lernead_at de chaque élément
+                return (
+                  <p>
+                    {obj.move.name}: {array.level_learned_at}
+                  </p>
+                );
+              });
+          })}
+        </div>
       </div>
-      <div className="stats">
-        stats:
-        {pokemon.stats.map((obj) => {
-          return (
-            <p key={obj.stat.name}>
-              <strong>
-                {obj.stat.name}: {obj.base_stat}
-              </strong>
-            </p>
-          );
-        })}
-      </div>
-      <div className="moves">
-        {pokemon.moves.map((obj) => {
-          const details = obj.version_group_details;
-          return details //renvoies le tableau version_group_details
-            .filter((array) => {
-              //dans version_group_detail, prendre que ce qui contient USUM et level-up uniquement
-              return (
-                array.version_group.name === "ultra-sun-ultra-moon" &&
-                array.move_learn_method.name === "level-up"
-              );
-            })
-            .sort((ob1, ob2) => {
-              return -1;
-            })
-            .map((array) => {
-              //renvoi le level_lernead_at de chaque élément
-              return (
-                <li>
-                  {obj.move.name}: {array.level_learned_at}
-                </li>
-              );
-            });
-        })}
-      </div>
-      <div className="description">
+      <div>
         <DescriptionPokemon />
       </div>
     </div>
+    //faire le css de la description dans DescriptionPokemonCard
   );
 }
 

@@ -1,27 +1,50 @@
 .fiche {
-  background-color: yellow;
   margin-left: 2px;
   margin-top: 106px;
   height: 100%;
   width: 100vw;
+  background-color: #73dbdb;
+  background-image: url("/img/bg-pokeball.png");
+  margin-top: 14vh;
+  font-weight: bold;
 }
 
-.identity {
-  border: 2px solid red;
-  width: 50%;
+.backgroundGeneral {
+  width: 35vw;
+  height: 25vh;
+  background-color: white;
+  border-radius: 5%;
 }
 
-.stats {
-  border: 2px solid black;
-  width: 50%;
+.titre {
+  background-color: white;
+  display: flex;
+  justify-content: center;
 }
 
-.moves {
-  border: 2px solid blue;
-  width: 50%;
+.sousTitre {
+  background-color: #deeefb;
 }
 
-.description {
-  border: 2px solid rgb(21, 255, 0);
+.nomId {
+  text-align: center;
+  background-color: black;
+  color: white;
   width: 50%;
+}
+.Infos {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1vh;
+}
+
+.statMove {
+  display: flex;
+  justify-content: space-evenly;
+  height: 55vh;
+}
+
+.titleBoard {
+  display: flex;
+  justify-content: space-evenly;
 }

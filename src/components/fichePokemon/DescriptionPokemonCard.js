@@ -2,7 +2,7 @@ import React from "react";
 
 function DescriptionPokemonCard({ pokemon }) {
   return (
-    <div className="fiche">
+    <div className="backgroundGeneral">
       <div>
         description :
         {pokemon.flavor_text_entries &&
