@@ -1,0 +1,40 @@
+/*css générale de la fiche*/
+.fiche {
+  margin-left: 2px;
+  height: 80vh;
+  background-color: #73dbdb;
+  background-image: url("/img/bg-pokeball.png");
+  font-weight: bold;
+  margin-top: 11vh;
+  padding-top: 10vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/*positionne les éléments en colonne*/
+.column1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+/*positionne les éléments de la carte statisiques et attaques*/
+.column2 {
+  display: flex;
+  justify-content: space-evenly;
+  min-height: 20vh;
+  max-height: 90vh;
+}
+
+/*background général des sous cartes*/
+.backgroundGeneral {
+  width: 35vw;
+  background-color: white;
+  border-radius: 5%;
+}
+
+/*met tous les sous titre au même format*/
+.sousTitre {
+  margin-top: 10px;
+  background-color: #deeefb;
+}
