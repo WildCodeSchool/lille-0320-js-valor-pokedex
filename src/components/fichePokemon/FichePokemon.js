@@ -2,6 +2,10 @@ import React from "react";
 import DescriptionPokemon from "./DescriptionPokemon";
 import "./styles/FichePokemon.css";
 import "./styles/mainInformation.css";
+import "./styles/vulnerabilites.css";
+import "./styles/description.css";
+import "./styles/basicStats.css";
+import "./styles/attacks.css";
 
 //fonction FichePokemon extrait, via un props "pokemon" les données de l'API enregistré dans this.state.OnePokemon dans la class PokeCall
 //va permettre de mettre en place via le css tous les éléments

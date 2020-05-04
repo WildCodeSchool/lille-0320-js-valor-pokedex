@@ -33,42 +33,8 @@
   border-radius: 5%;
 }
 
-/*background color de l'image du pokemon*/
-.img {
-  margin: 10px;
-  background-color: rgba(177, 170, 170, 0.63);
-}
-
 /*met tous les sous titre au même format*/
 .sousTitre {
   margin-top: 10px;
   background-color: #deeefb;
-}
-
-/*sous catégorie de principal*/
-.Infos {
-  display: flex;
-  justify-content: space-around;
-}
-
-/*titres du tableau des attaques*/
-.titleBoard {
-  display: flex;
-  justify-content: space-evenly;
-}
-/*dimensionne la carte description*/
-.description {
-  height: 12vh;
-  width: 25vw;
-}
-
-.vulnerabilites {
-  height: 25vh;
-  width: 25vw;
-}
-.basicStats {
-  /* A FAIRE !! */
-}
-.attacks {
-  /* A FAIRE !! */
 }

@@ -1,0 +1,9 @@
+.attacks {
+  /*  A FAIRE !! */
+}
+/*titres du tableau des attaques*/
+
+.titleBoard {
+  display: flex;
+  justify-content: space-evenly;
+}
