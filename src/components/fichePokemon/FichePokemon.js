@@ -30,7 +30,7 @@ function FichePokemon({ pokemon }) {
               />
             </div>
             <div>
-              <p className="sousTitre">Main information </p>
+              <div className="sousTitre">Main information </div>
               <p>Number: {pokemon.id}</p>
               <p>types:</p>
               {pokemon.types.map((obj) => {
@@ -42,7 +42,7 @@ function FichePokemon({ pokemon }) {
           </div>
         </div>
         <div className="backgroundGeneral vulnerabilites">
-          <p className="sousTitre">vulnerabilites </p>
+          <div className="sousTitre">vulnerabilites </div>
           <p>vulnerabilites</p>
         </div>
         <div className="backgroundGeneral description">

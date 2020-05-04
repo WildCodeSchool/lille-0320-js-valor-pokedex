@@ -49,8 +49,19 @@
 
 /*met tous les sous titre au même format*/
 .sousTitre {
-  margin-top: 10px;
   background-color: #deeefb;
-  border: 1px solid blue;
-  padding: 0.4em 1em;
+  text-transform: uppercase;
+  height: 8px;
+  line-height: 10px;
+  padding-top: 10px;  
+  padding-bottom: 10px;   
+  padding-left: 45px;   
+  padding-right: 30px;  
+  margin-bottom: 1em; 
+  background-image: url("/img/black-pokeball.png");
+  background-repeat: no-repeat;
+  background-size: 22px;
+  background-position-x: 10px;
+  background-position-y: center;
+
 }
