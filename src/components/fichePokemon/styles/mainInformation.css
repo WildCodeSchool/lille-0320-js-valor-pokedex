@@ -1,0 +1,17 @@
+/*dimensionne le carte avec les infos principales*/
+.mainInformation {
+  height: 25vh;
+  width: 25vw;
+}
+
+.PokemonName {
+  display: flex;
+  justify-content: center;
+}
+/*dimensionne la section nom et Id de infoBase*/
+.nomId {
+  text-align: center;
+  background-color: black;
+  color: white;
+  width: 50%;
+}
