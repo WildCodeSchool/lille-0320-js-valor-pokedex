@@ -1,5 +1,6 @@
 import React from "react";
 import DescriptionPokemon from "./DescriptionPokemon";
+import Vulnerabilities from "./Vulnerabilities";
 import "./styles/FichePokemon.css";
 import "./styles/mainInformation.css";
 import "./styles/vulnerabilites.css";
@@ -44,6 +45,7 @@ function FichePokemon({ pokemon }) {
         <div className="backgroundGeneral vulnerabilites">
           <p className="sousTitre">vulnerabilites </p>
           <p>vulnerabilites</p>
+          <Vulnerabilities types={pokemon.types} />
         </div>
         <div className="backgroundGeneral description">
           <p className="sousTitre">Description </p>
