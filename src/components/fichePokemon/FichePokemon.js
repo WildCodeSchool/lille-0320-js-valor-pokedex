@@ -85,30 +85,38 @@ function FichePokemon({ pokemon }) {
         <div className="attacks">
           <p className="sousTitre">Attacks learned by level</p>
           <div className="titleBoard">
-            <p>Attacks</p> <p> Ultra Sun-Ultra Moon</p>
+            <p className="leftTitle">Attacks</p>
+            <p className="rightTitle">Ultra Sun-Ultra Moon</p>
           </div>
-          {pokemon.moves.map((obj) => {
-            const details = obj.version_group_details;
-            return details //renvoies le tableau version_group_details
-              .filter((array) => {
-                //dans version_group_detail, prendre que ce qui contient USUM et level-up uniquement
-                return (
-                  array.version_group.name === "ultra-sun-ultra-moon" &&
-                  array.move_learn_method.name === "level-up"
-                );
-              })
-              .sort((ob1, ob2) => {
-                return -1;
-              })
-              .map((array) => {
-                //renvoi le level_lernead_at de chaque élément
-                return (
-                  <p>
-                    {obj.move.name}: {array.level_learned_at}
-                  </p>
-                );
-              });
-          })}
+          <div>
+            {pokemon.moves.map((obj) => {
+              const details = obj.version_group_details;
+              return details //renvoies le tableau version_group_details
+                .filter((array) => {
+                  //dans version_group_detail, prendre que ce qui contient USUM et level-up uniquement
+                  return (
+                    array.version_group.name === "ultra-sun-ultra-moon" &&
+                    array.move_learn_method.name === "level-up"
+                  );
+                })
+                .sort((ob1, ob2) => {
+                  return -1;
+                })
+                .map((array) => {
+                  //renvoi le level_lernead_at de chaque élément
+                  return (
+                    <div className="listAttak">
+                      <div className="left">
+                        <p>{obj.move.name}</p>
+                      </div>
+                      <div className="right">
+                        <p>{array.level_learned_at}</p>
+                      </div>
+                    </div>
+                  );
+                });
+            })}
+          </div>
         </div>
       </article>
     </section>
