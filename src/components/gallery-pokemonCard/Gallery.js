@@ -52,7 +52,7 @@ class Gallery extends React.Component {
     });
 
     //met à jour les states de la valeur recherchée et du tableau filtré -- update states of search value and filtered array
-    // Ne pas faire plusieurs setStates quand on oeut éviter: chacun d'entre eux va redéclencher un render.
+    // Ne pas faire plusieurs setStates quand on peut éviter: chacun d'entre eux va redéclencher un render -- Avoid to call setState multiple times as much as possible: each one of them call render()
     this.setState({
       filteredPokemons: filtered,
     });
