@@ -1,13 +1,13 @@
 /*dimensionne le carte avec les infos principales*/
 .mainInformation {
   height: 25vh;
-  width: 25vw;
 }
 
 .PokemonName {
   display: flex;
   justify-content: center;
 }
+
 /*dimensionne la section nom et Id de infoBase*/
 .nomId {
   text-align: center;
@@ -20,10 +20,26 @@
 .Infos {
   display: flex;
   justify-content: space-around;
+  height: 45vh;
 }
 
 /*background color de l'image du pokemon*/
 .img {
+  width: 30vh;
   margin: 10px;
   background-color: rgba(177, 170, 170, 0.63);
+  border-radius: 15px;
+}
+
+/*types*/
+
+.poison {
+  background-color: violet;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  width: 55%;
+  text-align: center;
+}
+.grass {
+  color: chartreuse;
 }
