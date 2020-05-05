@@ -6,6 +6,7 @@ function Bandeau() {
   return (
     <div className="bandeau">
       <img src="/img/pikachu.gif" alt="pikachu" className="pikachu" />
+
     </div>
   );
 }

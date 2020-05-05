@@ -5,10 +5,40 @@ import "./Footer.css";
 function Footer() {
   return (
     <footer>
+
       <div className="footer">
-        <a href="">
-          <img src="/img/teamvalor.png" alt="logo valor" className="valor" />
-        </a>
+
+
+     
+      <img src="/img/teamvalor.png" alt="logo valor" className="valorLogo"/>
+
+<div className="footerLinks">
+
+
+<div className="projets">
+  <ul><h3>Other web projects:</h3>
+    <li>V'Lille</li>
+    <li>Video Game</li>
+  </ul>
+</div>
+
+
+<div className="team">
+  <ul><h3>Team:</h3>
+    <li>Benjamin</li>
+    <li>Bérénice</li>
+    <li>Ghazali</li>
+    <li>Roxanne</li>
+    <li>Sophie</li>
+  </ul>
+</div>
+
+
+
+</div>
+
+
+
       </div>
     </footer>
   );

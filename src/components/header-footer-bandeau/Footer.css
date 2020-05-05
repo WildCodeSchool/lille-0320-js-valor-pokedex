@@ -1,22 +1,39 @@
 .footer {
-  width: 50%;
-  height: 7vh;
-  max-width: 100vw;
-  background-color: #f0f0f0;
+
+  width: 100%;
+  margin: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
-  position: fixed;
-  bottom: 0;
+  height: 400px;
+  background-color: #f0f0f0;
+
 }
 
-.valor {
-  height: 5vh;
-  max-width: 100vw;
+
+.valorLogo {
+
+  height: 10vh;
+  position: absolute;
+  bottom: -16vh;
+
+
 }
+
+.footerLinks {
+  margin-top: 10vh;
+  display: flex;
+  justify-content: space-around;
+  font-family: "Aldrich", sans-serif;
+}
+
+.footerLinks ul {
+  list-style: none;
+}
+
+
 
 /*responsive*/
-@media screen and (min-width: 200px) and (max-width: 800px) {
+/*@media screen and (min-width: 200px) and (max-width: 800px) {
   .footer {
     height: 8vh;
   }
@@ -24,4 +41,4 @@
   .valor {
     height: 5vh;
   }
-}
+}*/
