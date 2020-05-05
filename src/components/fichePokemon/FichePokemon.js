@@ -11,11 +11,9 @@ import "./styles/attacks.css";
 //va permettre de mettre en place via le css tous les éléments
 //FichePokemon function extracts, via a "pokemon" accessory, the API data saved in this.state.OnePokemon in the PokeCall class
 // will allow to set up via the css all the elements
+//MODIFS l.32
 function FichePokemon({ pokemon }) {
-  const urlSprites = `https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`;
-  console.log("----------");
-  console.log(pokemon.moves);
-  console.log("----------");
+  const urlSprites = `https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`; //Lien vers les artworks.
   return (
     <section className="fiche">
       <article className="column">
@@ -27,18 +25,18 @@ function FichePokemon({ pokemon }) {
           </div>
           <div className="Infos">
             <div>
-              <img
-                src={pokemon.sprites.front_default}
-                alt={pokemon.id}
-                className="img"
-              />
+              <img src={urlSprites} alt={pokemon.id} className="img" />
             </div>
             <div>
               <p className="sousTitre">Main information </p>
               <p>Number: {pokemon.id}</p>
               <p>types:</p>
               {pokemon.types.map((obj) => {
-                return <p key={obj.type.name}>{obj.type.name}</p>;
+                return (
+                  <p className={obj.type.name} key={obj.type.name}>
+                    {obj.type.name}
+                  </p>
+                );
               })}
               <p>height: {pokemon.height}</p>
               <p>weight: {pokemon.weight}</p>
