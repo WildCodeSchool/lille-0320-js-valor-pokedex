@@ -71,7 +71,8 @@
   border-radius: 5px;
   color: rgb(255, 255, 255);
   text-shadow: rgb(0, 0, 0) 1px 1px;
-  width: 40%;
+  text-transform: uppercase;
+  width: 10vh;
   text-align: center;
   padding: 2px;
   margin: 2px;
