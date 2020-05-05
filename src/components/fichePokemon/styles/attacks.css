@@ -1,10 +1,43 @@
 .attacks {
+  width: 14vw;
 }
 /*titres du tableau des attaques*/
 
 .titleBoard {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2vh;
+  background-color: #deeefb;
+  padding-bottom: 0.5vh;
+  padding-top: 0.5vh;
+}
+
+.leftTitle {
+  text-align: center;
+  width: 9vw;
+}
+
+.rightTitle {
+  text-align: center;
   font-size: 10px;
-  margin-bottom: 2vh;
+  width: 5vw;
+}
+
+.listAttak {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1vh;
+  padding-top: 1vh;
+  border-top: solid rgb(109, 109, 109) 1px;
+}
+
+.left p {
+  color: #45a9fa;
+  text-align: center;
+  width: 9vw;
+}
+.right p {
+  text-align: center;
+  width: 5vw;
 }
