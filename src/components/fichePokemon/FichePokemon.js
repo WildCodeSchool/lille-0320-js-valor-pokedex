@@ -16,6 +16,18 @@ function FichePokemon({ pokemon }) {
   console.log("----------");
   console.log(pokemon.moves);
   console.log("----------");
+
+  //permet de modifier la couleur selon le niveau de stats
+  const color = (obj) => {
+    if (obj.base_stat <= 50) {
+      return "rouge";
+    } else if (obj.base_stat <= 100 && obj.base_stat > 50) {
+      return "orange";
+    } else {
+      return "vert";
+    }
+  };
+
   return (
     <section className="fiche">
       <article className="column">
@@ -34,7 +46,7 @@ function FichePokemon({ pokemon }) {
               />
             </div>
             <div>
-              <p className="sousTitre">Main information </p>
+              <div className="sousTitre">Main information </div>
               <p>Number: {pokemon.id}</p>
               <p>types:</p>
               {pokemon.types.map((obj) => {
@@ -46,7 +58,7 @@ function FichePokemon({ pokemon }) {
           </div>
         </div>
         <div className="backgroundGeneral vulnerabilites">
-          <p className="sousTitre">vulnerabilites </p>
+          <div className="sousTitre">vulnerabilites </div>
           <p>vulnerabilites</p>
         </div>
         <div className="backgroundGeneral description">
@@ -57,11 +69,16 @@ function FichePokemon({ pokemon }) {
       <article className="backgroundGeneral column2">
         <div className="basicStats">
           <p className="sousTitre">Basic statistics</p>
+
           {pokemon.stats.map((obj) => {
             return (
-              <p key={obj.stat.name}>
-                {obj.stat.name}: {obj.base_stat}
-              </p>
+              <div className="stat">
+                <p key={obj.stat.name}>{obj.stat.name}</p>
+                <p>{obj.base_stat}</p>
+                <div className="status">
+                  <span className={color(obj)}></span>
+                </div>
+              </div>
             );
           })}
         </div>
