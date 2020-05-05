@@ -12,7 +12,7 @@ import "./styles/attacks.css";
 //FichePokemon function extracts, via a "pokemon" accessory, the API data saved in this.state.OnePokemon in the PokeCall class
 // will allow to set up via the css all the elements
 function FichePokemon({ pokemon }) {
-  //permet de modifier la couleur selon le niveau de stats
+  //permet de modifier la couleur selon le niveau de stats -- modify the color according to the level of stats
   const color = (obj) => {
     if (obj.base_stat <= 50) {
       return "rouge";
@@ -67,15 +67,24 @@ function FichePokemon({ pokemon }) {
           {pokemon.stats.map((obj) => {
             return (
               <div className="stat">
-                <p key={obj.stat.name}>{obj.stat.name}</p>
-                <p>{obj.base_stat}</p>
+                <p className="name" key={obj.stat.name}>
+                  {obj.stat.name}
+                </p>
+                <p> {obj.base_stat}</p>
+
                 <div className="status">
-                  <span className={color(obj)}></span>
+                  <div className="statBar"></div>
+                  <progress
+                    className={color(obj)}
+                    value={obj.base_stat}
+                    max="170"
+                  ></progress>
                 </div>
               </div>
             );
           })}
         </div>
+        <div className="blackline"></div>
         <div className="attacks">
           <p className="sousTitre">Attacks learned by level</p>
           <div className="titleBoard">
