@@ -1,5 +1,28 @@
 .basicStats {
-  /*   A FAIRE !! */
-  border: 1px solid red;
+  text-transform: uppercase;
+}
 
+.stat .status .rouge {
+  display: inline-block;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  background: red;
+}
+.stat .status .vert {
+  display: inline-block;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  background: #aed581;
+}
+.stat .status .orange {
+  display: inline-block;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  background: orange;
 }
