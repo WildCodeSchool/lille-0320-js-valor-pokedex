@@ -40,10 +40,7 @@
 .img {
   background-color: rgba(177, 170, 170, 0.63);
 }
-.types p {
-  display: flex;
-  flex-direction: row;
-}
+
 /*pastilles de couleur pour chaque type*/
 /*Style de base*/
 .types,
@@ -67,6 +64,7 @@
 .fairy,
 .unknown,
 .shadow {
+  display: inline-block;
   border: black 1px solid;
   border-radius: 5px;
   color: rgb(255, 255, 255);
