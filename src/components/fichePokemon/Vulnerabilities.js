@@ -7,25 +7,25 @@ class Vulnerabilities extends React.Component {
     this.state = {
       pokemonTypes: [],
     };
+    this.displayTypes = this.displayTypes.bind(this);
   }
 
-  async componentDidMount() {
-    const callTypes = await this.props.types.map((obj) => {
-      console.log("three", obj);
+  componentDidMount() {
+    for (let i = 0; i < this.props.types.length; i++) {
+      const obj = this.props.types[i];
       axios
         .get(`https://pokeapi.co/api/v2/type/${obj.type.name}`)
         .then(({ data }) => {
-          console.log("one", data.results);
           this.setState({
-            pokemonTypes: data.results,
+            pokemonTypes: data,
           });
           console.log("two", this.state.pokemonTypes);
         });
-    });
+    }
   }
 
-  componentDidUpdate() {
-    console.log("four", this.props.types);
+  displayTypes() {
+    console.log(this.state.pokemonTypes);
   }
 
   render() {
@@ -33,9 +33,18 @@ class Vulnerabilities extends React.Component {
       <div>
         <h2>Hello</h2>
         <p>World</p>
+        {console.log(this.pokemonTypes)}
         {this.props.types.map((obj) => {
           return <p key={obj.type.name}>{obj.type.name}</p>;
         })}
+        {!this.pokemonTypes ? (
+          <p>loading</p>
+        ) : (
+          this.pokemonTypes.map((obj) => {
+            return <p key={obj.name}>{obj.name}</p>;
+          })
+        )}
+        <input type="button" onClick={() => this.displayTypes} value="log" />
       </div>
     );
   }

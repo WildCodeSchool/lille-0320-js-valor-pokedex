@@ -45,7 +45,9 @@ function FichePokemon({ pokemon }) {
         <div className="backgroundGeneral vulnerabilites">
           <p className="sousTitre">vulnerabilites </p>
           <p>vulnerabilites</p>
-          <Vulnerabilities types={pokemon.types} />
+          {pokemon.types[0].type.name && (
+            <Vulnerabilities types={pokemon.types} />
+          )}
         </div>
         <div className="backgroundGeneral description">
           <p className="sousTitre">Description </p>
