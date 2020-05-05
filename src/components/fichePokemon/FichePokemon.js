@@ -33,7 +33,7 @@ function FichePokemon({ pokemon }) {
               <p>types:</p>
               {pokemon.types.map((obj) => {
                 return (
-                  <p className={obj.type.name} key={obj.type.name}>
+                  <p className={("types", obj.type.name)} key={obj.type.name}>
                     {obj.type.name}
                   </p>
                 );

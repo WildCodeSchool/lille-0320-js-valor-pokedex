@@ -1,6 +1,8 @@
-/*dimensionne le carte avec les infos principales*/
+/*dimensionne la carte avec les infos principales*/
 .mainInformation {
-  height: 25vh;
+  height: 30vh;
+  width: 25vw;
+  margin-bottom: 2vh;
 }
 
 .PokemonName {
@@ -19,27 +21,140 @@
 /*sous catégorie de principal*/
 .Infos {
   display: flex;
-  justify-content: space-around;
-  height: 45vh;
+}
+.Infos div {
+  width: 50%;
+}
+.Infos p {
+  margin: 5px;
+}
+
+.Infos img {
+  width: 75%;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 15px;
 }
 
 /*background color de l'image du pokemon*/
 .img {
-  width: 30vh;
-  margin: 10px;
   background-color: rgba(177, 170, 170, 0.63);
-  border-radius: 15px;
+}
+.types p {
+  display: flex;
+  flex-direction: row;
+}
+/*pastilles de couleur pour chaque type*/
+/*Style de base*/
+.types,
+.fire,
+.poison,
+.grass,
+.water,
+.fighting,
+.flying,
+.normal,
+.ground,
+.rock,
+.bug,
+.ghost,
+.steel,
+.electric,
+.psychic,
+.ice,
+.dragon,
+.dark,
+.fairy,
+.unknown,
+.shadow {
+  border: black 1px solid;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  text-shadow: rgb(0, 0, 0) 1px 1px;
+  width: 40%;
+  text-align: center;
+  padding: 2px;
+  margin: 2px;
+  font-size: 0.8em;
 }
 
-/*types*/
+/* background de chaque pastille*/
+.normal {
+  background-color: rgb(182, 182, 182);
+}
+
+.fighting {
+  background-color: rgb(206, 84, 24);
+}
+
+.flying {
+  background-color: rgb(182, 182, 182);
+}
+
+.ground {
+  background-color: rgb(182, 182, 182);
+}
+
+.rock {
+  background-color: rgb(182, 182, 182);
+}
+
+.bug {
+  background-color: rgb(206, 84, 24);
+}
+
+.ghost {
+  background-color: rgb(90, 60, 120);
+}
+
+.steel {
+  background-color: rgb(126, 161, 160);
+}
+
+.water {
+  background-color: rgb(80, 135, 200);
+}
 
 .poison {
-  background-color: violet;
-  border-radius: 5px;
-  color: rgb(0, 0, 0);
-  width: 55%;
-  text-align: center;
+  background-color: rgb(190, 90, 160);
 }
+
 .grass {
-  color: chartreuse;
+  background-color: rgb(60, 170, 50);
+}
+
+.fire {
+  background-color: rgb(243, 146, 0);
+}
+
+.electric {
+  background-color: rgb(215, 201, 55);
+}
+
+.psychic {
+  background-color: rgb(236, 102, 152);
+}
+
+.ice {
+  background-color: rgb(54, 169, 225);
+}
+
+.dragon {
+  background-color: rgb(35, 115, 185);
+}
+
+.dark {
+  background-color: rgb(80, 80, 80);
+}
+
+.fairy {
+  background-color: rgb(230, 130, 180);
+}
+
+.unknown {
+  background-color: rgb(255, 0, 0);
+}
+
+.shadow {
+  background-color: rgb(94, 94, 94);
 }
