@@ -89,15 +89,15 @@
 }
 
 .flying {
-  background-color: rgb(182, 182, 182);
+  background-color: rgb(55, 169, 225);
 }
 
 .ground {
-  background-color: rgb(182, 182, 182);
+  background-color: rgb(155, 146, 106);
 }
 
 .rock {
-  background-color: rgb(182, 182, 182);
+  background-color: rgb(165, 150, 125);
 }
 
 .bug {
