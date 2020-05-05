@@ -12,7 +12,7 @@ import "./styles/attacks.css";
 //FichePokemon function extracts, via a "pokemon" accessory, the API data saved in this.state.OnePokemon in the PokeCall class
 // will allow to set up via the css all the elements
 function FichePokemon({ pokemon }) {
-  //permet de modifier la couleur selon le niveau de stats
+  //permet de modifier la couleur selon le niveau de stats -- modify the color according to the level of stats
   const color = (obj) => {
     if (obj.base_stat <= 50) {
       return "rouge";
@@ -67,42 +67,59 @@ function FichePokemon({ pokemon }) {
           {pokemon.stats.map((obj) => {
             return (
               <div className="stat">
-                <p key={obj.stat.name}>{obj.stat.name}</p>
-                <p>{obj.base_stat}</p>
+                <p className="name" key={obj.stat.name}>
+                  {obj.stat.name}
+                </p>
+                <p> {obj.base_stat}</p>
+
                 <div className="status">
-                  <span className={color(obj)}></span>
+                  <div className="statBar"></div>
+                  <progress
+                    className={color(obj)}
+                    value={obj.base_stat}
+                    max="170"
+                  ></progress>
                 </div>
               </div>
             );
           })}
         </div>
+        <div className="blackline"></div>
         <div className="attacks">
           <p className="sousTitre">Attacks learned by level</p>
           <div className="titleBoard">
-            <p>Attacks</p> <p> Ultra Sun-Ultra Moon</p>
+            <p className="leftTitle">Attacks</p>
+            <p className="rightTitle">Ultra Sun-Ultra Moon</p>
           </div>
-          {pokemon.moves.map((obj) => {
-            const details = obj.version_group_details;
-            return details //renvoies le tableau version_group_details
-              .filter((array) => {
-                //dans version_group_detail, prendre que ce qui contient USUM et level-up uniquement
-                return (
-                  array.version_group.name === "ultra-sun-ultra-moon" &&
-                  array.move_learn_method.name === "level-up"
-                );
-              })
-              .sort((ob1, ob2) => {
-                return -1;
-              })
-              .map((array) => {
-                //renvoi le level_lernead_at de chaque élément
-                return (
-                  <p>
-                    {obj.move.name}: {array.level_learned_at}
-                  </p>
-                );
-              });
-          })}
+          <div>
+            {pokemon.moves.map((obj) => {
+              const details = obj.version_group_details;
+              return details //renvoies le tableau version_group_details
+                .filter((array) => {
+                  //dans version_group_detail, prendre que ce qui contient USUM et level-up uniquement
+                  return (
+                    array.version_group.name === "ultra-sun-ultra-moon" &&
+                    array.move_learn_method.name === "level-up"
+                  );
+                })
+                .sort((ob1, ob2) => {
+                  return -1;
+                })
+                .map((array) => {
+                  //renvoi le level_lernead_at de chaque élément
+                  return (
+                    <div className="listAttak">
+                      <div className="left">
+                        <p>{obj.move.name}</p>
+                      </div>
+                      <div className="right">
+                        <p>{array.level_learned_at}</p>
+                      </div>
+                    </div>
+                  );
+                });
+            })}
+          </div>
         </div>
       </article>
     </section>
