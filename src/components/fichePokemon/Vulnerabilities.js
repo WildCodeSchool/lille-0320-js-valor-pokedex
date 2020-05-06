@@ -102,6 +102,9 @@ class Vulnerabilities extends React.Component {
       effect50 = [],
       effect200 = [],
       effect400 = [];
+
+    console.log("bonjour", noEffect1.includes(allTypes[0]));
+
     allTypes.forEach((type) => {
       switch (type) {
         case noEffect1.includes(type) || noEffect2.includes(type):
@@ -113,10 +116,20 @@ class Vulnerabilities extends React.Component {
         case halfEffect1.includes(type) && halfEffect2.includes(type):
           effect25.push(type);
           break;
+        case (doubleEffect1.includes(type) && !halfEffect2.includes(type)) ||
+          (doubleEffect2.includes(type) && !halfEffect1.includes(type)):
+          effect200.push(type);
+          break;
+        case (!doubleEffect1.includes(type) && halfEffect2.includes(type)) ||
+          (!doubleEffect2.includes(type) && halfEffect1.includes(type)):
+          effect50.push(type);
+          break;
+        default:
+          console.log(type, "is neutral");
       }
     });
 
-    return allTypes.map((obj, i) => {
+    return effect400.map((obj, i) => {
       return <p key={i}>{obj}</p>;
     });
   }
