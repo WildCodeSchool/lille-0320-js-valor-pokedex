@@ -42,41 +42,60 @@ class Vulnerabilities extends React.Component {
       });
     //si tu as plusieurs types, va chercher les données du 2nd dans l'api
     //stock le dans pokemonType2
-    if (this.props.types[0].type.name) {
+    if (this.props.types[1]) {
       axios
         .get(`https://pokeapi.co/api/v2/type/${obj2.type.name}`)
         .then(({ data }) => {
           this.setState({
             pokemonType2: data,
           });
-
           console.log("two", this.state.pokemonType2);
         });
     }
   }
 
+  doubleType() {
+    let noEffect1 = this.state.pokemonType1.damage_relations.no_damage_from.map(
+      (obj) => {
+        return obj.name;
+      }
+    );
+    let noEffect2 = this.state.pokemonType2.damage_relations.no_damage_from.map(
+      (obj) => {
+        return obj.name;
+      }
+    );
+
+    return;
+  }
+
   render() {
     return (
       <div>
-        {console.log(
-          "test",
-          this.state.pokemonType1.damage_relations.double_damage_from.map(
-            (obj) => {
-              return obj.name;
-            }
-          )
-        )}
-        {this.props.types.map((obj) => {
-          return <p key={obj.type.name}>{obj.type.name}</p>;
-        })}
+        {this.props.types[1]
+          ? this.doubleType
+          : this.props.types.map((obj) => {
+              return <p key={obj.type.name}>{obj.type.name}</p>;
+            })}
         {this.state.pokemonType1.damage_relations.double_damage_from.map(
-          (obj) => {
-            return <p>{obj.name}</p>;
+          (obj, i) => {
+            return <p key={i}>{obj.name}</p>;
           }
         )}
+        {this.state.pokemonType1.damage_relations.half_damage_from.map(
+          (obj, i) => {
+            return <p key={i}>{obj.name}</p>;
+          }
+        )}
+        {this.state.pokemonType1.damage_relations.no_damage_from.map(
+          (obj, i) => {
+            return <p key={i}>{obj.name}</p>;
+          }
+        )}
+
         {this.state.pokemonType2.damage_relations.double_damage_from.map(
-          (obj) => {
-            return <p>{obj.name}</p>;
+          (obj, i) => {
+            return <p key={i}>{obj.name}</p>;
           }
         )}
       </div>

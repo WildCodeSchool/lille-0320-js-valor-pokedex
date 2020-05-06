@@ -1,7 +1,6 @@
 import React from "react";
 import DescriptionPokemon from "./DescriptionPokemon";
 import Vulnerabilities from "./Vulnerabilities";
-import Test from "./Test";
 import "./styles/FichePokemon.css";
 import "./styles/mainInformation.css";
 import "./styles/vulnerabilites.css";
@@ -58,9 +57,9 @@ function FichePokemon({ pokemon }) {
       <article className="backgroundGeneral column2">
         <div className="basicStats">
           <p className="sousTitre">Basic statistics</p>
-          {pokemon.stats.map((obj) => {
+          {pokemon.stats.map((obj, i) => {
             return (
-              <p key={obj.stat.name}>
+              <p key={i}>
                 {obj.stat.name}: {obj.base_stat}
               </p>
             );
@@ -84,10 +83,10 @@ function FichePokemon({ pokemon }) {
               .sort((ob1, ob2) => {
                 return -1;
               })
-              .map((array) => {
+              .map((array, i) => {
                 //renvoi le level_lernead_at de chaque élément
                 return (
-                  <p>
+                  <p key={i}>
                     {obj.move.name}: {array.level_learned_at}
                   </p>
                 );
