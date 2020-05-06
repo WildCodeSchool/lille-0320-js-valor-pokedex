@@ -106,27 +106,22 @@ class Vulnerabilities extends React.Component {
     console.log("bonjour", noEffect1.includes(allTypes[0]));
 
     allTypes.forEach((type) => {
-      switch (type) {
-        case noEffect1.includes(type) || noEffect2.includes(type):
-          effect0.push(type);
-          break;
-        case doubleEffect1.includes(type) && doubleEffect2.includes(type):
-          effect400.push(type);
-          break;
-        case halfEffect1.includes(type) && halfEffect2.includes(type):
-          effect25.push(type);
-          break;
-        case (doubleEffect1.includes(type) && !halfEffect2.includes(type)) ||
-          (doubleEffect2.includes(type) && !halfEffect1.includes(type)):
-          effect200.push(type);
-          break;
-        case (!doubleEffect1.includes(type) && halfEffect2.includes(type)) ||
-          (!doubleEffect2.includes(type) && halfEffect1.includes(type)):
-          effect50.push(type);
-          break;
-        default:
-          console.log(type, "is neutral");
-      }
+      if (noEffect1.includes(type) || noEffect2.includes(type))
+        effect0.push(type);
+      else if (doubleEffect1.includes(type) && doubleEffect2.includes(type))
+        effect400.push(type);
+      else if (halfEffect1.includes(type) && halfEffect2.includes(type))
+        effect25.push(type);
+      else if (
+        (doubleEffect1.includes(type) && !halfEffect2.includes(type)) ||
+        (doubleEffect2.includes(type) && !halfEffect1.includes(type))
+      )
+        effect200.push(type);
+      else if (
+        (!doubleEffect1.includes(type) && halfEffect2.includes(type)) ||
+        (!doubleEffect2.includes(type) && halfEffect1.includes(type))
+      )
+        effect50.push(type);
     });
 
     return effect400.map((obj, i) => {
