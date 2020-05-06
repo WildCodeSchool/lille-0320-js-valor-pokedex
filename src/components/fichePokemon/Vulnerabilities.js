@@ -207,5 +207,3 @@ class Vulnerabilities extends React.Component {
 }
 
 export default Vulnerabilities;
-
-/**/
