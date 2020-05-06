@@ -13,7 +13,7 @@ import "./styles/attacks.css";
 // will allow to set up via the css all the elements
 //MODIFS l.32
 function FichePokemon({ pokemon }) {
-  const urlSprites = `https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`; //Lien vers les artworks.
+  const urlSprites = `https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`; //Lien vers les artworks. - Links to the artworks pictures.
   return (
     <section className="fiche">
       <article className="column">
