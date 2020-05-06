@@ -1,13 +1,21 @@
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  padding: 0 200px;
   background-image: url("/img/background-bottom.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  min-height: 80vh;
+  height: 70vh;
   max-width: 100vw;
-  max-height: 80vh;
   overflow: auto;
+}
+
+.bloc-gallery {
+  background-color: rgba(255, 255, 255, 0.432);
+  width: 85vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  overflow: auto;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  border-radius: 20px;
 }

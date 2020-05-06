@@ -2,15 +2,16 @@
   background-color: #cb0809;
   display: flex;
   justify-content: center;
-  height: 13vh;
-  max-width: 100vw;
-
-  border-bottom: white solid 0.5em;
+  height: 10vh;
+  width: 100%;
+  border-bottom: white solid 1vh;
   box-shadow: 0 0 10px black;
+  position: fixed;
+  top: 0;
 }
 
 .logo {
-  height: 20vh;
+  height: 15vh;
   max-width: 100vw;
   margin-top: 5px;
 }
