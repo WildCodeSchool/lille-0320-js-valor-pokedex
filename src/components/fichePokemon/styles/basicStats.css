@@ -1,12 +1,13 @@
 .basicStats {
   text-transform: uppercase;
   width: 20vw;
+  margin: 20px auto;
 }
 
 .stat {
   display: flex;
   justify-content: space-evenly;
-  width: 20vw;
+  width: 25vw;
   margin-bottom: 6px;
 }
 
@@ -28,7 +29,7 @@
 }
 
 progress {
-  width: 100px;
+  width: 200px;
   height: 20px;
   border: none;
   background-color: white;
@@ -81,4 +82,27 @@ progress::-webkit-progress-bar {
   height: 40vh;
   background-color: rgb(190, 187, 187);
   margin-right: 50px;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 640px) {
+  .blackline {
+    display: none;
+  }
+
+  progress {
+    display: none;
+  }
+
+  .statBar {
+    display: none;
+  }
+
+  .basicStats {
+    width: 70vw;
+  }
+  .stat {
+    width: 90vw;
+  }
 }

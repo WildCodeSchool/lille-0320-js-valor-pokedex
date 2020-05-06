@@ -1,67 +1,69 @@
-/*css générale de la fiche*/
+/*css générale de la fiche - Main CSS*/
 .fiche {
-
   background-color: #73dbdb;
   background-image: url("/img/bg-pokeball.png");
   font-weight: bold;
-
   display: flex;
   justify-content: space-evenly;
-
+  flex-wrap: wrap;
   margin-top: 11vh;
   margin-left: 2px;
   padding-top: 10vh;
   padding-bottom: 10vh;
-
-
 }
 
-/*positionne les éléments en colonne*/
-.column1 {
+/*positionne les éléments en colonne - place elements in columns*/
+.column {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-
+  flex-flow: column wrap;
+  margin-top: 50px;
 }
 
-/*positionne les éléments de la carte statisiques et attaques*/
+/*positionne les éléments de la carte statisiques et attaques - place the static & attack cards elements*/
 .column2 {
   display: flex;
-  justify-content: space-evenly;
-
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 50vw;
+  margin-top: 50px;
   margin-bottom: auto;
-
-  
- /* min-height: 20vh;*/
-  /*max-height: 90vh;*/
-
 }
 
-/*background général des sous cartes*/
+/*background général des sous cartes - main background under the subcards*/
 .backgroundGeneral {
-  width: 35vw;
   background-color: white;
-  border-radius: 5%;
+  border-radius: 25px;
   padding: 1em;
-
-
 }
 
-/*met tous les sous titre au même format*/
+/*met tous les sous titre au même format - all the subtitles*/
 .sousTitre {
   background-color: #deeefb;
   text-transform: uppercase;
-  height: 8px;
-  line-height: 10px;
-  padding-top: 10px;  
-  padding-bottom: 10px;   
-  padding-left: 45px;   
-  padding-right: 30px;  
-  margin-bottom: 1em; 
+  height: auto;
+
+  line-height: 1em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 45px;
+  padding-right: 30px;
+  margin-bottom: 1em;
   background-image: url("/img/black-pokeball.png");
   background-repeat: no-repeat;
   background-size: 22px;
   background-position-x: 10px;
   background-position-y: center;
+}
 
+@media screen and (max-width: 640px) {
+  .column2 {
+    width: 79vw;
+  }
+  .column {
+    width: 80vw;
+  }
+  .fiche {
+    margin-top: 5vh;
+    margin-left: 0vw;
+  }
 }

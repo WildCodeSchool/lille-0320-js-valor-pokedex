@@ -1,8 +1,9 @@
 /*dimensionne la carte avec les infos principales - Crop the card with the main information*/
 .mainInformation {
-  height: 30vh;
-  width: 25vw;
+  width: 40vw;
+  height: auto;
   margin-bottom: 2vh;
+  padding-top: 0;
 }
 
 .PokemonName {
@@ -11,11 +12,26 @@
 }
 
 /*dimensionne la section nom et Id de infoBase - Crop the session with the name + infoBase's Id*/
+
+.shape {
+  margin-top: 0;
+  width: 300px;
+  height: 20px;
+  border-top: 50px solid #363636;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: none;
+  position: absolute;
+}
+
 .nomId {
   text-align: center;
-  background-color: black;
+  /* background-color: black;*/
   color: white;
-  width: 50%;
+  margin-top: 18px;
+  margin-bottom: 40px;
+  /* width: 50%;*/
+  position: relative;
 }
 
 /*sous catégorie de principal - Subcategory*/
@@ -23,7 +39,7 @@
   display: flex;
 }
 .Infos div {
-  width: 50%;
+  width: 70%;
 }
 .Infos p {
   margin: 5px;
@@ -31,14 +47,18 @@
 
 .Infos img {
   width: 75%;
-  margin: 20px;
+  margin: 0 20px;
   padding: 10px;
   border-radius: 15px;
 }
 
+.imgArtwork {
+  padding: 0;
+}
 /*background color de l'image du pokemon - background color of the pokemon's picture*/
 .img {
   background-color: rgba(177, 170, 170, 0.63);
+  margin-top: 0;
 }
 
 /*pastilles de couleur pour chaque type - background of each spot*/
@@ -156,4 +176,18 @@
 
 .shadow {
   background-color: rgb(94, 94, 94);
+}
+
+/* Media Queries */
+@media screen and (max-width: 640px) {
+  .mainInformation {
+    width: 74vw;
+  }
+  .shape {
+    width: 30vw;
+  }
+  .Infos {
+    flex-direction: column;
+    align-items: center;
+  }
 }

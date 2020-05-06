@@ -1,6 +1,6 @@
 .attacks {
-  width: 14vw;
-  border: 1px solid blue;
+  width: 400px;
+  margin: 20px auto;
 }
 
 .titleBoard {
@@ -40,4 +40,12 @@
 .right p {
   text-align: center;
   width: 5vw;
+}
+@media screen and (max-width: 640px) {
+  .titleBoard {
+    justify-content: space-around;
+  }
+  .listAttak {
+    justify-content: space-around;
+  }
 }

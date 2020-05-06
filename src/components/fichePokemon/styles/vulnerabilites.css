@@ -1,5 +1,11 @@
 .vulnerabilites {
-  height: 25vh;
-  width: 25vw;
+  width: 40vw;
+  height: auto;
   margin-bottom: 2vh;
+}
+
+@media screen and (max-width: 640px) {
+  .vulnerabilites {
+    width: 74vw;
+  }
 }
