@@ -15,8 +15,7 @@
 /*positionne les éléments en colonne - place elements in columns*/
 .column {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-flow: column wrap;
   margin-top: 50px;
 }
 
@@ -33,7 +32,7 @@
 /*background général des sous cartes - main background under the subcards*/
 .backgroundGeneral {
   background-color: white;
-  border-radius: 5%;
+  border-radius: 25px;
   padding: 1em;
 }
 
@@ -42,6 +41,7 @@
   background-color: #deeefb;
   text-transform: uppercase;
   height: auto;
+
   line-height: 1em;
   padding-top: 10px;
   padding-bottom: 10px;

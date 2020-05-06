@@ -13,14 +13,13 @@ import "./styles/attacks.css";
 // will allow to set up via the css all the elements
 //MODIFS l.32
 function FichePokemon({ pokemon }) {
-
   const urlSprites = `https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`; //Lien vers les artworks. - Links to the artworks pictures.
 
   //permet de modifier la couleur selon le niveau de stats -- modify the color according to the level of stats
   const color = (obj) => {
-    if (obj.base_stat <= 50) {
+    if (obj.base_stat < 50) {
       return "rouge";
-    } else if (obj.base_stat <= 100 && obj.base_stat > 50) {
+    } else if (obj.base_stat < 100 && obj.base_stat > 50) {
       return "orange";
     } else {
       return "vert";
@@ -32,12 +31,13 @@ function FichePokemon({ pokemon }) {
       <article className="column">
         <div className="backgroundGeneral mainInformation">
           <div className="PokemonName">
+            <div className="shape"></div>
             <p className="nomId">
               {pokemon.name} - N°{pokemon.id}
             </p>
           </div>
           <div className="Infos">
-            <div>
+            <div className="imgArtwork">
               <img src={urlSprites} alt={pokemon.id} className="img" />
             </div>
             <div>
