@@ -54,6 +54,7 @@ class Vulnerabilities extends React.Component {
           this.setState({
             pokemonType2: data,
           });
+
           console.log("two", this.state.pokemonType2);
         });
     }
@@ -63,6 +64,7 @@ class Vulnerabilities extends React.Component {
     console.log("three", this.state.pokemonTypes[0]);
     return (
       <div>
+        {console.log("test", this.props.types)}
         {this.props.types.map((obj) => {
           return <p key={obj.type.name}>{obj.type.name}</p>;
         })}
