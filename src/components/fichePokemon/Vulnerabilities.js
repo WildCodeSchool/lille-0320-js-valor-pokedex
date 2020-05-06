@@ -5,7 +5,7 @@ class Vulnerabilities extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokemonTypes: [],
+      pokemonTypes: {},
     };
     this.displayTypes = this.displayTypes.bind(this);
   }
@@ -25,22 +25,20 @@ class Vulnerabilities extends React.Component {
   }
 
   displayTypes() {
-    console.log(this.state.pokemonTypes);
+    /*console.log(this.state.pokemonTypes);*/
   }
 
   render() {
+    console.log("three", this.state.pokemonTypes);
     return (
       <div>
-        <h2>Hello</h2>
-        <p>World</p>
-        {console.log(this.pokemonTypes)}
         {this.props.types.map((obj) => {
           return <p key={obj.type.name}>{obj.type.name}</p>;
         })}
-        {!this.pokemonTypes ? (
+        {this.state.pokemonTypes ? (
           <p>loading</p>
         ) : (
-          this.pokemonTypes.map((obj) => {
+          this.state.pokemonTypes.map((obj) => {
             return <p key={obj.name}>{obj.name}</p>;
           })
         )}
