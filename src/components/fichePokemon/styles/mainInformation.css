@@ -1,4 +1,4 @@
-/*dimensionne la carte avec les infos principales*/
+/*dimensionne la carte avec les infos principales - Crop the card with the main information*/
 .mainInformation {
   height: 30vh;
   width: 25vw;
@@ -10,7 +10,7 @@
   justify-content: center;
 }
 
-/*dimensionne la section nom et Id de infoBase*/
+/*dimensionne la section nom et Id de infoBase - Crop the session with the name + infoBase's Id*/
 .nomId {
   text-align: center;
   background-color: black;
@@ -18,7 +18,7 @@
   width: 50%;
 }
 
-/*sous catégorie de principal*/
+/*sous catégorie de principal - Subcategory*/
 .Infos {
   display: flex;
 }
@@ -36,12 +36,12 @@
   border-radius: 15px;
 }
 
-/*background color de l'image du pokemon*/
+/*background color de l'image du pokemon - background color of the pokemon's picture*/
 .img {
   background-color: rgba(177, 170, 170, 0.63);
 }
 
-/*pastilles de couleur pour chaque type*/
+/*pastilles de couleur pour chaque type - background of each spot*/
 /*Style de base*/
 .types,
 .fire,
@@ -77,7 +77,7 @@
   font-size: 0.8em;
 }
 
-/* background de chaque pastille*/
+/* background de chaque pastille - background-color types*/
 .normal {
   background-color: rgb(182, 182, 182);
 }
