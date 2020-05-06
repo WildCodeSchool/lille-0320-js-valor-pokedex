@@ -1,6 +1,6 @@
 /*dimensionne la carte avec les infos principales - Crop the card with the main information*/
 .mainInformation {
-  width: 600px;
+  width: 40vw;
   height: auto;
   margin-bottom: 2vh;
   padding-top: 0;
@@ -179,3 +179,8 @@
 }
 
 /* Media Queries */
+@media screen and (max-width: 640px) {
+  .mainInformation {
+    width: 74vw;
+  }
+}

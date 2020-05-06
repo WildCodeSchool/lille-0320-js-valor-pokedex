@@ -24,7 +24,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  width: 1000px;
+  width: 50vw;
   margin-top: 50px;
   margin-bottom: auto;
 }
@@ -53,4 +53,13 @@
   background-size: 22px;
   background-position-x: 10px;
   background-position-y: center;
+}
+
+@media screen and (max-width: 640px) {
+  .column2 {
+    width: 79vw;
+  }
+  .column {
+    width: 80vw;
+  }
 }

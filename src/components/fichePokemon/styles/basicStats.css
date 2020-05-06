@@ -1,13 +1,13 @@
 .basicStats {
   text-transform: uppercase;
-  width: 400px;
+  width: 20vw;
   margin: 20px auto;
 }
 
 .stat {
   display: flex;
   justify-content: space-evenly;
-  width: 400px;
+  width: 25vw;
   margin-bottom: 6px;
 }
 
@@ -89,5 +89,20 @@ progress::-webkit-progress-bar {
 @media (max-width: 900px) {
   .blackline {
     display: none;
+  }
+
+  progress {
+    display: none;
+  }
+
+  .statBar {
+    display: none;
+  }
+
+  .basicStats {
+    width: 70vw;
+  }
+  .stat {
+    width: 90vw;
   }
 }
