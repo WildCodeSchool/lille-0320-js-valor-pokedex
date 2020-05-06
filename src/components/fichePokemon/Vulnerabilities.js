@@ -68,6 +68,10 @@ class Vulnerabilities extends React.Component {
     );
     let doubleEffect1 = this.state.pokemonType1.damage_relations.double_damage_from.map(
       (obj) => {
+        console.log(
+          "bb",
+          this.state.pokemonType1.damage_relations.double_damage_from
+        );
         return obj.name;
       }
     );
@@ -104,7 +108,7 @@ class Vulnerabilities extends React.Component {
       effect400 = [];
 
     console.log("bonjour", noEffect1.includes(allTypes[0]));
-
+    console.log("aa", allTypes);
     allTypes.forEach((type) => {
       switch (type) {
         case noEffect1.includes(type) || noEffect2.includes(type):
@@ -118,6 +122,7 @@ class Vulnerabilities extends React.Component {
           break;
         case (doubleEffect1.includes(type) && !halfEffect2.includes(type)) ||
           (doubleEffect2.includes(type) && !halfEffect1.includes(type)):
+          console.log("azerty", type);
           effect200.push(type);
           break;
         case (!doubleEffect1.includes(type) && halfEffect2.includes(type)) ||
