@@ -5,7 +5,16 @@ class Vulnerabilities extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokemonTypes: [],
+      pokemonTypes: [
+        {
+          name: "",
+          damage_relations: {
+            double_damage_from: [{ name: "" }],
+            half_damage_from: [{ name: "" }],
+            no_damage_from: [{ name: "" }],
+          },
+        },
+      ],
     };
     this.displayTypes = this.displayTypes.bind(this);
   }
@@ -19,29 +28,37 @@ class Vulnerabilities extends React.Component {
           this.setState({
             pokemonTypes: data,
           });
-          console.log("two", this.state.pokemonTypes);
+          console.log("two", data);
         });
     }
   }
 
   displayTypes() {
-    console.log(this.state.pokemonTypes);
+    /*console.log(this.state.pokemonTypes);*/
   }
 
   render() {
+    console.log("three", this.state.pokemonTypes[0]);
     return (
       <div>
-        <h2>Hello</h2>
-        <p>World</p>
-        {console.log(this.pokemonTypes)}
+        {console.log("test", this.props.types)}
         {this.props.types.map((obj) => {
           return <p key={obj.type.name}>{obj.type.name}</p>;
         })}
-        {!this.pokemonTypes ? (
+
+        {this.state.pokemonTypes[0].name &&
+          this.state.pokemonTypes.map((obj) => {
+            return obj.damage_relations.map((relation) => {
+              return relation.map((type) => {
+                return <p key={type.name}>{type.name}</p>;
+              });
+            });
+          })}
+        {this.state.pokemonTypes ? (
           <p>loading</p>
         ) : (
-          this.pokemonTypes.map((obj) => {
-            return <p key={obj.name}>{obj.name}</p>;
+          this.state.pokemonTypes.map((obj) => {
+            return <p key={obj.name}>{obj.id}</p>;
           })
         )}
         <input type="button" onClick={() => this.displayTypes} value="log" />

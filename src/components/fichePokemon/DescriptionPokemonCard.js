@@ -11,7 +11,6 @@ function DescriptionPokemonCard({ pokemon }) {
             );
           })
           .map((obj) => {
-            console.log(obj);
             return (
               <p key={obj.i} className="descriptionText">
                 {obj.flavor_text}
