@@ -5,28 +5,23 @@ class Vulnerabilities extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokemonTypes: [
-        {
-          pokemonType1: {
-            name: "loading",
-            damage_relations: {
-              double_damage_from: [{ name: "" }],
-              half_damage_from: [{ name: "" }],
-              no_damage_from: [{ name: "" }],
-            },
-          },
+      pokemonType1: {
+        name: "loading",
+        damage_relations: {
+          double_damage_from: [{ name: "" }],
+          half_damage_from: [{ name: "" }],
+          no_damage_from: [{ name: "" }],
         },
-        {
-          pokemonType2: {
-            name: "loading",
-            damage_relations: {
-              double_damage_from: [{ name: "" }],
-              half_damage_from: [{ name: "" }],
-              no_damage_from: [{ name: "" }],
-            },
-          },
+      },
+
+      pokemonType2: {
+        name: "loading",
+        damage_relations: {
+          double_damage_from: [{ name: "" }],
+          half_damage_from: [{ name: "" }],
+          no_damage_from: [{ name: "" }],
         },
-      ],
+      },
     };
   }
 
@@ -61,19 +56,29 @@ class Vulnerabilities extends React.Component {
   }
 
   render() {
-    console.log("three", this.state.pokemonTypes[0]);
     return (
       <div>
-        {console.log("test", this.props.types)}
+        {console.log(
+          "test",
+          this.state.pokemonType1.damage_relations.double_damage_from.map(
+            (obj) => {
+              return obj.name;
+            }
+          )
+        )}
         {this.props.types.map((obj) => {
           return <p key={obj.type.name}>{obj.type.name}</p>;
         })}
-        {this.state.pokemonTypes[0].name !== "loading" &&
-          this.state.pokemonTypes.map((array) => {
-            return array.map((obj, i) => {
-              return <p key={i}>{obj.name}</p>;
-            });
-          })}
+        {this.state.pokemonType1.damage_relations.double_damage_from.map(
+          (obj) => {
+            return <p>{obj.name}</p>;
+          }
+        )}
+        {this.state.pokemonType2.damage_relations.double_damage_from.map(
+          (obj) => {
+            return <p>{obj.name}</p>;
+          }
+        )}
       </div>
     );
   }

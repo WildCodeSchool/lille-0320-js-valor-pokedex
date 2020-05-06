@@ -1,6 +1,7 @@
 import React from "react";
 import DescriptionPokemon from "./DescriptionPokemon";
 import Vulnerabilities from "./Vulnerabilities";
+import Test from "./Test";
 import "./styles/FichePokemon.css";
 import "./styles/mainInformation.css";
 import "./styles/vulnerabilites.css";
