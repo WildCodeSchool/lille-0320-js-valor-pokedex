@@ -1,7 +1,7 @@
 /*dimensionne la carte avec les infos principales - Crop the card with the main information*/
 .mainInformation {
-  height: 30vh;
-  width: 25vw;
+  width: 600px;
+  height: auto;
   margin-bottom: 2vh;
 }
 
@@ -156,4 +156,12 @@
 
 .shadow {
   background-color: rgb(94, 94, 94);
+}
+
+/* Media Queries */
+
+@media (min-width: 100px) and (max-width: 1024px) {
+  .mainInformation {
+    width: 90%;
+  }
 }

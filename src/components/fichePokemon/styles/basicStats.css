@@ -1,6 +1,8 @@
 .basicStats {
   text-transform: uppercase;
-  width: 20vw;
+  width: 400px;
+
+  margin: 20px auto;
 }
 
 .stat {

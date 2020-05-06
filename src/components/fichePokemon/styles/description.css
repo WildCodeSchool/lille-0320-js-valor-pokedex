@@ -1,5 +1,5 @@
 /*dimensionne la carte description*/
 .description {
-  height: 12vh;
-  width: 25vw;
+  width: 600px;
+  height: auto;
 }
