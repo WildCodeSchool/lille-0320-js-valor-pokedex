@@ -62,4 +62,8 @@
   .column {
     width: 80vw;
   }
+  .fiche {
+    margin-top: 5vh;
+    margin-left: 0vw;
+  }
 }

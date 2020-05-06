@@ -183,4 +183,11 @@
   .mainInformation {
     width: 74vw;
   }
+  .shape {
+    width: 30vw;
+  }
+  .Infos {
+    flex-direction: column;
+    align-items: center;
+  }
 }
