@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "./styles/vulnerabilites.css";
 
 class Vulnerabilities extends React.Component {
   constructor(props) {
@@ -103,8 +104,6 @@ class Vulnerabilities extends React.Component {
       effect200 = [],
       effect400 = [];
 
-    console.log("bonjour", noEffect1.includes(allTypes[0]));
-
     allTypes.forEach((type) => {
       if (noEffect1.includes(type) || noEffect2.includes(type))
         effect0.push(type);
@@ -124,41 +123,86 @@ class Vulnerabilities extends React.Component {
         effect50.push(type);
     });
 
-    return effect400.map((obj, i) => {
-      return <p key={i}>{obj}</p>;
-    });
+    return (
+      <div className="table">
+        <ul>
+          <p>4X Effectiveness</p>
+          {effect400.map((type) => {
+            return <li key={type}>{type}</li>;
+          })}
+        </ul>
+        <ul>
+          <p>2X Effectiveness</p>
+          {effect200.map((type) => {
+            return <li key={type}>{type}</li>;
+          })}
+        </ul>
+        <ul>
+          <p>0.5X Effectiveness</p>
+          {effect50.map((type) => {
+            return <li key={type}>{type}</li>;
+          })}
+        </ul>
+        <ul>
+          <p>0.25X Effectiveness</p>
+          {effect25.map((type) => {
+            return <li key={type}>{type}</li>;
+          })}
+        </ul>
+        <ul>
+          <p>Immunity</p>
+          {effect0.map((type) => {
+            return <li key={type}>{type}</li>;
+          })}
+        </ul>
+      </div>
+    );
   }
 
   render() {
-    return <div>{this.doubleType()}</div>;
+    return (
+      <div className="vulnerabilities">
+        {this.props.types[1] ? (
+          this.doubleType()
+        ) : (
+          <div className="table">
+            <ul>
+              <p>4X Effectiveness</p>
+            </ul>
+            <ul>
+              <p>2X Effectiveness</p>
+              {this.state.pokemonType1.damage_relations.double_damage_from.map(
+                (type) => {
+                  return <li key={type.name}>{type.name}</li>;
+                }
+              )}
+            </ul>
+            <ul>
+              <p>0.5X Effectiveness</p>
+              {this.state.pokemonType1.damage_relations.half_damage_from.map(
+                (type) => {
+                  return <li key={type.name}>{type.name}</li>;
+                }
+              )}
+            </ul>
+            <ul>
+              <p>0.25X Effectiveness</p>
+            </ul>
+            <ul>
+              <p>Immunity</p>
+              {this.state.pokemonType1.damage_relations.no_damage_from.map(
+                (type) => {
+                  return <li key={type.name}>{type.name}</li>;
+                }
+              )}
+            </ul>
+          </div>
+        )}
+      </div>
+    );
   }
 }
 
 export default Vulnerabilities;
 
-/*{this.props.types[1]
-          ? this.doubleType
-          : this.props.types.map((obj) => {
-              return <p key={obj.type.name}>{obj.type.name}</p>;
-            })}
-        {this.state.pokemonType1.damage_relations.double_damage_from.map(
-          (obj, i) => {
-            return <p key={i}>{obj.name}</p>;
-          }
-        )}
-        {this.state.pokemonType1.damage_relations.half_damage_from.map(
-          (obj, i) => {
-            return <p key={i}>{obj.name}</p>;
-          }
-        )}
-        {this.state.pokemonType1.damage_relations.no_damage_from.map(
-          (obj, i) => {
-            return <p key={i}>{obj.name}</p>;
-          }
-        )}
-
-        {this.state.pokemonType2.damage_relations.double_damage_from.map(
-          (obj, i) => {
-            return <p key={i}>{obj.name}</p>;
-          }
-        )}*/
+/**/

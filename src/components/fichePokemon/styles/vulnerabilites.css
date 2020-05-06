@@ -2,3 +2,7 @@
   height: 25vh;
   width: 25vw;
 }
+
+.table {
+  display: flex;
+}
