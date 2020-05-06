@@ -43,3 +43,30 @@
   margin-right: 18%;
   padding: 10px;
 }
+/*Buttons Next and Previous*/
+.buttonGallery {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonGallery button {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  border: 0;
+  margin: 15px 50px;
+  padding-top: 25px;
+  background: rgb(204, 0, 0);
+  border: 2px solid #000;
+  color: rgb(117, 117, 117);
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  background-image: url(/img/pokeball.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.buttonGallery button:hover {
+  color: rgb(0, 0, 0);
+}
