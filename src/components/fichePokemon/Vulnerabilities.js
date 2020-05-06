@@ -40,8 +40,10 @@ class Vulnerabilities extends React.Component {
     axios
       .get(`https://pokeapi.co/api/v2/type/${obj1.type.name}`)
       .then(({ data }) => {
-        this.setState({ pokemonType1: data });
-        console.log("one", this.state.pokemonTypes[0]);
+        this.setState({
+          pokemonType1: data,
+        });
+        console.log("one", this.state.pokemonType1);
       });
     //si tu as plusieurs types, va chercher les données du 2nd dans l'api
     //stock le dans pokemonType2
@@ -52,7 +54,7 @@ class Vulnerabilities extends React.Component {
           this.setState({
             pokemonType2: data,
           });
-          console.log("two", this.state.pokemonTypes[1]);
+          console.log("two", this.state.pokemonType2);
         });
     }
   }
@@ -66,7 +68,7 @@ class Vulnerabilities extends React.Component {
         })}
         {this.state.pokemonTypes[0].name !== "loading" &&
           this.state.pokemonTypes.map((array) => {
-            return Array.from(array).map((obj, i) => {
+            return array.map((obj, i) => {
               return <p key={i}>{obj.name}</p>;
             });
           })}
