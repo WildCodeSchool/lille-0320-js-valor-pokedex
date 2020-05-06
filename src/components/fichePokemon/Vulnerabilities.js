@@ -23,6 +23,7 @@ class Vulnerabilities extends React.Component {
         },
       },
     };
+    this.doubleType = this.doubleType.bind(this);
   }
 
   componentDidMount() {
@@ -65,14 +66,69 @@ class Vulnerabilities extends React.Component {
         return obj.name;
       }
     );
+    let doubleEffect1 = this.state.pokemonType1.damage_relations.double_damage_from.map(
+      (obj) => {
+        return obj.name;
+      }
+    );
+    let doubleEffect2 = this.state.pokemonType2.damage_relations.double_damage_from.map(
+      (obj) => {
+        return obj.name;
+      }
+    );
+    let halfEffect1 = this.state.pokemonType1.damage_relations.half_damage_from.map(
+      (obj) => {
+        return obj.name;
+      }
+    );
+    let halfEffect2 = this.state.pokemonType2.damage_relations.half_damage_from.map(
+      (obj) => {
+        return obj.name;
+      }
+    );
 
-    return;
+    let allTypes = [...noEffect1]
+      .concat([...noEffect2])
+      .concat([...doubleEffect1])
+      .concat([...doubleEffect2])
+      .concat([...halfEffect1])
+      .concat([...halfEffect2])
+      .filter((obj, i, allT) => {
+        return allT.indexOf(obj) === i;
+      });
+
+    const effect0 = [],
+      effect25 = [],
+      effect50 = [],
+      effect200 = [],
+      effect400 = [];
+    allTypes.forEach((type) => {
+      switch (type) {
+        case noEffect1.includes(type) || noEffect2.includes(type):
+          effect0.push(type);
+          break;
+        case doubleEffect1.includes(type) && doubleEffect2.includes(type):
+          effect400.push(type);
+          break;
+        case halfEffect1.includes(type) && halfEffect2.includes(type):
+          effect25.push(type);
+          break;
+      }
+    });
+
+    return allTypes.map((obj, i) => {
+      return <p key={i}>{obj}</p>;
+    });
   }
 
   render() {
-    return (
-      <div>
-        {this.props.types[1]
+    return <div>{this.doubleType()}</div>;
+  }
+}
+
+export default Vulnerabilities;
+
+/*{this.props.types[1]
           ? this.doubleType
           : this.props.types.map((obj) => {
               return <p key={obj.type.name}>{obj.type.name}</p>;
@@ -97,10 +153,4 @@ class Vulnerabilities extends React.Component {
           (obj, i) => {
             return <p key={i}>{obj.name}</p>;
           }
-        )}
-      </div>
-    );
-  }
-}
-
-export default Vulnerabilities;
+        )}*/
