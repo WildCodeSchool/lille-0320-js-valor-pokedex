@@ -62,7 +62,7 @@ function FichePokemon({ pokemon }) {
         </div>
         <div className="backgroundGeneral description">
           <p className="sousTitre">Description </p>
-          <DescriptionPokemon />
+          <DescriptionPokemon caca={pokemon.id} />
         </div>
       </article>
       <article className="backgroundGeneral column2">
@@ -128,7 +128,6 @@ function FichePokemon({ pokemon }) {
         </div>
       </article>
     </section>
-    //faire le css de la description dans DescriptionPokemonCard - here is the DescriptionPokemonCard css
   );
 }
 
