@@ -10,10 +10,9 @@ function DescriptionPokemonCard({ pokemon }) {
               language.language.name === "en" && language.version.name === "x"
             );
           })
-          .map((obj) => {
-            console.log(obj);
+          .map((obj, i) => {
             return (
-              <p key={obj.i} className="descriptionText">
+              <p key={i} className="descriptionText">
                 {obj.flavor_text}
               </p>
             );
