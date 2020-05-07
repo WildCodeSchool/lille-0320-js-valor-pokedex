@@ -7,7 +7,6 @@
   overflow: auto;
 }
 
-
 .bloc-gallery {
   background-color: rgba(255, 255, 255, 0.432);
   width: 85vw;
@@ -19,6 +18,7 @@
   margin-top: 5vh;
   margin-bottom: 5vh;
   border-radius: 20px;
+}
 
 .pokemon-cards {
   padding: 0 50px;
@@ -54,5 +54,4 @@
   margin-top: 3%;
   margin-right: 18%;
   padding: 10px;
-
 }
