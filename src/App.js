@@ -5,7 +5,6 @@ import Bandeau from "./components/header-footer-bandeau/Bandeau";
 import Gallery from "./components/gallery-pokemonCard/Gallery";
 import "./App.css";
 
-
 function App() {
   return (
     <div>
@@ -15,7 +14,6 @@ function App() {
         <Gallery />
       </main>
       <Footer />
-
     </div>
   );
 }
