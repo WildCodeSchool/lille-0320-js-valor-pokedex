@@ -63,25 +63,23 @@ class Gallery extends React.Component {
     return (
       <div className="gallery">
         <div className="bloc-gallery">
-          {this.state.pokemons.map((pokemon) => {
-
           <div className="recherche-nom">
             <div className="pokedex">
-            {/*appelle RechercheNom en envoyant les props de rechercheHandleChange -- call RechercheNom sending rechercheHandleChange's props*/}
-            <RechercheNom rechercheHandleChange={this.rechercheHandleChange} />
-            {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
+              {/*appelle RechercheNom en envoyant les props de rechercheHandleChange -- call RechercheNom sending rechercheHandleChange's props*/}
+              <RechercheNom
+                rechercheHandleChange={this.rechercheHandleChange}
+              />
+              {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
             </div>
           </div>
           <div className="pokemon-cards">
-          {this.state.filteredPokemons.slice(0, 50).map((pokemon) => {
-
-            return (
-              <article>
-                <PokemonCard {...pokemon} />
-              </article>
-            );
-          })}
-          
+            {this.state.filteredPokemons.slice(0, 50).map((pokemon) => {
+              return (
+                <article>
+                  <PokemonCard {...pokemon} />
+                </article>
+              );
+            })}
           </div>
         </div>
       </div>
