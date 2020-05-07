@@ -9,3 +9,7 @@
     width: 74vw;
   }
 }
+
+.table {
+  display: flex;
+}
