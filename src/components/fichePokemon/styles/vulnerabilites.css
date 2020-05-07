@@ -16,6 +16,7 @@
 
 .effective {
   background-color: black;
+  border: 1px solid white;
   color: rgb(255, 255, 255);
   text-shadow: rgb(0, 0, 0) 1px 1px;
   text-transform: uppercase;
