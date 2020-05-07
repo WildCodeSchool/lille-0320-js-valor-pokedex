@@ -7,12 +7,17 @@ class DescriptionPokemon extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      OnePokemon: {},
+      OnePokemon: {
+        id: 1,
+      },
     };
   }
 
+  //#3 //#7
+
   componentDidMount() {
     const pokemonId = 1;
+
     this.getPokemon(pokemonId);
   }
 

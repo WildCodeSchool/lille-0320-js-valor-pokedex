@@ -3,7 +3,6 @@ import Header from "./components/header-footer-bandeau/Header";
 import Footer from "./components/header-footer-bandeau/Footer";
 import Homepage from "./components/Homepage";
 import Pokecall from "./components/fichePokemon/PokeCall";
-import FichePokemon from "./components/fichePokemon/FichePokemon";
 
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";

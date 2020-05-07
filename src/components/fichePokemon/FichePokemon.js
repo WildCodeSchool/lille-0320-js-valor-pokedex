@@ -127,28 +127,6 @@ function FichePokemon({ pokemon }) {
                 });
             })}
           </div>
-          {pokemon.moves.map((obj) => {
-            const details = obj.version_group_details;
-            return details //renvoies le tableau version_group_details
-              .filter((array) => {
-                //dans version_group_detail, prendre que ce qui contient USUM et level-up uniquement
-                return (
-                  array.version_group.name === "ultra-sun-ultra-moon" &&
-                  array.move_learn_method.name === "level-up"
-                );
-              })
-              .sort((ob1, ob2) => {
-                return -1;
-              })
-              .map((array, i) => {
-                //renvoi le level_lernead_at de chaque élément
-                return (
-                  <p key={i}>
-                    {obj.move.name}: {array.level_learned_at}
-                  </p>
-                );
-              });
-          })}
         </div>
       </article>
     </section>

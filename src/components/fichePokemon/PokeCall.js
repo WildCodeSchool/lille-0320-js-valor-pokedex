@@ -62,8 +62,8 @@ class Pokecall extends React.Component {
     this.getPokemon(pokemonName);
   }
 
-  //récupère les éléments dans l'API selon l'id du pokemon (pokemonId) puis met à jour le state de OnePokemon
-  //get the elements in the API according to the pokemon id (pokemonId) then update the state of OnePokemon
+  //récupère les éléments dans l'API selon le nom du pokemon (pokemonName) puis met à jour le state de OnePokemon
+  //get the elements in the API according to the pokemon name (pokemonName) then update the state of OnePokemon
   //#4 //#8
   getPokemon(pokemonName) {
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
