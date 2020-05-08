@@ -125,7 +125,7 @@ class Vulnerabilities extends React.Component {
     //we return the final code for the component to display
     return (
       <div className="table">
-        <ul className="vulneUl right-border">
+        <ul className="vulneUl right-border eff400">
           <p className="effective">
             Very Effective
             <br /> (x4)
@@ -138,7 +138,7 @@ class Vulnerabilities extends React.Component {
             );
           })}
         </ul>
-        <ul className="vulneUl right-border">
+        <ul className="vulneUl right-border left-border eff200">
           <p className="effective">
             Super Effective
             <br /> (x2)
@@ -151,7 +151,7 @@ class Vulnerabilities extends React.Component {
             );
           })}
         </ul>
-        <ul className="vulneUl right-border">
+        <ul className="vulneUl right-border left-border eff50">
           <p className="effective">
             Not very
             <br /> effective (x0.5)
@@ -164,7 +164,7 @@ class Vulnerabilities extends React.Component {
             );
           })}
         </ul>
-        <ul className="vulneUl right-border">
+        <ul className="vulneUl right-border left-border eff25">
           <p className="effective">
             Not effective
             <br /> (x0.25)
@@ -177,7 +177,7 @@ class Vulnerabilities extends React.Component {
             );
           })}
         </ul>
-        <ul className="vulneUl">
+        <ul className="vulneUl left-border eff0">
           <p className="effective">
             Immunity
             <br /> (x0)
@@ -203,13 +203,13 @@ class Vulnerabilities extends React.Component {
             this.doubleType()
           ) : (
             <div className="table">
-              <ul className="vulneUl right-border">
+              <ul className="vulneUl right-border eff400">
                 <p className="effective">
                   Very Effective
                   <br /> (x4)
                 </p>
               </ul>
-              <ul className="vulneUl right-border">
+              <ul className="vulneUl right-border left-border eff200">
                 <p className="effective">
                   Super Effective
                   <br /> (x2)
@@ -224,7 +224,7 @@ class Vulnerabilities extends React.Component {
                   }
                 )}
               </ul>
-              <ul className="vulneUl right-border">
+              <ul className="vulneUl right-border left-border eff50">
                 <p className="effective">
                   Not very
                   <br /> effective (x0.5)
@@ -239,13 +239,13 @@ class Vulnerabilities extends React.Component {
                   }
                 )}
               </ul>
-              <ul className="vulneUl right-border">
+              <ul className="vulneUl right-border left-border eff25">
                 <p className="effective">
                   Not effective
                   <br /> (x0.25)
                 </p>
               </ul>
-              <ul className="vulneUl">
+              <ul className="vulneUl left-border eff0">
                 <p className="effective">
                   Immunity
                   <br /> (x0)
