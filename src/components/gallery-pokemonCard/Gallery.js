@@ -11,6 +11,8 @@ class Gallery extends React.Component {
     this.state = {
       pokemons: [],
       filteredPokemons: [],
+      i: 0,
+      j: 50,
     };
     this.rechercheHandleChange = this.rechercheHandleChange.bind(this);
   }
@@ -22,9 +24,10 @@ class Gallery extends React.Component {
 
   getPokemon() {
     //demande de l'API -- API's request
+
     axios
 
-      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=50")
+      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=649")
 
       // extrait les data de l'api et l'enregistre dans reponse -- extract datas from API and register the answers
       .then((response) => response.data.results)
@@ -59,13 +62,18 @@ class Gallery extends React.Component {
     });
   }
 
+  addOne = () => {
+    this.setState({ i: this.state.i + 50 });
+    this.setState({ j: this.state.j + 50 });
+  };
+  lessOne = () => {
+    this.setState({ i: this.state.i - 50 });
+    this.setState({ j: this.state.j - 50 });
+  };
+
   render() {
     return (
       <div className="gallery">
-
-        <div className="bloc-gallery">
-          {this.state.pokemons.map((pokemon) => {
-
         <div className="recherche-nom">
           <div className="pokedex">
             {/*appelle RechercheNom en envoyant les props de rechercheHandleChange -- call RechercheNom sending rechercheHandleChange's props*/}
@@ -74,14 +82,21 @@ class Gallery extends React.Component {
           </div>
         </div>
         <div className="pokemon-cards">
-          {this.state.filteredPokemons.slice(0, 50).map((pokemon) => {
-
-            return (
-              <article>
-                <PokemonCard {...pokemon} />
-              </article>
-            );
-          })}
+          {this.state.filteredPokemons
+            .slice(this.state.i, this.state.j)
+            .map((pokemon) => {
+              return (
+                <article>
+                  <PokemonCard {...pokemon} />
+                </article>
+              );
+            })}
+        </div>
+        <div className="buttonGallery">
+          <button onClick={this.lessOne ? this.lessOne : <p>clic again</p>}>
+            Prev.
+          </button>
+          <button onClick={this.addOne}>Next</button>
         </div>
       </div>
     );
