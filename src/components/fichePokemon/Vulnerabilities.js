@@ -125,8 +125,11 @@ class Vulnerabilities extends React.Component {
     //we return the final code for the component to display
     return (
       <div className="table">
-        <ul className="right-border">
-          <p className="effective">Very Effective (x4)</p>
+        <ul className="vulneUl right-border">
+          <p className="effective">
+            Very Effective
+            <br /> (x4)
+          </p>
           {effect400.map((type) => {
             return (
               <li key={type} className={("types", type)}>
@@ -135,8 +138,11 @@ class Vulnerabilities extends React.Component {
             );
           })}
         </ul>
-        <ul className="right-border">
-          <p className="effective">Super Effective (x2)</p>
+        <ul className="vulneUl right-border">
+          <p className="effective">
+            Super Effective
+            <br /> (x2)
+          </p>
           {effect200.map((type) => {
             return (
               <li key={type} className={("types", type)}>
@@ -145,8 +151,11 @@ class Vulnerabilities extends React.Component {
             );
           })}
         </ul>
-        <ul className="right-border">
-          <p className="effective">Not very effective (x0.5)</p>
+        <ul className="vulneUl right-border">
+          <p className="effective">
+            Not very
+            <br /> effective (x0.5)
+          </p>
           {effect50.map((type) => {
             return (
               <li key={type} className={("types", type)}>
@@ -155,8 +164,11 @@ class Vulnerabilities extends React.Component {
             );
           })}
         </ul>
-        <ul className="right-border">
-          <p className="effective">Not effective (x0.25)</p>
+        <ul className="vulneUl right-border">
+          <p className="effective">
+            Not effective
+            <br /> (x0.25)
+          </p>
           {effect25.map((type) => {
             return (
               <li key={type} className={("types", type)}>
@@ -165,8 +177,11 @@ class Vulnerabilities extends React.Component {
             );
           })}
         </ul>
-        <ul>
-          <p className="effective">Immunity (x0)</p>
+        <ul className="vulneUl">
+          <p className="effective">
+            Immunity
+            <br /> (x0)
+          </p>
           {effect0.map((type) => {
             return (
               <li key={type} className={("types", type)}>
@@ -188,11 +203,17 @@ class Vulnerabilities extends React.Component {
             this.doubleType()
           ) : (
             <div className="table">
-              <ul className="right-border">
-                <p className="effective">Very Effective (x4)</p>
+              <ul className="vulneUl right-border">
+                <p className="effective">
+                  Very Effective
+                  <br /> (x4)
+                </p>
               </ul>
-              <ul className="right-border">
-                <p className="effective">Super Effective (x2)</p>
+              <ul className="vulneUl right-border">
+                <p className="effective">
+                  Super Effective
+                  <br /> (x2)
+                </p>
                 {this.state.pokemonType1.damage_relations.double_damage_from.map(
                   (type) => {
                     return (
@@ -203,8 +224,11 @@ class Vulnerabilities extends React.Component {
                   }
                 )}
               </ul>
-              <ul className="right-border">
-                <p className="effective">Not very effective (x0.5)</p>
+              <ul className="vulneUl right-border">
+                <p className="effective">
+                  Not very
+                  <br /> effective (x0.5)
+                </p>
                 {this.state.pokemonType1.damage_relations.half_damage_from.map(
                   (type) => {
                     return (
@@ -215,11 +239,17 @@ class Vulnerabilities extends React.Component {
                   }
                 )}
               </ul>
-              <ul className="right-border">
-                <p className="effective">Not effective (x0.25)</p>
+              <ul className="vulneUl right-border">
+                <p className="effective">
+                  Not effective
+                  <br /> (x0.25)
+                </p>
               </ul>
-              <ul>
-                <p className="effective">Immunity (x0)</p>
+              <ul className="vulneUl">
+                <p className="effective">
+                  Immunity
+                  <br /> (x0)
+                </p>
                 {this.state.pokemonType1.damage_relations.no_damage_from.map(
                   (type) => {
                     return (
