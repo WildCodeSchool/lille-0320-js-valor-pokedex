@@ -17,8 +17,11 @@ class Gallery extends React.Component {
       type1: "",
       type2: "",
       foo: true,
+      neg: [],
     };
-    this.rechercheHandleChange = this.rechercheHandleChange.bind(this);
+    //this.rechercheHandleChange = this.rechercheHandleChange.bind(this);
+    this.filtreHandleChange = this.filtreHandleChange.bind(this);
+    this.applyFiltre = this.applyFiltre.bind(this);
   }
 
   //appelle l'APi après le premier rendu pour éviter la page blanche au démarrage -- call the API after the first render to avoid the white page
@@ -31,7 +34,7 @@ class Gallery extends React.Component {
 
     axios
 
-      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=649")
+      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=100")
 
       // extrait les data de l'api et l'enregistre dans reponse -- extract datas from API and register the answers
       .then((response) => response.data.results)
@@ -72,6 +75,35 @@ class Gallery extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
+  applyFiltre() {
+    console.log("apply", this.state.pokemons[0]); //Ne fonctionne pas car l'appel d'api ne récupère que nom et url. Il faut faire remonter appel api de PokemonCard.js
+    if (this.state.type2) {
+      const filtered = this.state.pokemons.filter((pokemon) => {
+        return (
+          pokemon.name.toLowerCase().includes(this.state.searchBar) &&
+          (pokemon.types[0].type.name === this.state.type1 ||
+            pokemon.types[1].type.name === this.state.type2) &&
+          (pokemon.types[0].type.name === this.state.type1 ||
+            pokemon.types[1].type.name === this.state.type2)
+        );
+      });
+      this.setState({ filteredPokemons: filtered });
+    } else {
+      const filtered = this.state.pokemons.filter((pokemon) => {
+        return (
+          pokemon.name.toLowerCase().includes(this.state.searchBar) &&
+          (pokemon.types[0].type.name === this.state.type1 ||
+            pokemon.types[0].type.name === this.state.type2)
+        );
+      });
+      this.setState({ filteredPokemons: filtered });
+    }
+  }
+
+  testNeg() {
+    console.log("neg", !this.state.neg);
+  }
+
   addOne = () => {
     this.setState({ i: this.state.i + 50 });
     this.setState({ j: this.state.j + 50 });
@@ -94,6 +126,8 @@ class Gallery extends React.Component {
         <button onClick={() => this.setState({ foo: !this.state.foo })}>
           State
         </button>
+        <button onClick={() => this.testNeg()}>Test</button>
+        <button onClick={() => this.applyFiltre()}>Filtre</button>
         <div className="pokemon-cards">
           {this.state.filteredPokemons
             .slice(this.state.i, this.state.j)
