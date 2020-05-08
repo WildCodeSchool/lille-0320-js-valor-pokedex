@@ -13,6 +13,10 @@ class Gallery extends React.Component {
       filteredPokemons: [],
       i: 0,
       j: 50,
+      searchBar: "",
+      type1: "",
+      type2: "",
+      foo: true,
     };
     this.rechercheHandleChange = this.rechercheHandleChange.bind(this);
   }
@@ -41,6 +45,7 @@ class Gallery extends React.Component {
       });
   }
 
+  /*
   //récupère les caractères tapés dans la barre de recherche -- fetch input entered in the searchbar
   rechercheHandleChange(event) {
     //création d'une constante qui va stocker le tableau filtré des pokemons dont le nom inclu les caractères tapés dans la barre de recherche --
@@ -60,6 +65,11 @@ class Gallery extends React.Component {
     this.setState({
       filteredPokemons: filtered,
     });
+  }
+  */
+
+  filtreHandleChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   addOne = () => {
@@ -81,6 +91,9 @@ class Gallery extends React.Component {
             {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
           </div>
         </div>
+        <button onClick={() => this.setState({ foo: !this.state.foo })}>
+          State
+        </button>
         <div className="pokemon-cards">
           {this.state.filteredPokemons
             .slice(this.state.i, this.state.j)
