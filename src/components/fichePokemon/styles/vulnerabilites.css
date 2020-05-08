@@ -35,6 +35,7 @@
 
 .eff400 {
   background-color: rgb(255, 0, 0, 0.6);
+  border-radius: 0 0 0 15px;
 }
 
 .eff200 {
@@ -51,6 +52,7 @@
 
 .eff0 {
   background-color: rgb(102, 102, 153, 0.6);
+  border-radius: 0 0 15px 0;
 }
 
 @media screen and (max-width: 640px) {
