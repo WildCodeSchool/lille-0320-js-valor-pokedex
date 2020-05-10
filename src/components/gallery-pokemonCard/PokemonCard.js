@@ -1,6 +1,6 @@
 import React from "react";
-import axios from "axios";
 import "./PokemonCard.css";
+
 class PokemonCard extends React.Component {
   constructor(props) {
     super(props);
@@ -9,18 +9,21 @@ class PokemonCard extends React.Component {
     };
   }
 
-  componentDidMount() {
+  /*componentDidMount() {
     this.getPokemon();
-  }
+  }*/
 
   componentDidUpdate(oldProps) {
     // Boucle infinie ! Chaque cDU declenche un setState, qui declenche un render et un cDU, qui... (J'ai du reboot mon PC encore -_-)
-    if (oldProps.url !== this.props.url) {
+    if (oldProps[0].name !== this.props.pokeData[0].name) {
       this.getPokemon();
+      console.log("did it");
     }
+    console.log("should have did it");
+    console.log("pokeData", this.props.pokeData[0].name);
   }
 
-  getPokemon() {
+  /*getPokemon() {
     //demande de l'API -- API request
     axios
       .get(this.props.url)
@@ -32,23 +35,25 @@ class PokemonCard extends React.Component {
           data: data,
         });
       });
-  }
+  }*/
+
   render() {
     /*on crée une carte de pokemon qui va afficher la photo, le numéro et le nom de chaque pokemon -- creation of a card that will show a picture, number and name of each pokemon*/
 
     /*on fait un ternaire pour que la carte s'applique à chaque pokemon. Si le pokemon à un id, renvoi la carte, sinon renvoi "loading" -- we create a ternary to let the card applying for all the pokemon. if the pokemon have an id, show the card, else show "loading"
     le ternaire est nécessaire car la class renvoi le render, puis fait appel à l'api puis re renvoi le render. -- the ternary is necessary because the class show the render, then ask then reshow the render*/
+    const pokeData = this.props.pokeData[0];
     return (
       <div>
-        {this.state.data.id ? (
+        {pokeData.name ? (
           <div className="global">
             <img
-              src={this.state.data.sprites.front_default}
-              alt={this.state.data.name}
+              src={pokeData.sprites.front_default}
+              alt={pokeData.name}
               className="carte"
             />
             <p className="titre">
-              {this.state.data.id} {this.state.data.name}
+              {pokeData.id} {pokeData.name}
             </p>
           </div>
         ) : (

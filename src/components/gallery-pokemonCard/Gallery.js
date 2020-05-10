@@ -10,12 +10,12 @@ class Gallery extends React.Component {
     super(props);
     this.state = {
       pokemons: [],
-      allPokeData: [],
+      pokeDatas: [],
       filteredPokemons: [],
       i: 0,
       j: 50,
       searchBar: "",
-      type1: "",
+      type1: "fire",
       type2: "",
       foo: true,
       neg: [],
@@ -62,7 +62,7 @@ class Gallery extends React.Component {
           allPokeData.push(data);
         });
     }
-    this.setState({ PokeDatas: allPokeData });
+    this.setState({ pokeDatas: allPokeData });
     console.log("allPokeData", allPokeData);
   }
 
@@ -94,24 +94,40 @@ class Gallery extends React.Component {
   }
 
   applyFiltre() {
-    console.log("apply", this.state.allPokeData[0]);
+    console.log("apply", this.state.pokeDatas[0].types[0].type.name);
     if (this.state.type2) {
-      const filtered = this.state.allPokeData.filter((pokemon) => {
+      const filtered = this.state.pokeDatas.filter((pokemon) => {
         return (
-          pokemon.name.toLowerCase().includes(this.state.searchBar) &&
-          (pokemon.types[0].type.name === this.state.type1 ||
-            pokemon.types[1].type.name === this.state.type2) &&
-          (pokemon.types[0].type.name === this.state.type1 ||
-            pokemon.types[1].type.name === this.state.type2)
+          pokemon.name
+            .toLowerCase()
+            .includes(this.state.searchBar.toLowerCase()) &&
+          (pokemon.types[0].type.name
+            .toLowerCase()
+            .includes(this.state.type1.toLowerCase()) ||
+            pokemon.types[1].type.name
+              .toLowerCase()
+              .includes(this.state.type2.toLowerCase())) &&
+          (pokemon.types[0].type.name
+            .toLowerCase()
+            .includes(this.state.type1.toLowerCase()) ||
+            pokemon.types[1].type.name
+              .toLowerCase()
+              .includes(this.state.type2.toLowerCase()))
         );
       });
       this.setState({ filteredPokemons: filtered });
     } else {
-      const filtered = this.state.allPokeData.filter((pokemon) => {
+      const filtered = this.state.pokeDatas.filter((pokemon) => {
         return (
-          pokemon.name.toLowerCase().includes(this.state.searchBar) &&
-          (pokemon.types[0].type.name === this.state.type1 ||
-            pokemon.types[0].type.name === this.state.type2)
+          pokemon.name
+            .toLowerCase()
+            .includes(this.state.searchBar.toLowerCase()) &&
+          (pokemon.types[0].type.name
+            .toLowerCase()
+            .includes(this.state.type1.toLowerCase()) ||
+            pokemon.types[0].type.name
+              .toLowerCase()
+              .includes(this.state.type2.toLowerCase()))
         );
       });
       this.setState({ filteredPokemons: filtered });
@@ -147,15 +163,19 @@ class Gallery extends React.Component {
         <button onClick={() => this.testNeg()}>Test</button>
         <button onClick={() => this.applyFiltre()}>Filtre</button>
         <div className="pokemon-cards">
-          {this.state.filteredPokemons
-            .slice(this.state.i, this.state.j)
-            .map((pokemon, i) => {
-              return (
-                <article key={i}>
-                  <PokemonCard {...pokemon} {...this.state.PokeDatas} />
-                </article>
-              );
-            })}
+          {this.state.pokeDatas &&
+            this.state.filteredPokemons
+              .slice(this.state.i, this.state.j)
+              .map((pokemon, i) => {
+                let pokeData = this.state.pokeDatas.filter(
+                  (data) => data.name === pokemon.name
+                );
+                return (
+                  <article key={i}>
+                    <PokemonCard pokeData={[...pokeData]} />
+                  </article>
+                );
+              })}
         </div>
         <div className="buttonGallery">
           <button onClick={this.lessOne ? this.lessOne : <p>clic again</p>}>
