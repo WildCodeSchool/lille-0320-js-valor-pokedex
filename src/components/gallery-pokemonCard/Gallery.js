@@ -10,6 +10,7 @@ class Gallery extends React.Component {
     super(props);
     this.state = {
       pokemons: [],
+      allPokeData: [],
       filteredPokemons: [],
       i: 0,
       j: 50,
@@ -27,6 +28,7 @@ class Gallery extends React.Component {
   //appelle l'APi après le premier rendu pour éviter la page blanche au démarrage -- call the API after the first render to avoid the white page
   componentDidMount() {
     this.getPokemon();
+    this.getPokeData();
   }
 
   getPokemon() {
@@ -46,6 +48,22 @@ class Gallery extends React.Component {
           filteredPokemons: data,
         });
       });
+  }
+
+  getPokeData() {
+    const allPokeData = [];
+    for (let i = 1; i < 101; i++) {
+      axios
+        .get(`https://pokeapi.co/api/v2/pokemon/${i}`)
+        // extrait l'url du pokemon pris avant dans gallery -- taking pokemon's url from gallery
+        .then((response) => response.data)
+        // utilise le data pour mettre à jour le state -- using data to up to date the state
+        .then((data) => {
+          allPokeData.push(data);
+        });
+    }
+    this.setState({ PokeDatas: allPokeData });
+    console.log("allPokeData", allPokeData);
   }
 
   /*
@@ -76,9 +94,9 @@ class Gallery extends React.Component {
   }
 
   applyFiltre() {
-    console.log("apply", this.state.pokemons[0]); //Ne fonctionne pas car l'appel d'api ne récupère que nom et url. Il faut faire remonter appel api de PokemonCard.js
+    console.log("apply", this.state.allPokeData[0]);
     if (this.state.type2) {
-      const filtered = this.state.pokemons.filter((pokemon) => {
+      const filtered = this.state.allPokeData.filter((pokemon) => {
         return (
           pokemon.name.toLowerCase().includes(this.state.searchBar) &&
           (pokemon.types[0].type.name === this.state.type1 ||
@@ -89,7 +107,7 @@ class Gallery extends React.Component {
       });
       this.setState({ filteredPokemons: filtered });
     } else {
-      const filtered = this.state.pokemons.filter((pokemon) => {
+      const filtered = this.state.allPokeData.filter((pokemon) => {
         return (
           pokemon.name.toLowerCase().includes(this.state.searchBar) &&
           (pokemon.types[0].type.name === this.state.type1 ||
@@ -101,7 +119,7 @@ class Gallery extends React.Component {
   }
 
   testNeg() {
-    console.log("neg", !this.state.neg);
+    console.log("neg", this.state.neg === true);
   }
 
   addOne = () => {
@@ -131,10 +149,10 @@ class Gallery extends React.Component {
         <div className="pokemon-cards">
           {this.state.filteredPokemons
             .slice(this.state.i, this.state.j)
-            .map((pokemon) => {
+            .map((pokemon, i) => {
               return (
-                <article>
-                  <PokemonCard {...pokemon} />
+                <article key={i}>
+                  <PokemonCard {...pokemon} {...this.state.PokeDatas} />
                 </article>
               );
             })}
