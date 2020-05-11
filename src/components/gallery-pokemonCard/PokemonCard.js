@@ -42,18 +42,17 @@ class PokemonCard extends React.Component {
 
     /*on fait un ternaire pour que la carte s'applique à chaque pokemon. Si le pokemon à un id, renvoi la carte, sinon renvoi "loading" -- we create a ternary to let the card applying for all the pokemon. if the pokemon have an id, show the card, else show "loading"
     le ternaire est nécessaire car la class renvoi le render, puis fait appel à l'api puis re renvoi le render. -- the ternary is necessary because the class show the render, then ask then reshow the render*/
-    const pokeData = this.props.pokeData[0];
     return (
       <div>
-        {pokeData.name ? (
+        {this.props.pokeData ? (
           <div className="global">
             <img
-              src={pokeData.sprites.front_default}
-              alt={pokeData.name}
+              src={this.props.pokeData[0].sprites.front_default}
+              alt={this.props.pokeData[0].name}
               className="carte"
             />
             <p className="titre">
-              {pokeData.id} {pokeData.name}
+              {this.props.pokeData[0].id} {this.props.pokeData[0].name}
             </p>
           </div>
         ) : (
