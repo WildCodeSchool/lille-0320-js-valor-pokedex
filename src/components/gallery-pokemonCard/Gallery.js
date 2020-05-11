@@ -79,7 +79,17 @@ pokedexHandleChange = () => {
             }
           >
             {/*appelle RechercheNom en envoyant les props de rechercheHandleChange -- call RechercheNom sending rechercheHandleChange's props*/}
-            <RechercheNom rechercheHandleChange={this.rechercheHandleChange} />
+            <div
+              className={
+                this.state.pokedexActive
+                  ? "searchByName-active"
+                  : "searchbyName-desactive"
+              }
+            >
+              <RechercheNom
+                rechercheHandleChange={this.rechercheHandleChange}
+              />
+            </div>
             {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
           </div>
           <div className="button hideButton">
@@ -92,14 +102,15 @@ pokedexHandleChange = () => {
             ></div>
             <div className="hideButton">
               <div
+                className="txtButton"
                 onClick={(event) => {
                   const hide = !this.state.pokedexActive;
                   this.setState({ pokedexActive: hide });
                 }}
               >
                 {this.state.pokedexActive
-                  ? "DESACTIVE ADVANCED POKEDEX"
-                  : "ACTIVE ADVANCED POKEDEX"}
+                  ? "DISABLE ADVANCED POKEDEX RESEARCHES"
+                  : "ENABLE ADVANCED POKEDEX RESEARCHES"}
               </div>
             </div>
           </div>

@@ -1,19 +1,39 @@
+@import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
+
 .recherche-nom {
   /* border: 5px solid green;*/
-  border-top: 15px solid #363636;
-  transition: 0.5s;
+  /*border-top: 15px solid #363636;*/
+  border-top: 10px solid #fecd19;
+  background-color: #363636;
+  background-image: url("/img/bg-pokeball.png");
 }
 .pokedex {
-  display: block;
+  /*display: block;*/
   border-bottom: 15px solid #363636;
+
   /* background-image: url("/img/bg-pokeball.png");
   background-color: #363636;*/
   /* border: 5px solid orange;*/
+  /*animation: show 1s ease-in-out;
+  animation-iteration-count: infinite;
+  animation-delay: 0s;
+  overflow: hidden;
+  z-index: -10;*/
+  height: 250px;
+  transition: 1s;
 }
 
 .pokedex-desactive {
+  height: 0px;
+  transition: 1s;
+}
+
+.searchbyName-active {
+  display: block;
+}
+
+.searchbyName-desactive {
   display: none;
-  border: 5px solid blue;
 }
 
 .button {
@@ -31,10 +51,15 @@
   margin-left: auto;
   margin-right: auto;
   color: #e0c718;
-
+  font-family: "Aldrich", sans-serif;
   display: flex;
   justify-content: center;
   position: absolute;
+}
+
+.txtButton {
+  width: 270px;
+  padding-top: 0.7vh;
 }
 
 .shape {
