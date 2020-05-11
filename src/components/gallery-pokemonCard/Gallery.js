@@ -56,18 +56,28 @@ class Gallery extends React.Component {
 
     //met à jour les states de la valeur recherchée et du tableau filtré -- update states of search value and filtered array
     // Ne pas faire plusieurs setStates quand on peut éviter: chacun d'entre eux va redéclencher un render -- Avoid to call setState multiple times as much as possible: each one of them call render()
+    // i: 0 et j:50 permettent de revenir à la première parge lors de la recherche. Ils sont remis à leurs valeurs de défauts -- i: 0 and j: 50 return to the first parge during the search. They are reset to their default values
     this.setState({
       filteredPokemons: filtered,
+      i: 0,
+      j: 50,
     });
   }
-
+  //fonction addOne permet d'incrémenter de 50 i et j pour charger 50 nouveaux pokemons -- the method addOne increments i and j of 50 to load up the next 50 pokémon
+  //si la longueur de filteredPokemons +50 est supérieur à j+50, incrémente de 50 pokemons, sinon tu ne charges plus rien -- if filteredPokemons.length plus 50 is bigger than j plus 50, we can load more pokémon: else, we can't, so we don't
   addOne = () => {
-    this.setState({ i: this.state.i + 50 });
-    this.setState({ j: this.state.j + 50 });
+    if (this.state.filteredPokemons.length + 50 > this.state.j + 50) {
+      this.setState({ i: this.state.i + 50 });
+      this.setState({ j: this.state.j + 50 });
+    }
   };
+  //fonction lessOne permet de décrémenter de 50 i et j pour charger les 50 pokemons précédents -- lessOne function allows to decrement by 50 i and j to load the previous 50 pokemons
+  //si i est différent de 0, décrémente de 50 pokémons. Sinon tu ne charges plus rien -- if i is different from 0, decrements by 50 pokémons. Otherwise you don't charge anything
   lessOne = () => {
-    this.setState({ i: this.state.i - 50 });
-    this.setState({ j: this.state.j - 50 });
+    if (this.state.i !== 0) {
+      this.setState({ i: this.state.i - 50 });
+      this.setState({ j: this.state.j - 50 });
+    }
   };
 
   render() {
@@ -92,9 +102,7 @@ class Gallery extends React.Component {
             })}
         </div>
         <div className="buttonGallery">
-          <button onClick={this.lessOne ? this.lessOne : <p>clic again</p>}>
-            Prev.
-          </button>
+          <button onClick={this.lessOne}>Prev</button>
           <button onClick={this.addOne}>Next</button>
         </div>
       </div>
