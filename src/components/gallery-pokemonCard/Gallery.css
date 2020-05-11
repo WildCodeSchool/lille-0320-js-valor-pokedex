@@ -54,7 +54,7 @@
   width: 70px;
   height: 70px;
   border: 0;
-  margin: 15px 50px;
+  margin: 15px 60px;
   padding-top: 25px;
   background: rgb(204, 0, 0);
   border: 2px solid #000;
@@ -66,7 +66,48 @@
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-
+.button1 {
+  animation: shake 1.5s ease-out infinite;
+  cursor: pointer;
+  transform-origin: center bottom;
+}
+.button2 {
+  animation: shake 1.7s ease-in-out infinite;
+  cursor: pointer;
+  transform-origin: center bottom;
+}
 .buttonGallery button:hover {
   color: rgb(0, 0, 0);
+}
+.buttonGallery button:active {
+  color: rgb(155, 0, 0);
+}
+
+/* animation on pokeball */
+@keyframes shake {
+  0% {
+    transform: rotate(5deg);
+  }
+  5% {
+    transform: rotate(-5deg);
+  }
+  10% {
+    transform: rotate(5deg);
+  }
+  15% {
+    transform: rotate(-5deg);
+  }
+  20% {
+    transform: rotate(5deg);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.selected {
+  animation: shake 1.5s ease-in infinite;
 }
