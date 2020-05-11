@@ -1,24 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
 
 .footer {
-
   width: 100%;
   margin: 0;
   display: flex;
   justify-content: center;
   height: 300px;
   background-color: #f0f0f0;
-
-
 }
 
-
 .valorLogo {
-
   height: 10vh;
   position: absolute;
   bottom: -16vh;
-
 }
 
 .footerLinks {
@@ -30,43 +24,23 @@
   flex-wrap: wrap;
   font-size: 1.2em;
   color: darkgray;
-
-
-  
 }
 
-
-
-.projets, .team1, .team2 {
+.projets,
+.team1,
+.team2 {
   width: 500px;
   height: 80%;
   text-align: center;
   display: flex;
   justify-content: space-around;
-
-
 }
 
 .projets ul {
   list-style: none;
-
 }
 
-.projets h3, .team h3 {
+.projets h3,
+.team h3 {
   margin-bottom: 0.5em;
-
-
 }
-
-
-
-/*responsive*/
-/*@media screen and (min-width: 200px) and (max-width: 800px) {
-  .footer {
-    height: 8vh;
-  }
-
-  .valor {
-    height: 5vh;
-  }
-}*/
