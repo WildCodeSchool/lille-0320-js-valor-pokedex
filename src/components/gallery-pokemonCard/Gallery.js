@@ -60,14 +60,6 @@ class Gallery extends React.Component {
       filteredPokemons: filtered,
     });
   }
-  /*
-pokedexHandleChange = () => {
-  if (this.state.pokedexActive = true) {
-    this.setState({pokedexActive : false})
-  } else {
-    this.setState({pokedexActive : true})
-  }
-};*/
 
   render() {
     return (
