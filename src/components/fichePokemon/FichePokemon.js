@@ -43,9 +43,9 @@ function FichePokemon({ pokemon }) {
               <img src={urlSprites} alt={pokemon.id} className="img" />
             </div>
             <div>
-              <div className="sousTitre">Main information </div>
+              <div className="sousTitre">Main information</div>
               <p>Number: {pokemon.id}</p>
-              <p>types:</p>
+              <p>Types:</p>
               {pokemon.types.map((obj) => {
                 return (
                   <p className={("types", obj.type.name)} key={obj.type.name}>
@@ -53,8 +53,8 @@ function FichePokemon({ pokemon }) {
                   </p>
                 );
               })}
-              <p>height: {pokemon.height}</p>
-              <p>weight: {pokemon.weight}</p>
+              <p>Height: {pokemon.height / 10} m</p>
+              <p>Weight: {pokemon.weight / 10} kg</p>
             </div>
           </div>
         </div>
