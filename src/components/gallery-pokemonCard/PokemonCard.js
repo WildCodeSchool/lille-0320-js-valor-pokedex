@@ -6,9 +6,7 @@ class PokemonCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: props.name,
-      url: props.url,
-      data: {},
+      data: {}, // Si le state n'est mis à jour que dans le constructeur, les infos affichées qui en dépendent ne changeront jamais
     };
   }
 
@@ -16,10 +14,17 @@ class PokemonCard extends React.Component {
     this.getPokemon();
   }
 
+  componentDidUpdate(oldProps) {
+    // Boucle infinie ! Chaque cDU declenche un setState, qui declenche un render et un cDU, qui... (J'ai du reboot mon PC encore -_-)
+    if (oldProps.url !== this.props.url) {
+      this.getPokemon();
+    }
+  }
+
   getPokemon() {
     //demande de l'API -- API request
     axios
-      .get(this.state.url)
+      .get(this.props.url)
       // extrait l'url du pokemon pris avant dans gallery -- taking pokemon's url from gallery
       .then((response) => response.data)
       // utilise le data pour mettre à jour le state -- using data to up to date the state
