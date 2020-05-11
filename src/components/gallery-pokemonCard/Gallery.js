@@ -14,7 +14,7 @@ class Gallery extends React.Component {
       i: 0,
       j: 50,
       searchBar: "",
-      type1: "fire",
+      type1: "",
       type2: "",
     };
     this.filtreHandleChange = this.filtreHandleChange.bind(this);
@@ -74,10 +74,9 @@ class Gallery extends React.Component {
   }
   //filtre par type
   applyFiltre() {
-    console.log("rentré");
     let filtered = this.state.pokemons;
     if (!this.state.searchBar && !this.state.type1 && !this.state.type2) {
-      return this.setState({ filteredPokemons: this.state.pokemons });
+      return this.setState({ filteredPokemons: filtered });
     } else {
       if (this.state.searchBar) {
         filtered = filtered.filter((pokemon) => {
@@ -85,19 +84,22 @@ class Gallery extends React.Component {
             .toLowerCase()
             .includes(this.state.searchBar.toLowerCase());
         });
+        this.setState({ filteredPokemons: filtered });
       }
       if (this.state.type1) {
-        console.log("rentré 2");
         axios
           .get(`https://pokeapi.co/api/v2/type/${this.state.type1}`)
           .then((response) => response.data)
           .then((data) => {
             filtered = filtered.filter((onePokemon) => {
-              return data.pokemon.find((found) => {
-                console.log("egale", found.pokemon.name === onePokemon.name);
-                return found.pokemon.name === onePokemon.name;
-              });
+              let finding = data.pokemon
+                .map((found) => {
+                  return found.pokemon.name === onePokemon.name;
+                })
+                .find((found) => found === true);
+              return finding;
             });
+            this.setState({ filteredPokemons: filtered });
           });
       }
       if (this.state.type2) {
@@ -106,13 +108,16 @@ class Gallery extends React.Component {
           .then((response) => response.data)
           .then((data) => {
             filtered = filtered.filter((onePokemon) => {
-              return data.pokemon.find((found) => {
-                return found.pokemon.name === onePokemon.name;
-              });
+              let finding = data.pokemon
+                .map((found) => {
+                  return found.pokemon.name === onePokemon.name;
+                })
+                .find((found) => found === true);
+              return finding;
             });
+            this.setState({ filteredPokemons: filtered });
           });
       }
-      this.setState({ filteredPokemons: filtered });
     }
   }
 
@@ -126,6 +131,7 @@ class Gallery extends React.Component {
   };
 
   render() {
+    console.log("filteredPokemons", this.state.filteredPokemons);
     return (
       <div className="gallery">
         <div className="recherche-nom">
