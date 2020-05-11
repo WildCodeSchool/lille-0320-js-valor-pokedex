@@ -153,17 +153,15 @@ class Gallery extends React.Component {
         </div>
         <button onClick={() => this.applyFiltre()}>Filtre</button>
         <div className="pokemon-cards">
-          {
-            this.state.filteredPokemons
-              .slice(this.state.i, this.state.j)
-              .map((pokemon, i) => {
-                
-                return (
-                  <article key={i}>
-                    <PokemonCard pokemon={...pokemon} />
-                  </article>
-                );
-              })}
+          {this.state.filteredPokemons
+            .slice(this.state.i, this.state.j)
+            .map((pokemon, i) => {
+              return (
+                <article key={i}>
+                  <PokemonCard {...pokemon} />
+                </article>
+              );
+            })}
         </div>
         <div className="buttonGallery">
           <button onClick={this.lessOne ? this.lessOne : <p>clic again</p>}>
