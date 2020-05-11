@@ -27,13 +27,6 @@
   align-content: flex-start;
 }
 
-.recherche-nom {
-  background-image: url("/img/bg-pokeball.png");
-  background-color: #363636;
-  border-top: 10px solid #ebc715;
-  border-bottom: 10px solid #ebc715;
-}
-
 .pokedex {
   background-image: url("/img/pokedex.png");
   height: 200px;
