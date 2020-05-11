@@ -10,7 +10,6 @@ class Gallery extends React.Component {
     super(props);
     this.state = {
       pokemons: [],
-      pokeDatas: [],
       filteredPokemons: [],
       i: 0,
       j: 50,
@@ -18,7 +17,6 @@ class Gallery extends React.Component {
       type1: "fire",
       type2: "",
     };
-    //this.rechercheHandleChange = this.rechercheHandleChange.bind(this);
     this.filtreHandleChange = this.filtreHandleChange.bind(this);
     this.applyFiltre = this.applyFiltre.bind(this);
   }
@@ -26,7 +24,6 @@ class Gallery extends React.Component {
   //appelle l'APi après le premier rendu pour éviter la page blanche au démarrage -- call the API after the first render to avoid the white page
   componentDidMount() {
     this.getPokemon();
-    /*this.getPokeData();*/
   }
 
   getPokemon() {
@@ -47,22 +44,6 @@ class Gallery extends React.Component {
         });
       });
   }
-
-  /*getPokeData() {
-    const allPokeData = [];
-    for (let i = 1; i < 101; i++) {
-      axios
-        .get(`https://pokeapi.co/api/v2/pokemon/${i}`)
-        // extrait l'url du pokemon pris avant dans gallery -- taking pokemon's url from gallery
-        .then((response) => response.data)
-        // utilise le data pour mettre à jour le state -- using data to up to date the state
-        .then((data) => {
-          allPokeData.push(data);
-        });
-    }
-    this.setState({ pokeDatas: allPokeData });
-    console.log("allPokeData", allPokeData);
-  }*/
 
   /*
   //récupère les caractères tapés dans la barre de recherche -- fetch input entered in the searchbar
@@ -86,48 +67,51 @@ class Gallery extends React.Component {
     });
   }
   */
+
   //compare la valeur de la cible avec le nom appelé
   filtreHandleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
   //filtre par type
   applyFiltre() {
-    console.log("apply", this.state.pokeDatas[0].types[0].type.name);
-    if (this.state.type2) {
-      const filtered = this.state.pokeDatas.filter((pokemon) => {
-        return (
-          pokemon.name
-            .toLowerCase()
-            .includes(this.state.searchBar.toLowerCase()) &&
-          (pokemon.types[0].type.name
-            .toLowerCase()
-            .includes(this.state.type1.toLowerCase()) ||
-            pokemon.types[1].type.name
-              .toLowerCase()
-              .includes(this.state.type2.toLowerCase())) &&
-          (pokemon.types[0].type.name
-            .toLowerCase()
-            .includes(this.state.type1.toLowerCase()) ||
-            pokemon.types[1].type.name
-              .toLowerCase()
-              .includes(this.state.type2.toLowerCase()))
-        );
-      });
-      this.setState({ filteredPokemons: filtered });
+    console.log("rentré");
+    let filtered = this.state.pokemons;
+    if (!this.state.searchBar && !this.state.type1 && !this.state.type2) {
+      return this.setState({ filteredPokemons: this.state.pokemons });
     } else {
-      const filtered = this.state.pokeDatas.filter((pokemon) => {
-        return (
-          pokemon.name
+      if (this.state.searchBar) {
+        filtered = filtered.filter((pokemon) => {
+          return pokemon.name
             .toLowerCase()
-            .includes(this.state.searchBar.toLowerCase()) &&
-          (pokemon.types[0].type.name
-            .toLowerCase()
-            .includes(this.state.type1.toLowerCase()) ||
-            pokemon.types[0].type.name
-              .toLowerCase()
-              .includes(this.state.type2.toLowerCase()))
-        );
-      });
+            .includes(this.state.searchBar.toLowerCase());
+        });
+      }
+      if (this.state.type1) {
+        console.log("rentré 2");
+        axios
+          .get(`https://pokeapi.co/api/v2/type/${this.state.type1}`)
+          .then((response) => response.data)
+          .then((data) => {
+            filtered = filtered.filter((onePokemon) => {
+              return data.pokemon.find((found) => {
+                console.log("egale", found.pokemon.name === onePokemon.name);
+                return found.pokemon.name === onePokemon.name;
+              });
+            });
+          });
+      }
+      if (this.state.type2) {
+        axios
+          .get(`https://pokeapi.co/api/v2/type/${this.state.type2}`)
+          .then((response) => response.data)
+          .then((data) => {
+            filtered = filtered.filter((onePokemon) => {
+              return data.pokemon.find((found) => {
+                return found.pokemon.name === onePokemon.name;
+              });
+            });
+          });
+      }
       this.setState({ filteredPokemons: filtered });
     }
   }
@@ -142,13 +126,12 @@ class Gallery extends React.Component {
   };
 
   render() {
-    console.log("test", this.state.pokeDatas);
     return (
       <div className="gallery">
         <div className="recherche-nom">
           <div className="pokedex">
             {/*appelle RechercheNom en envoyant les props de rechercheHandleChange -- call RechercheNom sending rechercheHandleChange's props*/}
-            <RechercheNom rechercheHandleChange={this.rechercheHandleChange} />
+            <RechercheNom filtreHandleChange={this.filtreHandleChange} />
             {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
           </div>
         </div>
