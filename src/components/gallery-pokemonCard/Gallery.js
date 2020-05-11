@@ -88,11 +88,11 @@ class Gallery extends React.Component {
     });
   }
   */
-
+  //compare la valeur de la cible avec le nom appelé
   filtreHandleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
-
+  //filtre par type
   applyFiltre() {
     console.log("apply", this.state.pokeDatas[0].types[0].type.name);
     if (this.state.type2) {
@@ -148,6 +148,7 @@ class Gallery extends React.Component {
   };
 
   render() {
+    console.log("test", this.state.pokeDatas);
     return (
       <div className="gallery">
         <div className="recherche-nom">
@@ -167,12 +168,13 @@ class Gallery extends React.Component {
             this.state.filteredPokemons
               .slice(this.state.i, this.state.j)
               .map((pokemon, i) => {
-                let pokeData = this.state.pokeDatas.filter(
+                let pokeData = this.state.pokeDatas.find(
                   (data) => data.name === pokemon.name
                 );
+                console.log("juste ici", pokeData);
                 return (
                   <article key={i}>
-                    <PokemonCard pokeData={[...pokeData]} />
+                    <PokemonCard pokeData={pokeData} />
                   </article>
                 );
               })}
