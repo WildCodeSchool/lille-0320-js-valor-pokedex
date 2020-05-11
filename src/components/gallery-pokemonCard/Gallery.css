@@ -1,18 +1,27 @@
 .gallery {
-
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
   padding: 0;
-
   background-image: url("/img/background-bottom.jpg");
-
   background-size: 100% 100%;
   background-repeat: no-repeat;
   height: 80vh;
   width: 100%;
   overflow: hidden;
 }
+
+.bloc-gallery {
+  background-color: rgba(255, 255, 255, 0.432);
+  width: 85vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  overflow: auto;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  border-radius: 20px;
 
 .pokemon-cards {
   padding: 0 50px;
