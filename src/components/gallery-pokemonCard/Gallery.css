@@ -43,6 +43,7 @@
   margin-right: 18%;
   padding: 10px;
 }
+
 /*Buttons Next and Previous*/
 .buttonGallery {
   display: flex;
@@ -51,34 +52,40 @@
 
 .buttonGallery button {
   border-radius: 50%;
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   border: 0;
-  margin: 15px 60px;
-  padding-top: 25px;
+  margin: 0 60px 40px 60px;
+  padding-top: 20px;
   background: rgb(204, 0, 0);
-  border: 2px solid #000;
+  border: 1px solid #000;
   color: rgb(117, 117, 117);
   font-weight: bold;
-  font-size: 12px;
+  font-size: 10px;
   text-transform: uppercase;
   background-image: url(/img/pokeball.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
+
 .button1 {
   animation: shake 1.5s ease-out infinite;
   cursor: pointer;
   transform-origin: center bottom;
+  box-shadow: 2px 1px 5px rgb(53, 53, 53);
 }
+
 .button2 {
   animation: shake 1.7s ease-in-out infinite;
   cursor: pointer;
   transform-origin: center bottom;
+  box-shadow: 2px 1px 5px rgb(53, 53, 53);
 }
+
 .buttonGallery button:hover {
   color: rgb(0, 0, 0);
 }
+
 .buttonGallery button:active {
   color: rgb(155, 0, 0);
 }
@@ -108,6 +115,14 @@
   }
 }
 
-.selected {
-  animation: shake 1.5s ease-in infinite;
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
 }
