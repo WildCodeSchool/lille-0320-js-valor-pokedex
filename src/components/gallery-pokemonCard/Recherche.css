@@ -1,24 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
 
 .recherche-nom {
-  /* border: 5px solid green;*/
-  /*border-top: 15px solid #363636;*/
-  border-top: 10px solid #fecd19;
+  border-top: 10px solid #363636;
   background-color: #363636;
   background-image: url("/img/bg-pokeball.png");
 }
 .pokedex {
-  /*display: block;*/
   border-bottom: 15px solid #363636;
-
-  /* background-image: url("/img/bg-pokeball.png");
-  background-color: #363636;*/
-  /* border: 5px solid orange;*/
-  /*animation: show 1s ease-in-out;
-  animation-iteration-count: infinite;
-  animation-delay: 0s;
-  overflow: hidden;
-  z-index: -10;*/
   height: 250px;
   transition: 1s;
 }
@@ -73,4 +61,19 @@
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
   border-bottom: none;
+}
+
+@media (max-width: 640px) {
+  .pokedex {
+    height: 160px;
+    margin-top: 70px;
+  }
+  .pokedex-desactive {
+    background-color: #363636;
+    padding-top: 100px;
+  }
+
+  .shape {
+    width: 100%;
+  }
 }
