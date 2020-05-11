@@ -190,4 +190,29 @@
     flex-direction: column;
     align-items: center;
   }
+  .types,
+  .fire,
+  .poison,
+  .grass,
+  .water,
+  .fighting,
+  .flying,
+  .normal,
+  .ground,
+  .rock,
+  .bug,
+  .ghost,
+  .steel,
+  .electric,
+  .psychic,
+  .ice,
+  .dragon,
+  .dark,
+  .fairy,
+  .unknown,
+  .shadow {
+    width: 7.5vh;
+
+    font-size: 0.6em;
+  }
 }

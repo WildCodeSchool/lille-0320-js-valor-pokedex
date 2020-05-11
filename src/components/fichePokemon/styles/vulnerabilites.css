@@ -63,4 +63,10 @@
   .vulnecol {
     width: 14.8vw;
   }
+  .vulneUl {
+    width: 15vw;
+  }
+  .effective {
+    font-size: 0.6em;
+  }
 }
