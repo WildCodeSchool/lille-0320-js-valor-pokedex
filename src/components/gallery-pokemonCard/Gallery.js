@@ -101,9 +101,13 @@ class Gallery extends React.Component {
               );
             })}
         </div>
-        <div className="buttonGallery">
-          <button onClick={this.lessOne}>Prev</button>
-          <button onClick={this.addOne}>Next</button>
+        <div className="buttonGallery indicator">
+          <button className="button1" onClick={this.lessOne}>
+            Prev.
+          </button>
+          <button className="button2" onClick={this.addOne}>
+            Next
+          </button>
         </div>
       </div>
     );
