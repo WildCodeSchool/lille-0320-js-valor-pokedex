@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import "./PokemonCard.css";
-
 class PokemonCard extends React.Component {
   constructor(props) {
     super(props);

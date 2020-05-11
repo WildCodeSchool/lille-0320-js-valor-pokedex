@@ -17,8 +17,6 @@ class Gallery extends React.Component {
       searchBar: "",
       type1: "fire",
       type2: "",
-      foo: true,
-      neg: [],
     };
     //this.rechercheHandleChange = this.rechercheHandleChange.bind(this);
     this.filtreHandleChange = this.filtreHandleChange.bind(this);
@@ -28,7 +26,7 @@ class Gallery extends React.Component {
   //appelle l'APi après le premier rendu pour éviter la page blanche au démarrage -- call the API after the first render to avoid the white page
   componentDidMount() {
     this.getPokemon();
-    this.getPokeData();
+    /*this.getPokeData();*/
   }
 
   getPokemon() {
@@ -50,7 +48,7 @@ class Gallery extends React.Component {
       });
   }
 
-  getPokeData() {
+  /*getPokeData() {
     const allPokeData = [];
     for (let i = 1; i < 101; i++) {
       axios
@@ -64,7 +62,7 @@ class Gallery extends React.Component {
     }
     this.setState({ pokeDatas: allPokeData });
     console.log("allPokeData", allPokeData);
-  }
+  }*/
 
   /*
   //récupère les caractères tapés dans la barre de recherche -- fetch input entered in the searchbar
@@ -134,10 +132,6 @@ class Gallery extends React.Component {
     }
   }
 
-  testNeg() {
-    console.log("neg", this.state.neg === true);
-  }
-
   addOne = () => {
     this.setState({ i: this.state.i + 50 });
     this.setState({ j: this.state.j + 50 });
@@ -158,26 +152,17 @@ class Gallery extends React.Component {
             {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
           </div>
         </div>
-        <button onClick={() => this.setState({ foo: !this.state.foo })}>
-          State
-        </button>
-        <button onClick={() => this.testNeg()}>Test</button>
         <button onClick={() => this.applyFiltre()}>Filtre</button>
         <div className="pokemon-cards">
-          {this.state.pokeDatas &&
-            this.state.filteredPokemons
-              .slice(this.state.i, this.state.j)
-              .map((pokemon, i) => {
-                let pokeData = this.state.pokeDatas.find(
-                  (data) => data.name === pokemon.name
-                );
-                console.log("juste ici", pokeData);
-                return (
-                  <article key={i}>
-                    <PokemonCard pokeData={pokeData} />
-                  </article>
-                );
-              })}
+          {this.state.filteredPokemons
+            .slice(this.state.i, this.state.j)
+            .map((pokemon, i) => {
+              return (
+                <article key={i}>
+                  <PokemonCard {...pokemon} />
+                </article>
+              );
+            })}
         </div>
         <div className="buttonGallery">
           <button onClick={this.lessOne ? this.lessOne : <p>clic again</p>}>
