@@ -125,34 +125,69 @@ class Vulnerabilities extends React.Component {
     //we return the final code for the component to display
     return (
       <div className="table">
-        <ul>
-          <p>4X Effectiveness</p>
+        <ul className="vulneUl right-border eff400">
+          <p className="effective">
+            Very Effective
+            <br /> (x4)
+          </p>
           {effect400.map((type) => {
-            return <li key={type}>{type}</li>;
+            return (
+              <li key={type} className={("types", type)}>
+                {type}
+              </li>
+            );
           })}
         </ul>
-        <ul>
-          <p>2X Effectiveness</p>
+        <ul className="vulneUl right-border left-border eff200">
+          <p className="effective">
+            Super Effective
+            <br /> (x2)
+          </p>
           {effect200.map((type) => {
-            return <li key={type}>{type}</li>;
+            return (
+              <li key={type} className={("types", type)}>
+                {type}
+              </li>
+            );
           })}
         </ul>
-        <ul>
-          <p>0.5X Effectiveness</p>
+        <ul className="vulneUl right-border left-border eff50">
+          <p className="effective">
+            Not very
+            <br /> effective (x0.5)
+          </p>
           {effect50.map((type) => {
-            return <li key={type}>{type}</li>;
+            return (
+              <li key={type} className={("types", type)}>
+                {type}
+              </li>
+            );
           })}
         </ul>
-        <ul>
-          <p>0.25X Effectiveness</p>
+        <ul className="vulneUl right-border left-border eff25">
+          <p className="effective">
+            Not effective
+            <br /> (x0.25)
+          </p>
           {effect25.map((type) => {
-            return <li key={type}>{type}</li>;
+            return (
+              <li key={type} className={("types", type)}>
+                {type}
+              </li>
+            );
           })}
         </ul>
-        <ul>
-          <p>Immunity</p>
+        <ul className="vulneUl left-border eff0">
+          <p className="effective">
+            Immunity
+            <br /> (x0)
+          </p>
           {effect0.map((type) => {
-            return <li key={type}>{type}</li>;
+            return (
+              <li key={type} className={("types", type)}>
+                {type}
+              </li>
+            );
           })}
         </ul>
       </div>
@@ -168,33 +203,60 @@ class Vulnerabilities extends React.Component {
             this.doubleType()
           ) : (
             <div className="table">
-              <ul>
-                <p>4X Effectiveness</p>
+              <ul className="vulneUl right-border eff400">
+                <p className="effective">
+                  Very Effective
+                  <br /> (x4)
+                </p>
               </ul>
-              <ul>
-                <p>2X Effectiveness</p>
+              <ul className="vulneUl right-border left-border eff200">
+                <p className="effective">
+                  Super Effective
+                  <br /> (x2)
+                </p>
                 {this.state.pokemonType1.damage_relations.double_damage_from.map(
                   (type) => {
-                    return <li key={type.name}>{type.name}</li>;
+                    return (
+                      <li key={type.name} className={("types", type.name)}>
+                        {type.name}
+                      </li>
+                    );
                   }
                 )}
               </ul>
-              <ul>
-                <p>0.5X Effectiveness</p>
+              <ul className="vulneUl right-border left-border eff50">
+                <p className="effective">
+                  Not very
+                  <br /> effective (x0.5)
+                </p>
                 {this.state.pokemonType1.damage_relations.half_damage_from.map(
                   (type) => {
-                    return <li key={type.name}>{type.name}</li>;
+                    return (
+                      <li key={type.name} className={("types", type.name)}>
+                        {type.name}
+                      </li>
+                    );
                   }
                 )}
               </ul>
-              <ul>
-                <p>0.25X Effectiveness</p>
+              <ul className="vulneUl right-border left-border eff25">
+                <p className="effective">
+                  Not effective
+                  <br /> (x0.25)
+                </p>
               </ul>
-              <ul>
-                <p>Immunity</p>
+              <ul className="vulneUl left-border eff0">
+                <p className="effective">
+                  Immunity
+                  <br /> (x0)
+                </p>
                 {this.state.pokemonType1.damage_relations.no_damage_from.map(
                   (type) => {
-                    return <li key={type.name}>{type.name}</li>;
+                    return (
+                      <li key={type.name} className={("types", type.name)}>
+                        {type.name}
+                      </li>
+                    );
                   }
                 )}
               </ul>
