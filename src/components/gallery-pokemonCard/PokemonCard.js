@@ -1,6 +1,6 @@
 import React from "react";
+import axios from "axios";
 import "./PokemonCard.css";
-
 class PokemonCard extends React.Component {
   constructor(props) {
     super(props);
@@ -9,21 +9,18 @@ class PokemonCard extends React.Component {
     };
   }
 
-  /*componentDidMount() {
+  componentDidMount() {
     this.getPokemon();
-  }*/
+  }
 
   componentDidUpdate(oldProps) {
     // Boucle infinie ! Chaque cDU declenche un setState, qui declenche un render et un cDU, qui... (J'ai du reboot mon PC encore -_-)
-    if (oldProps[0].name !== this.props.pokeData[0].name) {
+    if (oldProps.url !== this.props.url) {
       this.getPokemon();
-      console.log("did it");
     }
-    console.log("should have did it");
-    console.log("pokeData", this.props.pokeData[0].name);
   }
 
-  /*getPokemon() {
+  getPokemon() {
     //demande de l'API -- API request
     axios
       .get(this.props.url)
@@ -35,8 +32,7 @@ class PokemonCard extends React.Component {
           data: data,
         });
       });
-  }*/
-
+  }
   render() {
     /*on crée une carte de pokemon qui va afficher la photo, le numéro et le nom de chaque pokemon -- creation of a card that will show a picture, number and name of each pokemon*/
 
@@ -44,15 +40,15 @@ class PokemonCard extends React.Component {
     le ternaire est nécessaire car la class renvoi le render, puis fait appel à l'api puis re renvoi le render. -- the ternary is necessary because the class show the render, then ask then reshow the render*/
     return (
       <div>
-        {this.props.pokeData ? (
+        {this.state.data.id ? (
           <div className="global">
             <img
-              src={this.props.pokeData[0].sprites.front_default}
-              alt={this.props.pokeData[0].name}
+              src={this.state.data.sprites.front_default}
+              alt={this.state.data.name}
               className="carte"
             />
             <p className="titre">
-              {this.props.pokeData[0].id} {this.props.pokeData[0].name}
+              {this.state.data.id} {this.state.data.name}
             </p>
           </div>
         ) : (
