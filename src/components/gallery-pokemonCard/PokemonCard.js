@@ -39,18 +39,45 @@ class PokemonCard extends React.Component {
     /*on fait un ternaire pour que la carte s'applique à chaque pokemon. Si le pokemon à un id, renvoi la carte, sinon renvoi "loading" -- we create a ternary to let the card applying for all the pokemon. if the pokemon have an id, show the card, else show "loading"
     le ternaire est nécessaire car la class renvoi le render, puis fait appel à l'api puis re renvoi le render. -- the ternary is necessary because the class show the render, then ask then reshow the render*/
     return (
-      <div>
+      <div className="allCar">
         {this.state.data.id ? (
           <div className="global">
-            <img
-              src={this.state.data.sprites.front_default}
-              alt={this.state.data.name}
-              className="carte"
-            />
+            <div>
+              {this.state.data.id <= 151 ? (
+                <img src="/img/G1.png" alt="g1" className="badge" />
+              ) : (
+                ""
+              )}
+              {this.state.data.id <= 251 && this.state.data.id > 151 ? (
+                <img src="/img/G2.png" alt="g2" className="badge" />
+              ) : (
+                ""
+              )}
+              {this.state.data.id <= 386 && this.state.data.id > 251 ? (
+                <img src="/img/G3.png" alt="g3" className="badge" />
+              ) : (
+                ""
+              )}
+              {this.state.data.id <= 493 && this.state.data.id > 386 ? (
+                <img src="/img/G4.png" alt="g4" className="badge" />
+              ) : (
+                ""
+              )}
+              {this.state.data.id <= 649 && this.state.data.id > 493 ? (
+                <img src="/img/G5.png" alt="g5" className="badge" />
+              ) : (
+                ""
+              )}
+
+              <img
+                src={this.state.data.sprites.front_default}
+                alt={this.state.data.name}
+                className="carte"
+              />
+            </div>
             <p className="titre">
               {this.state.data.id} {this.state.data.name}
             </p>
-            <div>{this.state.data.id <= 151 ? <img src="/img/" /> : ""}</div>
           </div>
         ) : (
           <div className="global">
