@@ -112,9 +112,9 @@ class Gallery extends React.Component {
             <div className="pokemon-cards">
               {this.state.filteredPokemons.slice(0, 50).map((pokemon) => {
                 return (
-                  <article>
+                  <Link to={`/Pokemon/${pokemon.name}`}>
                     <PokemonCard {...pokemon} />
-                  </article>
+                  </Link>
                 );
               })}
             </div>

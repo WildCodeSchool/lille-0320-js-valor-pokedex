@@ -110,9 +110,7 @@ function FichePokemon({ pokemon }) {
                     array.move_learn_method.name === "level-up"
                   );
                 })
-                .sort((ob1, ob2) => {
-                  return -1;
-                })
+
                 .map((array) => {
                   //renvoi le level_lernead_at de chaque élément
                   return (
