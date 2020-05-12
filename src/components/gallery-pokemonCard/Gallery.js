@@ -137,13 +137,23 @@ class Gallery extends React.Component {
       <div className="gallery">
         <div className="recherche-nom">
           <div className="pokedex">
-            {/*appelle RechercheNom en envoyant les props de rechercheHandleChange -- call RechercheNom sending rechercheHandleChange's props*/}
-            <RechercheNom filtreHandleChange={this.filtreHandleChange} />
-            {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
-            <Filtre filtreHandleChange={this.filtreHandleChange} />
+            <div className="leftBloc">
+              <div className="comparatif"></div>
+            </div>
+            <div className="rightBloc">
+              {/*appelle RechercheNom en envoyant les props de rechercheHandleChange -- call RechercheNom sending rechercheHandleChange's props*/}
+              <RechercheNom filtreHandleChange={this.filtreHandleChange} />
+              {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
+              <Filtre filtreHandleChange={this.filtreHandleChange} />
+              <button
+                className="filterButton"
+                onClick={() => this.applyFiltre()}
+              >
+                GO
+              </button>
+            </div>
           </div>
         </div>
-        <button onClick={() => this.applyFiltre()}>Filtre</button>
         <div className="pokemon-cards">
           {this.state.filteredPokemons
             .slice(this.state.i, this.state.j)
@@ -156,10 +166,15 @@ class Gallery extends React.Component {
             })}
         </div>
         <div className="buttonGallery">
-          <button onClick={this.lessOne ? this.lessOne : <p>clic again</p>}>
+          <button
+            className="button1"
+            onClick={this.lessOne ? this.lessOne : <p>clic again</p>}
+          >
             Prev.
           </button>
-          <button onClick={this.addOne}>Next</button>
+          <button className="button2" onClick={this.addOne}>
+            Next
+          </button>
         </div>
       </div>
     );

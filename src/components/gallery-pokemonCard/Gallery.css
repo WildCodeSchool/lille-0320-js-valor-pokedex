@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "RetroGaming";
+  src: url("/font/RetroGaming.ttf");
+}
+
 .gallery {
   background-image: url("/img/background-bottom.jpg");
   background-size: 100% 100%;
@@ -27,6 +32,7 @@
   align-content: flex-start;
 }
 
+/*Page de droite*/
 .recherche-nom {
   background-image: url("/img/bg-pokeball.png");
   background-color: #363636;
@@ -35,26 +41,68 @@
 }
 
 .pokedex {
+  display: flex;
   background-image: url("/img/pokedex.png");
   height: 200px;
   background-size: 90% 95%;
   background-position: center;
   background-repeat: no-repeat;
-  font-size: 2.5 vh;
-  text-align: end;
+  font-size: 2.5vh;
+  font-family: "RetroGaming";
   padding: 75px 5%;
+}
+
+.leftBloc {
+  width: 50%;
+  border: 1px solid black;
+}
+
+.rightBloc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+  border: 1px solid black;
+}
+
+.comparatif {
+  width: 45%;
+  height: 80%;
+  background-color: white;
+  border-radius: 10px;
+  margin: 15px 10px;
 }
 
 .searchBar {
   border: none;
   background-color: yellowgreen;
   color: black;
-  width: 20%;
   font-size: 150%;
   margin-top: 3%;
-  margin-right: 18%;
   padding: 10px;
 }
+
+.filterButton {
+  border: none;
+  border-radius: 10%;
+  color: white;
+  background-color: rgb(33, 33, 231);
+  -webkit-box-shadow: inset 0px 10px 10px 0px rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: inset 0px 10px 10px 0px rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0px 10px 10px 0px rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: inset 8px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 8px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 8px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  height: 2.5vh;
+  width: 10vw;
+}
+
+.selectFiltre {
+  padding: 5px;
+  margin: 5px;
+}
+
 /*Buttons Next and Previous*/
 .buttonGallery {
   display: flex;
@@ -63,22 +111,65 @@
 
 .buttonGallery button {
   border-radius: 50%;
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   border: 0;
-  margin: 15px 50px;
-  padding-top: 25px;
+  margin: 0 60px 40px 60px;
+  padding-top: 20px;
   background: rgb(204, 0, 0);
-  border: 2px solid #000;
+  border: 1px solid #000;
   color: rgb(117, 117, 117);
   font-weight: bold;
-  font-size: 12px;
+  font-size: 10px;
   text-transform: uppercase;
   background-image: url(/img/pokeball.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
+.button1 {
+  animation: shake 1.5s ease-out infinite;
+  cursor: pointer;
+  transform-origin: center bottom;
+  box-shadow: 2px 1px 5px rgb(53, 53, 53);
+}
+
+.button2 {
+  animation: shake 1.7s ease-in-out infinite;
+  cursor: pointer;
+  transform-origin: center bottom;
+  box-shadow: 2px 1px 5px rgb(53, 53, 53);
+}
+
 .buttonGallery button:hover {
   color: rgb(0, 0, 0);
+}
+
+.buttonGallery button:active {
+  color: rgb(155, 0, 0);
+}
+
+/* animation on pokeball */
+@keyframes shake {
+  0% {
+    transform: rotate(5deg);
+  }
+  5% {
+    transform: rotate(-5deg);
+  }
+  10% {
+    transform: rotate(5deg);
+  }
+  15% {
+    transform: rotate(-5deg);
+  }
+  20% {
+    transform: rotate(5deg);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }

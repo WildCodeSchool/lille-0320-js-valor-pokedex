@@ -12,17 +12,16 @@ function Filtre(props) {
 
   return (
     <div>
-      <label className="labelFiltre">Pick a first type </label>
       <select
         className="selectFiltre"
         name="type1"
         onChange={props.filtreHandleChange}
       >
-        <option value="">-----</option>
+        <option value="">-Pick a type-</option>
         {allTypes &&
           allTypes
             .filter((type) => {
-              return type.name !== ("unknown" && "shadow");
+              return type.name !== "unknown" && type.name !== "shadow";
             })
             .map((type, i) => (
               <option key={i} value={type.name}>
@@ -30,17 +29,16 @@ function Filtre(props) {
               </option>
             ))}
       </select>
-      <label className="labelFiltre">Pick a second type </label>
       <select
         className="selectFiltre"
         name="type2"
         onChange={props.filtreHandleChange}
       >
-        <option value="">-----</option>
+        <option value="">-Pick a type-</option>
         {allTypes &&
           allTypes
             .filter((type) => {
-              return type.name !== ("unknown" && "shadow");
+              return type.name !== "unknown" && type.name !== "shadow";
             })
             .map((type, i) => (
               <option key={i} value={type.name}>
