@@ -33,7 +33,7 @@ function FichePokemon({ pokemon }) {
       <article className="column">
         <div className="backgroundGeneral mainInformation">
           <div className="PokemonName">
-            <div className="shape"></div>
+            <div className="shape2"></div>
             <p className="nomId">
               {pokemon.name} - N°{pokemon.id}
             </p>
