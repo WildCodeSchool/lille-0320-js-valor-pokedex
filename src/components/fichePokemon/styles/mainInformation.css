@@ -26,12 +26,11 @@
 
 .nomId {
   text-align: center;
-  /* background-color: black;*/
   color: white;
   margin-top: 18px;
   margin-bottom: 40px;
-  /* width: 50%;*/
   position: relative;
+  z-index: 20;
 }
 
 /*sous catégorie de principal - Subcategory*/
