@@ -3,6 +3,7 @@ import axios from "axios";
 import PokemonCard from "./PokemonCard";
 import "./Gallery.css";
 import RechercheNom from "./RechercheNom";
+import Filtre from "./Filtre";
 /*fonction URL pour sortir les url de data -- function URL to take out URL from data*/
 
 class Gallery extends React.Component {
@@ -139,6 +140,7 @@ class Gallery extends React.Component {
             {/*appelle RechercheNom en envoyant les props de rechercheHandleChange -- call RechercheNom sending rechercheHandleChange's props*/}
             <RechercheNom filtreHandleChange={this.filtreHandleChange} />
             {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
+            <Filtre filtreHandleChange={this.filtreHandleChange} />
           </div>
         </div>
         <button onClick={() => this.applyFiltre()}>Filtre</button>
