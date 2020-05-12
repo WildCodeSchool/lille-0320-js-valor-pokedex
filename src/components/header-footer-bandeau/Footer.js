@@ -22,7 +22,7 @@ function Footer() {
             </div>
 
             <div>
-              <p>Roxanne</p>
+              <p>Roxane</p>
               <img src="/img/roxanne.png" alt="Roxanne" width="100px" />
             </div>
 

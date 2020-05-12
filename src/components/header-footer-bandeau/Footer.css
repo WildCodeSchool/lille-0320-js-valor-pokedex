@@ -14,7 +14,6 @@
 .valorLogo {
   height: 10vh;
   position: absolute;
-
   border: 2px solid magenta;
 }
 
@@ -30,15 +29,19 @@
   border: 2px solid blue;
 }
 
-.projets,
 .team1,
 .team2 {
-  width: 300px;
+  width: 450px;
   height: 80%;
   text-align: center;
   display: flex;
   justify-content: space-around;
   border: 2px solid salmon;
+}
+
+.projets {
+  width: 250px;
+  text-align: center;
 }
 
 .projets ul {
