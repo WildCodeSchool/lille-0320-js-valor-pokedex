@@ -8,7 +8,10 @@
   background-image: url("/img/background-bottom.jpg");
   background-size: 100vw 100vh;
   background-repeat: no-repeat;
-  height: 80vh;
+  background-position: bottom;
+  background-color: #cee8f9;
+  /*height: 210vh;*/
+  height: 100%;
   width: 100%;
   overflow: hidden;
 }
@@ -16,13 +19,14 @@
 .bloc-gallery {
   background-color: rgba(255, 255, 255, 0.432);
   width: 85vw;
-  height: 130vh;
+  /*height: 200vh;*/
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   overflow: auto;
   margin-top: 10vh;
-  margin-bottom: 7vh;
+  margin-bottom: 5vh;
   margin-right: auto;
   margin-left: auto;
   border-radius: 20px;
@@ -32,7 +36,8 @@
   padding: 0 50px;
   display: flex;
   flex-wrap: wrap;
-  align-content: flex-start;
+  justify-content: space-around;
+  height: 100%;
 }
 
 .pokedex {
@@ -55,7 +60,6 @@
   margin-top: 3%;
   margin-right: 18%;
   padding: 10px;
-
 }
 
 @media (max-width: 640px) {
@@ -74,6 +78,4 @@
     font-size: 12px;
     margin-right: 2vw;
   }
-
 }
-

@@ -25,6 +25,11 @@ function Footer() {
               <p>Roxanne</p>
               <img src="/img/roxanne.png" alt="Roxanne" width="100px" />
             </div>
+
+            <div>
+              <p>M. Brassart</p>
+              <img src="/img/mbrassart.png" alt="M Brassart" width="100px" />
+            </div>
           </div>
 
           <div className="projets">
@@ -36,6 +41,11 @@ function Footer() {
           </div>
 
           <div className="team2">
+            <div>
+              <p>Gilles</p>
+              <img src="/img/gilles.png" alt="Gilles" width="100px" />
+            </div>
+
             <div>
               <p>Sophie</p>
               <img src="/img/sophie.png" alt="Sophie" width="100px" />
