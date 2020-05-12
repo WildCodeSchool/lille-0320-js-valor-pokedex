@@ -3,6 +3,7 @@ import axios from "axios";
 import PokemonCard from "./PokemonCard";
 import "./Gallery.css";
 import RechercheNom from "./RechercheNom";
+import Filtre from "./Filtre";
 /*fonction URL pour sortir les url de data -- function URL to take out URL from data*/
 
 class Gallery extends React.Component {
@@ -13,8 +14,12 @@ class Gallery extends React.Component {
       filteredPokemons: [],
       i: 0,
       j: 50,
+      searchBar: "",
+      type1: "",
+      type2: "",
     };
-    this.rechercheHandleChange = this.rechercheHandleChange.bind(this);
+    this.filtreHandleChange = this.filtreHandleChange.bind(this);
+    this.applyFiltre = this.applyFiltre.bind(this);
   }
 
   //appelle l'APi après le premier rendu pour éviter la page blanche au démarrage -- call the API after the first render to avoid the white page
@@ -26,7 +31,8 @@ class Gallery extends React.Component {
     //demande de l'API -- API's request
 
     axios
-      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=649")
+
+      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=100")
 
       // extrait les data de l'api et l'enregistre dans reponse -- extract datas from API and register the answers
       .then((response) => response.data.results)
@@ -40,6 +46,7 @@ class Gallery extends React.Component {
       });
   }
 
+  /*
   //récupère les caractères tapés dans la barre de recherche -- fetch input entered in the searchbar
   rechercheHandleChange(event) {
     //création d'une constante qui va stocker le tableau filtré des pokemons dont le nom inclu les caractères tapés dans la barre de recherche --
@@ -63,8 +70,65 @@ class Gallery extends React.Component {
       j: 50,
     });
   }
+
+  */
+
+  //compare la valeur de la cible avec le nom appelé
+  filtreHandleChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+  //filtre par type
+  applyFiltre() {
+    let filtered = this.state.pokemons;
+    if (!this.state.searchBar && !this.state.type1 && !this.state.type2) {
+      return this.setState({ filteredPokemons: filtered });
+    } else {
+      if (this.state.searchBar) {
+        filtered = filtered.filter((pokemon) => {
+          return pokemon.name
+            .toLowerCase()
+            .includes(this.state.searchBar.toLowerCase());
+        });
+        this.setState({ filteredPokemons: filtered });
+      }
+      if (this.state.type1) {
+        axios
+          .get(`https://pokeapi.co/api/v2/type/${this.state.type1}`)
+          .then((response) => response.data)
+          .then((data) => {
+            filtered = filtered.filter((onePokemon) => {
+              let finding = data.pokemon
+                .map((found) => {
+                  return found.pokemon.name === onePokemon.name;
+                })
+                .find((found) => found === true);
+              return finding;
+            });
+            this.setState({ filteredPokemons: filtered });
+          });
+      }
+      if (this.state.type2) {
+        axios
+          .get(`https://pokeapi.co/api/v2/type/${this.state.type2}`)
+          .then((response) => response.data)
+          .then((data) => {
+            filtered = filtered.filter((onePokemon) => {
+              let finding = data.pokemon
+                .map((found) => {
+                  return found.pokemon.name === onePokemon.name;
+                })
+                .find((found) => found === true);
+              return finding;
+            });
+            this.setState({ filteredPokemons: filtered });
+          });
+      }
+    }
+  }
+
   //fonction addOne permet d'incrémenter de 50 i et j pour charger 50 nouveaux pokemons -- the method addOne increments i and j of 50 to load up the next 50 pokémon
   //si la longueur de filteredPokemons +50 est supérieur à j+50, incrémente de 50 pokemons, sinon tu ne charges plus rien -- if filteredPokemons.length plus 50 is bigger than j plus 50, we can load more pokémon: else, we can't, so we don't
+
   addOne = () => {
     if (this.state.filteredPokemons.length + 50 > this.state.j + 50) {
       this.setState({ i: this.state.i + 50 });
@@ -81,28 +145,46 @@ class Gallery extends React.Component {
   };
 
   render() {
+    console.log("filteredPokemons", this.state.filteredPokemons);
     return (
       <div className="gallery">
         <div className="recherche-nom">
           <div className="pokedex">
-            {/*appelle RechercheNom en envoyant les props de rechercheHandleChange -- call RechercheNom sending rechercheHandleChange's props*/}
-            <RechercheNom rechercheHandleChange={this.rechercheHandleChange} />
-            {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
+            <div className="leftBloc">
+              <div className="comparatif"></div>
+            </div>
+            <div className="rightBloc">
+              {/*appelle RechercheNom en envoyant les props de rechercheHandleChange -- call RechercheNom sending rechercheHandleChange's props*/}
+              <RechercheNom filtreHandleChange={this.filtreHandleChange} />
+              {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
+              <Filtre filtreHandleChange={this.filtreHandleChange} />
+              <button
+                className="filterButton"
+                onClick={() => this.applyFiltre()}
+              >
+                GO
+              </button>
+            </div>
           </div>
         </div>
         <div className="pokemon-cards">
           {this.state.filteredPokemons
             .slice(this.state.i, this.state.j)
-            .map((pokemon) => {
+            .map((pokemon, i) => {
               return (
-                <article>
+                <article key={i}>
                   <PokemonCard {...pokemon} />
                 </article>
               );
             })}
         </div>
-        <div className="buttonGallery indicator">
-          <button className="button1" onClick={this.lessOne}>
+
+        <div className="buttonGallery">
+          <button
+            className="button1"
+            onClick={this.lessOne ? this.lessOne : <p>clic again</p>}
+          >
+
             Prev.
           </button>
           <button className="button2" onClick={this.addOne}>

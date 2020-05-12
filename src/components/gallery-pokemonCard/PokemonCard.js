@@ -14,7 +14,6 @@ class PokemonCard extends React.Component {
   }
 
   componentDidUpdate(oldProps) {
-    // Boucle infinie ! Chaque cDU declenche un setState, qui declenche un render et un cDU, qui... (J'ai du reboot mon PC encore -_-)
     if (oldProps.url !== this.props.url) {
       this.getPokemon();
     }
