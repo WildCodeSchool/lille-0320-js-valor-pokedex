@@ -13,7 +13,6 @@ function DescriptionPokemonCard({ pokemon }) {
               );
             })
             .map((obj) => {
-              console.log(obj);
               return <p>{obj.flavor_text}</p>;
             })}
       </div>
