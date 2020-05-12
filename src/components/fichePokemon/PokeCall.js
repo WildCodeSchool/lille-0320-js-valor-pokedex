@@ -94,7 +94,9 @@ class Pokecall extends React.Component {
   render() {
     return (
       <section className="Pokecall" key={this.state.OnePokemon.i}>
-        <FichePokemon pokemon={this.state.OnePokemon} />
+        {this.state.OnePokemon.id > 0 ? (
+          <FichePokemon pokemon={this.state.OnePokemon} />
+        ) : null}
       </section>
     );
   }
