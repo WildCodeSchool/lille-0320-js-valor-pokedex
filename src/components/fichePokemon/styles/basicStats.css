@@ -1,0 +1,108 @@
+.basicStats {
+  text-transform: uppercase;
+  width: 20vw;
+  margin: 20px auto;
+}
+
+.stat {
+  display: flex;
+  justify-content: space-evenly;
+  width: 25vw;
+  margin-bottom: 6px;
+}
+
+.name {
+  width: 11em;
+  font-size: 13px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+}
+
+.statBar {
+  height: 30px;
+  width: 3px;
+  background-color: rgb(39, 39, 39);
+  margin-left: 40px;
+}
+
+progress {
+  width: 200px;
+  height: 20px;
+  border: none;
+  background-color: white;
+}
+
+/*couleur pour chrome*/
+progress::-webkit-progress-bar {
+  background-color: white;
+}
+
+.orange::-webkit-progress-value {
+  background-color: orange;
+}
+
+.vert::-webkit-progress-value {
+  background-color: green;
+}
+
+.rouge::-webkit-progress-value {
+  background-color: red;
+}
+/*couleur pour firefox*/
+
+.orange::-moz-progress-bar {
+  background-color: orange;
+}
+
+.vert::-moz-progress-bar {
+  background-color: green;
+}
+
+.rouge::-moz-progress-bar {
+  background-color: red;
+}
+
+.stat .status .rouge {
+  appearance: none;
+}
+
+.stat .status .vert {
+  appearance: none;
+}
+
+.stat .status .orange {
+  appearance: none;
+}
+
+.blackline {
+  width: 3px;
+  height: 40vh;
+  background-color: rgb(190, 187, 187);
+  margin-right: 50px;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 640px) {
+  .blackline {
+    display: none;
+  }
+
+  progress {
+    display: none;
+  }
+
+  .statBar {
+    display: none;
+  }
+
+  .basicStats {
+    width: 70vw;
+  }
+  .stat {
+    width: 90vw;
+  }
+}

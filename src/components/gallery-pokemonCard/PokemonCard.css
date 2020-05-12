@@ -3,8 +3,8 @@
 .carte {
   background-color: rgba(255, 255, 255, 0.63);
   border-radius: 10px 10px 0 0;
-  height: 130px;
-  width: 130px;
+  height: 100%;
+  width: 100%;
   margin: 0;
 }
 
@@ -15,13 +15,17 @@
   border-radius: 0 0 10px 10px;
   font-size: 15px;
   font-weight: bold;
+  text-decoration: none;
+  color: black;
   font-family: "Aldrich", sans-serif;
   height: 17px;
   padding-top: 3px;
 }
 
 .global {
-  margin: 20px;
+  margin: 0px 20px;
+
+  z-index: 4;
 }
 
 .global p {
@@ -31,6 +35,15 @@
 .pokeball {
   height: 80px;
   width: 80px;
+}
+
+.badge {
+  height: 30px;
+  width: 20px;
+  position: relative;
+  bottom: -2em;
+  left: 87px;
+  z-index: 10;
 }
 
 @media (max-width: 640px) {
@@ -54,5 +67,9 @@
 
   .pokemon-cards {
     padding: 0;
+  }
+
+  .badge {
+    display: none;
   }
 }

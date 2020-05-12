@@ -6,7 +6,7 @@
   align-content: flex-start;
   padding: 0;
   background-image: url("/img/background-bottom.jpg");
-  background-size: 100% 100%;
+  background-size: 100vw 100vh;
   background-repeat: no-repeat;
   height: 80vh;
   width: 100%;
@@ -16,13 +16,15 @@
 .bloc-gallery {
   background-color: rgba(255, 255, 255, 0.432);
   width: 85vw;
+  height: 130vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 auto;
   overflow: auto;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-top: 10vh;
+  margin-bottom: 7vh;
+  margin-right: auto;
+  margin-left: auto;
   border-radius: 20px;
 }
 
@@ -53,6 +55,7 @@
   margin-top: 3%;
   margin-right: 18%;
   padding: 10px;
+
 }
 
 @media (max-width: 640px) {
@@ -71,4 +74,6 @@
     font-size: 12px;
     margin-right: 2vw;
   }
-  }
+
+}
+
