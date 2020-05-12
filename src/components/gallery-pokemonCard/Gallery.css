@@ -1,6 +1,8 @@
 @font-face {
   font-family: "RetroGaming";
-  src: url("/font/RetroGaming.ttf");
+  src: url("/RetroGaming.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .gallery {
@@ -32,18 +34,10 @@
   align-content: flex-start;
 }
 
-/*Page de droite*/
-.recherche-nom {
-  background-image: url("/img/bg-pokeball.png");
-  background-color: #363636;
-  border-top: 10px solid #ebc715;
-  border-bottom: 10px solid #ebc715;
-}
-
 .pokedex {
   display: flex;
   background-image: url("/img/pokedex.png");
-  height: 200px;
+  height: 38vh;
   background-size: 90% 95%;
   background-position: center;
   background-repeat: no-repeat;
@@ -52,26 +46,20 @@
   padding: 75px 5%;
 }
 
-.leftBloc {
-  width: 50%;
-  border: 1px solid black;
-}
-
+/*Page de droite*/
 .rightBloc {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   width: 50%;
-  border: 1px solid black;
 }
 
-.comparatif {
-  width: 45%;
-  height: 80%;
-  background-color: white;
-  border-radius: 10px;
-  margin: 15px 10px;
+.recherche-nom {
+  background-image: url("/img/bg-pokeball.png");
+  background-color: #363636;
+  border-top: 10px solid #ebc715;
+  border-bottom: 10px solid #ebc715;
 }
 
 .searchBar {
@@ -81,6 +69,7 @@
   font-size: 150%;
   margin-top: 3%;
   padding: 10px;
+  font-family: "RetroGaming";
 }
 
 .filterButton {
@@ -101,6 +90,21 @@
 .selectFiltre {
   padding: 5px;
   margin: 5px;
+}
+
+/*Page de gauche*/
+.leftBloc {
+  width: 50%;
+}
+
+.comparatif {
+  width: 45%;
+  height: 70%;
+  background-color: white;
+  border: 15px solid rgb(187, 187, 187);
+  border-bottom: 35px solid rgb(187, 187, 187);
+  border-radius: 10px;
+  margin: 38px 20px 20px 20px;
 }
 
 /*Buttons Next and Previous*/
