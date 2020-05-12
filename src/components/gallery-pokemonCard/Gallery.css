@@ -1,9 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
 
 .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 0;
   background-image: url("/img/background-bottom.jpg");
   background-size: 100vw 100vh;
   background-repeat: no-repeat;
+  height: 80vh;
+  width: 100%;
+  overflow: hidden;
 }
 
 .bloc-gallery {
@@ -69,3 +76,4 @@
   }
 
 }
+

@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // router and switch allows to make the links between the different links of the site
 function App() {
   return (
+
     <Router>
       <Switch>
         <div>
@@ -23,6 +24,7 @@ function App() {
         </div>
       </Switch>
     </Router>
+
   );
 }
 
