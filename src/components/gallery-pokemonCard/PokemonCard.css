@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
+
 .carte {
   background-color: rgba(255, 255, 255, 0.63);
   border-radius: 10px 10px 0 0;
@@ -13,9 +15,11 @@
   border-radius: 0 0 10px 10px;
   font-size: 15px;
   font-weight: bold;
-
   text-decoration: none;
   color: black;
+  font-family: "Aldrich", sans-serif;
+  height: 17px;
+  padding-top: 3px;
 }
 
 .global {
@@ -29,4 +33,28 @@
 .pokeball {
   height: 80px;
   width: 80px;
+}
+
+@media (max-width: 640px) {
+  .carte {
+    height: 70px;
+    width: 70px;
+  }
+
+  .titre {
+    width: 70px;
+    font-size: 8px;
+    height: 10px;
+    padding-top: 3px;
+  }
+
+  .global {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 6px;
+  }
+
+  .pokemon-cards {
+    padding: 0;
+  }
 }
