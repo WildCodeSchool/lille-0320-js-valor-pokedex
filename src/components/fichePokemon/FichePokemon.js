@@ -27,7 +27,7 @@ function FichePokemon({ pokemon }) {
       return "vert";
     }
   };
-
+  console.log("id2");
   return (
     <section className="fiche">
       <article className="column">
@@ -66,7 +66,7 @@ function FichePokemon({ pokemon }) {
         </div>
         <div className="backgroundGeneral description">
           <p className="sousTitre">Description </p>
-          <DescriptionPokemon />
+          <DescriptionPokemon id={pokemon.id} />
         </div>
       </article>
       <article className="backgroundGeneral column2">
