@@ -50,6 +50,7 @@ class PokemonCard extends React.Component {
             <p className="titre">
               {this.state.data.id} {this.state.data.name}
             </p>
+            <div>{this.state.data.id <= 151 ? <img src="/img/" /> : ""}</div>
           </div>
         ) : (
           <div className="global">
