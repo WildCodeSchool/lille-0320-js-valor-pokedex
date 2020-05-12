@@ -2,8 +2,11 @@ import React from "react";
 import axios from "axios";
 import PokemonCard from "./PokemonCard";
 import "./Gallery.css";
+import { Link } from "react-router-dom";
+import "./Recherche.css";
 import RechercheNom from "./RechercheNom";
 import Filtre from "./Filtre";
+
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -16,6 +19,8 @@ class Gallery extends React.Component {
       searchBar: "",
       type1: "",
       type2: "",
+      pokedexActive: false,
+
     };
     this.filtreHandleChange = this.filtreHandleChange.bind(this);
     this.applyFiltre = this.applyFiltre.bind(this);
@@ -129,8 +134,19 @@ class Gallery extends React.Component {
     return (
       <div className="gallery">
         <div className="recherche-nom">
-          <div className="pokedex">
-            <div className="leftBloc">
+          <div
+            className={
+              this.state.pokedexActive ? "pokedex" : "pokedex-desactive"
+            }
+          >
+            <div
+              className={
+                this.state.pokedexActive
+                  ? "searchByName-active"
+                  : "searchbyName-desactive"
+              }
+            >
+             <div className="leftBloc">
               <div className="comparatif"></div>
             </div>
             <div className="rightBloc">
@@ -145,9 +161,31 @@ class Gallery extends React.Component {
                 GO
               </button>
             </div>
+        </div>
+          </div>
+          <div className="button hideButton">
+            <div
+              className="shape"
+              onClick={(event) => {
+                const hide = !this.state.pokedexActive;
+                this.setState({ pokedexActive: hide });
+              }}
+            ></div>
+            <div className="hideButton">
+              <div
+                className="txtButton"
+                onClick={(event) => {
+                  const hide = !this.state.pokedexActive;
+                  this.setState({ pokedexActive: hide });
+                }}
+              >
+                {this.state.pokedexActive
+                  ? "DISABLE ADVANCED POKEDEX RESEARCHES"
+                  : "ENABLE ADVANCED POKEDEX RESEARCHES"}
+              </div>
+            </div>
           </div>
         </div>
-
         <div className="pokemon-cards">
           {
             /*on coupe la liste de pokémon afin de n'en afficher qu'un certain nombre par page -- we slice into the pokemon list to display only a few of them per page*/
@@ -155,9 +193,9 @@ class Gallery extends React.Component {
               .slice(this.state.i, this.state.j)
               .map((pokemon, i) => {
                 return (
-                  <article key={i}>
+                  <Link to={`/Pokemon/${pokemon.name}`}>
                     <PokemonCard {...pokemon} />
-                  </article>
+                  </Link>
                 );
               })
           }
@@ -174,6 +212,7 @@ class Gallery extends React.Component {
           <button className="button2" onClick={this.addOne}>
             Next
           </button>
+
         </div>
       </div>
     );

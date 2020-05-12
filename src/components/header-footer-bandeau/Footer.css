@@ -1,12 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
+
 .footer {
   width: 100%;
-  height: 10vh;
-  max-width: 100vw;
-  background-color: #f0f0f0;
+  margin: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
-  bottom: 0;
+  height: 300px;
+  background-color: #f0f0f0;
+}
+
+.valorLogo {
+  height: 10vh;
+  position: absolute;
+  bottom: -16vh;
+}
+
+.footerLinks {
+  margin-top: 12vh;
+  width: 80%;
+  display: flex;
+  font-family: "Aldrich", sans-serif;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 1.2em;
+  color: darkgray;
 }
 
 .valor {
@@ -14,13 +31,21 @@
   max-width: 100vw;
 }
 
-/*responsive*/
-@media screen and (min-width: 200px) and (max-width: 800px) {
-  .footer {
-    height: 8vh;
-  }
+.projets,
+.team1,
+.team2 {
+  width: 500px;
+  height: 80%;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
 
-  .valor {
-    height: 5vh;
-  }
+.projets ul {
+  list-style: none;
+}
+
+.projets h3,
+.team h3 {
+  margin-bottom: 0.5em;
 }
