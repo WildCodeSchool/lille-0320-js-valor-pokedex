@@ -1,0 +1,218 @@
+/*dimensionne la carte avec les infos principales - Crop the card with the main information*/
+.mainInformation {
+  width: 40vw;
+  height: auto;
+  margin-bottom: 2vh;
+  padding-top: 0;
+}
+
+.PokemonName {
+  display: flex;
+  justify-content: center;
+}
+
+/*dimensionne la section nom et Id de infoBase - Crop the session with the name + infoBase's Id*/
+
+.shape {
+  margin-top: 0;
+  width: 300px;
+  height: 20px;
+  border-top: 50px solid #363636;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: none;
+  position: absolute;
+}
+
+.nomId {
+  text-align: center;
+  /* background-color: black;*/
+  color: white;
+  margin-top: 18px;
+  margin-bottom: 40px;
+  /* width: 50%;*/
+  position: relative;
+}
+
+/*sous catégorie de principal - Subcategory*/
+.Infos {
+  display: flex;
+}
+.Infos div {
+  width: 70%;
+}
+.Infos p {
+  margin: 5px;
+}
+
+.Infos img {
+  width: 75%;
+  margin: 0 20px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.imgArtwork {
+  padding: 0;
+}
+/*background color de l'image du pokemon - background color of the pokemon's picture*/
+.img {
+  background-color: rgba(177, 170, 170, 0.63);
+  margin-top: 0;
+}
+
+/*pastilles de couleur pour chaque type - background of each spot*/
+/*Style de base*/
+.types,
+.fire,
+.poison,
+.grass,
+.water,
+.fighting,
+.flying,
+.normal,
+.ground,
+.rock,
+.bug,
+.ghost,
+.steel,
+.electric,
+.psychic,
+.ice,
+.dragon,
+.dark,
+.fairy,
+.unknown,
+.shadow {
+  display: inline-block;
+  border: black 1px solid;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  text-shadow: rgb(0, 0, 0) 1px 1px;
+  text-transform: uppercase;
+  width: 10vh;
+  text-align: center;
+  padding: 2px;
+  margin: 2px;
+  font-size: 0.8em;
+}
+
+/* background de chaque pastille - background-color types*/
+.normal {
+  background-color: rgb(182, 182, 182);
+}
+
+.fighting {
+  background-color: rgb(206, 84, 24);
+}
+
+.flying {
+  background-color: rgb(55, 169, 225);
+}
+
+.ground {
+  background-color: rgb(155, 146, 106);
+}
+
+.rock {
+  background-color: rgb(165, 150, 125);
+}
+
+.bug {
+  background-color: rgb(206, 84, 24);
+}
+
+.ghost {
+  background-color: rgb(90, 60, 120);
+}
+
+.steel {
+  background-color: rgb(126, 161, 160);
+}
+
+.water {
+  background-color: rgb(80, 135, 200);
+}
+
+.poison {
+  background-color: rgb(190, 90, 160);
+}
+
+.grass {
+  background-color: rgb(60, 170, 50);
+}
+
+.fire {
+  background-color: rgb(243, 146, 0);
+}
+
+.electric {
+  background-color: rgb(215, 201, 55);
+}
+
+.psychic {
+  background-color: rgb(236, 102, 152);
+}
+
+.ice {
+  background-color: rgb(54, 169, 225);
+}
+
+.dragon {
+  background-color: rgb(35, 115, 185);
+}
+
+.dark {
+  background-color: rgb(80, 80, 80);
+}
+
+.fairy {
+  background-color: rgb(230, 130, 180);
+}
+
+.unknown {
+  background-color: rgb(255, 0, 0);
+}
+
+.shadow {
+  background-color: rgb(94, 94, 94);
+}
+
+/* Media Queries */
+@media screen and (max-width: 640px) {
+  .mainInformation {
+    width: 74vw;
+  }
+  .shape {
+    width: 30vw;
+  }
+  .Infos {
+    flex-direction: column;
+    align-items: center;
+  }
+  .types,
+  .fire,
+  .poison,
+  .grass,
+  .water,
+  .fighting,
+  .flying,
+  .normal,
+  .ground,
+  .rock,
+  .bug,
+  .ghost,
+  .steel,
+  .electric,
+  .psychic,
+  .ice,
+  .dragon,
+  .dark,
+  .fairy,
+  .unknown,
+  .shadow {
+    width: 7.5vh;
+
+    font-size: 0.6em;
+  }
+}

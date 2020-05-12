@@ -1,24 +1,32 @@
-.gallery {
-  background-image: url("/img/background-bottom.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  height: 70vh;
-  max-width: 100vw;
-  overflow: auto;
-}
+@import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
 
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 0;
+  background-image: url("/img/background-bottom.jpg");
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  height: 80vh;
+  width: 100%;
+  overflow: hidden;
+}
 
 .bloc-gallery {
   background-color: rgba(255, 255, 255, 0.432);
   width: 85vw;
+  height: 130vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 auto;
   overflow: auto;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-top: 10vh;
+  margin-bottom: 7vh;
+  margin-right: auto;
+  margin-left: auto;
   border-radius: 20px;
+}
 
 .pokemon-cards {
   padding: 0 50px;
@@ -27,22 +35,15 @@
   align-content: flex-start;
 }
 
-.recherche-nom {
-  background-image: url("/img/bg-pokeball.png");
-  background-color: #363636;
-  border-top: 10px solid #ebc715;
-  border-bottom: 10px solid #ebc715;
-}
-
 .pokedex {
   background-image: url("/img/pokedex.png");
-  height: 200px;
+  height: 220px;
   background-size: 90% 95%;
   background-position: center;
   background-repeat: no-repeat;
   font-size: 2.5 vh;
   text-align: end;
-  padding: 75px 5%;
+  padding: 100px 5%;
 }
 
 .searchBar {
@@ -56,3 +57,23 @@
   padding: 10px;
 
 }
+
+@media (max-width: 640px) {
+  .bloc-gallery {
+    margin-top: 12vh;
+    height: 70vh;
+  }
+
+  .pokemon-cards {
+    justify-content: space-around;
+    padding: 10px;
+  }
+
+  .searchBar {
+    width: 35vw;
+    font-size: 12px;
+    margin-right: 2vw;
+  }
+
+}
+

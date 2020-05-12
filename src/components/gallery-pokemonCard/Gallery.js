@@ -2,7 +2,10 @@ import React from "react";
 import axios from "axios";
 import PokemonCard from "./PokemonCard";
 import "./Gallery.css";
+import { Link } from "react-router-dom";
+import "./Recherche.css";
 import RechercheNom from "./RechercheNom";
+
 /*fonction URL pour sortir les url de data -- function URL to take out URL from data*/
 
 class Gallery extends React.Component {
@@ -11,6 +14,7 @@ class Gallery extends React.Component {
     this.state = {
       pokemons: [],
       filteredPokemons: [],
+      pokedexActive: false,
     };
     this.rechercheHandleChange = this.rechercheHandleChange.bind(this);
   }
@@ -23,9 +27,7 @@ class Gallery extends React.Component {
   getPokemon() {
     //demande de l'API -- API's request
     axios
-
       .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=50")
-
       // extrait les data de l'api et l'enregistre dans reponse -- extract datas from API and register the answers
       .then((response) => response.data.results)
 
@@ -61,25 +63,61 @@ class Gallery extends React.Component {
 
   render() {
     return (
-      <div className="gallery">
-        <div className="bloc-gallery">
-          <div className="recherche-nom">
-            <div className="pokedex">
-              {/*appelle RechercheNom en envoyant les props de rechercheHandleChange -- call RechercheNom sending rechercheHandleChange's props*/}
+      <div>
+        <div className="recherche-nom">
+          <div
+            className={
+              this.state.pokedexActive ? "pokedex" : "pokedex-desactive"
+            }
+          >
+            {/*appelle RechercheNom en envoyant les props de rechercheHandleChange -- call RechercheNom sending rechercheHandleChange's props*/}
+            <div
+              className={
+                this.state.pokedexActive
+                  ? "searchByName-active"
+                  : "searchbyName-desactive"
+              }
+            >
               <RechercheNom
                 rechercheHandleChange={this.rechercheHandleChange}
               />
-              {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
+            </div>
+            {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
+          </div>
+          <div className="button hideButton">
+            <div
+              className="shape"
+              onClick={(event) => {
+                const hide = !this.state.pokedexActive;
+                this.setState({ pokedexActive: hide });
+              }}
+            ></div>
+            <div className="hideButton">
+              <div
+                className="txtButton"
+                onClick={(event) => {
+                  const hide = !this.state.pokedexActive;
+                  this.setState({ pokedexActive: hide });
+                }}
+              >
+                {this.state.pokedexActive
+                  ? "DISABLE ADVANCED POKEDEX RESEARCHES"
+                  : "ENABLE ADVANCED POKEDEX RESEARCHES"}
+              </div>
             </div>
           </div>
-          <div className="pokemon-cards">
-            {this.state.filteredPokemons.slice(0, 50).map((pokemon) => {
-              return (
-                <article>
-                  <PokemonCard {...pokemon} />
-                </article>
-              );
-            })}
+        </div>
+        <div className="gallery">
+          <div className="bloc-gallery">
+            <div className="pokemon-cards">
+              {this.state.filteredPokemons.slice(0, 50).map((pokemon) => {
+                return (
+                  <Link to={`/Pokemon/${pokemon.name}`}>
+                    <PokemonCard {...pokemon} />
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
