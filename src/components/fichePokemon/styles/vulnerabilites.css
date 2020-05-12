@@ -1,0 +1,72 @@
+.vulnerabilites {
+  width: 40vw;
+  height: auto;
+  margin-bottom: 2vh;
+}
+
+.table {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.effective {
+  background-color: black;
+  color: rgb(255, 255, 255);
+  border: 1px solid white;
+  text-shadow: rgb(0, 0, 0) 1px 1px;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 0.7em;
+  padding: 2px 0;
+}
+
+.vulneUl {
+  width: 8vw;
+  text-align: center;
+}
+
+.right-border {
+  border-right: 1px solid black;
+}
+
+.left-border {
+  border-left: 1px solid black;
+}
+
+.eff400 {
+  background-color: rgb(255, 0, 0, 0.6);
+  border-radius: 0 0 0 15px;
+}
+
+.eff200 {
+  background-color: rgb(255, 153, 51, 0.6);
+}
+
+.eff50 {
+  background-color: rgb(255, 255, 0, 0.6);
+}
+
+.eff25 {
+  background-color: rgb(255, 255, 153, 0.6);
+}
+
+.eff0 {
+  background-color: rgb(102, 102, 153, 0.6);
+  border-radius: 0 0 15px 0;
+}
+
+@media screen and (max-width: 640px) {
+  .vulnerabilites {
+    width: 74vw;
+  }
+
+  .vulnecol {
+    width: 14.8vw;
+  }
+  .vulneUl {
+    width: 15vw;
+  }
+  .effective {
+    font-size: 0.6em;
+  }
+}

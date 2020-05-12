@@ -2,8 +2,10 @@ import React from "react";
 import axios from "axios";
 import PokemonCard from "./PokemonCard";
 import "./Gallery.css";
+import { Link } from "react-router-dom";
 import "./Recherche.css";
 import RechercheNom from "./RechercheNom";
+
 /*fonction URL pour sortir les url de data -- function URL to take out URL from data*/
 
 class Gallery extends React.Component {
@@ -25,9 +27,7 @@ class Gallery extends React.Component {
   getPokemon() {
     //demande de l'API -- API's request
     axios
-
       .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=50")
-
       // extrait les data de l'api et l'enregistre dans reponse -- extract datas from API and register the answers
       .then((response) => response.data.results)
 
@@ -112,9 +112,9 @@ class Gallery extends React.Component {
             <div className="pokemon-cards">
               {this.state.filteredPokemons.slice(0, 50).map((pokemon) => {
                 return (
-                  <article>
+                  <Link to={`/Pokemon/${pokemon.name}`}>
                     <PokemonCard {...pokemon} />
-                  </article>
+                  </Link>
                 );
               })}
             </div>
