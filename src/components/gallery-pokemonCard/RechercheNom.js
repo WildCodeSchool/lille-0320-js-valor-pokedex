@@ -1,4 +1,5 @@
 import React from "react";
+import "./Recherche.css";
 
 function RechercheNom(props) {
   return (
