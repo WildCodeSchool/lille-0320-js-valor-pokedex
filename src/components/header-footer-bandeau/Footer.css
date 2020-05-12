@@ -52,3 +52,29 @@
 .team h3 {
   margin-bottom: 0.5em;
 }
+
+@media (max-width: 640px) {
+  .footer {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+
+    text-align: center;
+  }
+  .valorLogo {
+    position: initial;
+  }
+  .team1,
+  .team2 {
+    width: 350px;
+    height: 100px;
+  }
+  .footerLinks {
+    display: block;
+    font-size: 1em;
+    text-align: center;
+    width: 370px;
+    margin-left: auto;
+    margin-top: auto;
+  }
+}

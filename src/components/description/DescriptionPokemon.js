@@ -15,7 +15,6 @@ class DescriptionPokemon extends React.Component {
     const pokemonId = 1;
     this.getPokemon(pokemonId);
   }
-
   getPokemon(pokemonId) {
     const url = `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`;
     //demande de l'API -- API's request
