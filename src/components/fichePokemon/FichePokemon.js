@@ -66,7 +66,7 @@ function FichePokemon({ pokemon }) {
         </div>
         <div className="backgroundGeneral description">
           <p className="sousTitre">Description </p>
-          <DescriptionPokemon caca={pokemon.id} />
+          <DescriptionPokemon />
         </div>
       </article>
       <article className="backgroundGeneral column2">
