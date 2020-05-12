@@ -4,7 +4,6 @@ import PokemonCard from "./PokemonCard";
 import "./Gallery.css";
 import RechercheNom from "./RechercheNom";
 import Filtre from "./Filtre";
-/*fonction URL pour sortir les url de data -- function URL to take out URL from data*/
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -29,10 +28,9 @@ class Gallery extends React.Component {
 
   getPokemon() {
     //demande de l'API -- API's request
-
     axios
 
-      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=100")
+      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=120")
 
       // extrait les data de l'api et l'enregistre dans reponse -- extract datas from API and register the answers
       .then((response) => response.data.results)
@@ -46,65 +44,48 @@ class Gallery extends React.Component {
       });
   }
 
-  /*
-  //récupère les caractères tapés dans la barre de recherche -- fetch input entered in the searchbar
-  rechercheHandleChange(event) {
-    //création d'une constante qui va stocker le tableau filtré des pokemons dont le nom inclu les caractères tapés dans la barre de recherche --
-    //declaration of a constante which stock the filtered array of pokemons when the name includes inputs entered in the searchbar
-    let filtered = this.state.pokemons.filter((pokemon) => {
-      return (
-        pokemon.name
-          .toLowerCase()
-
-          // look at the search bar value to keep only the right Pokemon
-          .includes(event.target.value.toLowerCase())
-      );
-    });
-
-    //met à jour les states de la valeur recherchée et du tableau filtré -- update states of search value and filtered array
-    // Ne pas faire plusieurs setStates quand on peut éviter: chacun d'entre eux va redéclencher un render -- Avoid to call setState multiple times as much as possible: each one of them call render()
-    // i: 0 et j:50 permettent de revenir à la première parge lors de la recherche. Ils sont remis à leurs valeurs de défauts -- i: 0 and j: 50 return to the first parge during the search. They are reset to their default values
-    this.setState({
-      filteredPokemons: filtered,
-      i: 0,
-      j: 50,
-    });
-  }
-
-  */
-
-  //compare la valeur de la cible avec le nom appelé
+  //compare la valeur de la cible avec le nom appelé -- compare the target's value with the called name
   filtreHandleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
-  //filtre par type
+  //filtre par type et nom -- filter by type and name
   applyFiltre() {
+    // filtered commence avec l'ensemble de la liste des pokémon -- filtered starts with the whole pokémon list
     let filtered = this.state.pokemons;
+
+    //si aucun filtre n'est appliqué, on renvoie tous les pokémon -- if no filter is applied, we return the whole list
     if (!this.state.searchBar && !this.state.type1 && !this.state.type2) {
       return this.setState({ filteredPokemons: filtered });
+
+      //si au moins un filtre du state est rempli, on regarde chaque filtre applicable possible -- if at lest one filter state is not empty, we look at every single filter possible
     } else {
       if (this.state.searchBar) {
+        //on cherche les pokémon dont le nom contient les lettres contenues dans le state searchBar -- we search for pokémon with a name containing the letters from the state searchBar
         filtered = filtered.filter((pokemon) => {
           return pokemon.name
             .toLowerCase()
             .includes(this.state.searchBar.toLowerCase());
         });
-        this.setState({ filteredPokemons: filtered });
+        //on change le state de filteredPokemons pour appliquer les changements (les pokémon retirés) et on change les valeurs du .slice pour retourner à la première page de la liste -- we update the filteredPokemons state to apply the modifications (retrieved pokémon) and we also change the state values of the .slice to go back to the first page when we apply a new filter
+        this.setState({ filteredPokemons: filtered, i: 0, j: 50 });
       }
       if (this.state.type1) {
+        //on appelle le endpoint du type souhaité -- we call the right API endpoint to access the right type
         axios
           .get(`https://pokeapi.co/api/v2/type/${this.state.type1}`)
           .then((response) => response.data)
           .then((data) => {
             filtered = filtered.filter((onePokemon) => {
+              //on cherche si le pokémon regardé est dans la liste des pokémon ayant le type demandé -- we search for our pokémon in the type pokémon list
               let finding = data.pokemon
                 .map((found) => {
                   return found.pokemon.name === onePokemon.name;
                 })
+                //.find donne "undefined" si aucune apparition du nom est trouvé, et "true" si on en trouve une -- .find return "undefined" if no match is found, and "true" if there's one match
                 .find((found) => found === true);
               return finding;
             });
-            this.setState({ filteredPokemons: filtered });
+            this.setState({ filteredPokemons: filtered, i: 0, j: 50 });
           });
       }
       if (this.state.type2) {
@@ -120,7 +101,7 @@ class Gallery extends React.Component {
                 .find((found) => found === true);
               return finding;
             });
-            this.setState({ filteredPokemons: filtered });
+            this.setState({ filteredPokemons: filtered, i: 0, j: 50 });
           });
       }
     }
@@ -145,7 +126,6 @@ class Gallery extends React.Component {
   };
 
   render() {
-    console.log("filteredPokemons", this.state.filteredPokemons);
     return (
       <div className="gallery">
         <div className="recherche-nom">
@@ -154,10 +134,10 @@ class Gallery extends React.Component {
               <div className="comparatif"></div>
             </div>
             <div className="rightBloc">
-              {/*appelle RechercheNom en envoyant les props de rechercheHandleChange -- call RechercheNom sending rechercheHandleChange's props*/}
+              {/*appelle RechercheNom et Filtre en envoyant les props de filtreHandleChange -- call RechercheNom and Filtre sending filtreHandleChange's props*/}
               <RechercheNom filtreHandleChange={this.filtreHandleChange} />
-              {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
               <Filtre filtreHandleChange={this.filtreHandleChange} />
+              {/*we apply the requested changes on this button click*/}
               <button
                 className="filterButton"
                 onClick={() => this.applyFiltre()}
@@ -167,24 +147,28 @@ class Gallery extends React.Component {
             </div>
           </div>
         </div>
+
         <div className="pokemon-cards">
-          {this.state.filteredPokemons
-            .slice(this.state.i, this.state.j)
-            .map((pokemon, i) => {
-              return (
-                <article key={i}>
-                  <PokemonCard {...pokemon} />
-                </article>
-              );
-            })}
+          {
+            /*on coupe la liste de pokémon afin de n'en afficher qu'un certain nombre par page -- we slice into the pokemon list to display only a few of them per page*/
+            this.state.filteredPokemons
+              .slice(this.state.i, this.state.j)
+              .map((pokemon, i) => {
+                return (
+                  <article key={i}>
+                    <PokemonCard {...pokemon} />
+                  </article>
+                );
+              })
+          }
         </div>
 
+        {/*on peut changer de page pour afficher les 50 pokémon suivants -- we can change the page to see the 50 next pokémon on the list*/}
         <div className="buttonGallery">
           <button
             className="button1"
             onClick={this.lessOne ? this.lessOne : <p>clic again</p>}
           >
-
             Prev.
           </button>
           <button className="button2" onClick={this.addOne}>

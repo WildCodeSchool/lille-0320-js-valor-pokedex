@@ -46,7 +46,7 @@
   padding: 75px 5%;
 }
 
-/*Page de droite*/
+/*Right Page -- All under that is into this*/
 .rightBloc {
   display: flex;
   flex-direction: column;
@@ -77,12 +77,6 @@
   border-radius: 10%;
   color: white;
   background-color: rgb(33, 33, 231);
-  -webkit-box-shadow: inset 0px 10px 10px 0px rgba(255, 255, 255, 0.5);
-  -moz-box-shadow: inset 0px 10px 10px 0px rgba(255, 255, 255, 0.5);
-  box-shadow: inset 0px 10px 10px 0px rgba(255, 255, 255, 0.5);
-  -webkit-box-shadow: inset 8px 0px 10px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: inset 8px 0px 10px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: inset 8px 0px 10px 0px rgba(0, 0, 0, 0.5);
   height: 2.5vh;
   width: 10vw;
 }
@@ -92,11 +86,10 @@
   margin: 5px;
 }
 
-/*Page de gauche*/
+/*Left Page -- All under that is into this*/
 .leftBloc {
   width: 50%;
 }
-
 
 .comparatif {
   width: 45%;
