@@ -1,9 +1,4 @@
-@font-face {
-  font-family: "RetroGaming";
-  src: url("/RetroGaming.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
+@import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
 
 .gallery {
   display: flex;
@@ -19,44 +14,6 @@
   width: 100%;
   overflow: hidden;
 }
-
-.bloc-gallery {
-  background-color: rgba(255, 255, 255, 0.432);
-  width: 80%;
-
-  height: 1400px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  overflow: auto;
-  margin-top: 10vh;
-  margin-bottom: 5vh;
-  margin-right: auto;
-  margin-left: auto;
-  border-radius: 20px;
-}
-
-.pokemon-cards {
-  padding: 0 50px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  height: 1300px;
-}
-
-.pokedex {
-  display: flex;
-  background-image: url("/img/pokedex.png");
-
-  height: 38vh;
-  background-size: 90% 95%;
-  background-position: center;
-  background-repeat: no-repeat;
-  font-family: "RetroGaming";
-  padding: 75px 5%;
-
-}
-
 /*Right Page -- All under that is into this*/
 .rightBloc {
   display: flex;
@@ -65,24 +22,6 @@
   justify-content: space-around;
   width: 50%;
 }
-
-.recherche-nom {
-  background-image: url("/img/bg-pokeball.png");
-  background-color: #363636;
-  border-top: 10px solid #ebc715;
-  border-bottom: 10px solid #ebc715;
-}
-
-.searchBar {
-  border: none;
-  background-color: yellowgreen;
-  color: black;
-  font-size: 150%;
-  margin-top: 3%;
-  padding: 10px;
-  font-family: "RetroGaming";
-}
-
 .filterButton {
   border: none;
   border-radius: 10%;
@@ -181,7 +120,52 @@
   100% {
     transform: rotate(0deg);
   }
+}
 
+.bloc-gallery {
+  background-color: rgba(255, 255, 255, 0.432);
+  width: 80%;
+
+  height: 1400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: auto;
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 20px;
+}
+
+.pokemon-cards {
+  padding: 0 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 1300px;
+}
+
+.pokedex {
+  background-image: url("/img/pokedex.png");
+  height: 220px;
+  background-size: 90% 95%;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-size: 2.5 vh;
+  text-align: end;
+  padding: 100px 5%;
+}
+
+.searchBar {
+  border: none;
+  background-color: yellowgreen;
+  color: black;
+  width: 20%;
+  font-size: 150%;
+  margin-top: 3%;
+  margin-right: 18%;
+  padding: 10px;
 }
 
 @media (max-width: 640px) {
@@ -202,3 +186,209 @@
     margin-right: 2vw;
   }
 }
+
+/*new pete
+@font-face {
+  font-family: "RetroGaming";
+  src: url("/RetroGaming.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 0;
+  background-image: url("/img/background-bottom.jpg");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-color: #cee8f9;
+  height: 1600px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.bloc-gallery {
+  background-color: rgba(255, 255, 255, 0.432);
+  width: 80%;
+
+  height: 1400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: auto;
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 20px;
+}
+
+.pokemon-cards {
+  padding: 0 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 1300px;
+}
+
+.pokedex {
+  display: flex;
+  background-image: url("/img/pokedex.png");
+
+  height: 38vh;
+  background-size: 90% 95%;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "RetroGaming";
+  padding: 75px 5%;
+
+}
+
+/*Right Page -- All under that is into this
+.rightBloc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.recherche-nom {
+  background-image: url("/img/bg-pokeball.png");
+  background-color: #363636;
+  border-top: 10px solid #ebc715;
+  border-bottom: 10px solid #ebc715;
+}
+
+.searchBar {
+  border: none;
+  background-color: yellowgreen;
+  color: black;
+  font-size: 150%;
+  margin-top: 3%;
+  padding: 10px;
+  font-family: "RetroGaming";
+}
+
+.filterButton {
+  border: none;
+  border-radius: 10%;
+  color: white;
+  background-color: rgb(33, 33, 231);
+  height: 2.5vh;
+  width: 10vw;
+}
+
+.selectFiltre {
+  padding: 5px;
+  margin: 5px;
+}
+
+/*Left Page -- All under that is into this
+.leftBloc {
+  width: 50%;
+}
+
+.comparatif {
+  width: 45%;
+  height: 70%;
+  background-color: white;
+  border: 15px solid rgb(187, 187, 187);
+  border-bottom: 35px solid rgb(187, 187, 187);
+  border-radius: 10px;
+  margin: 38px 20px 20px 20px;
+}
+
+/*Buttons Next and Previous
+.buttonGallery {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonGallery button {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: 0;
+  margin: 0 60px 40px 60px;
+  padding-top: 20px;
+  background: rgb(204, 0, 0);
+  border: 1px solid #000;
+  color: rgb(117, 117, 117);
+  font-weight: bold;
+  font-size: 10px;
+  text-transform: uppercase;
+  background-image: url(/img/pokeball.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.button1 {
+  animation: shake 1.5s ease-out infinite;
+  cursor: pointer;
+  transform-origin: center bottom;
+  box-shadow: 2px 1px 5px rgb(53, 53, 53);
+}
+
+.button2 {
+  animation: shake 1.7s ease-in-out infinite;
+  cursor: pointer;
+  transform-origin: center bottom;
+  box-shadow: 2px 1px 5px rgb(53, 53, 53);
+}
+
+.buttonGallery button:hover {
+  color: rgb(0, 0, 0);
+}
+
+.buttonGallery button:active {
+  color: rgb(155, 0, 0);
+}
+
+/* animation on pokeball 
+@keyframes shake {
+  0% {
+    transform: rotate(5deg);
+  }
+  5% {
+    transform: rotate(-5deg);
+  }
+  10% {
+    transform: rotate(5deg);
+  }
+  15% {
+    transform: rotate(-5deg);
+  }
+  20% {
+    transform: rotate(5deg);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+
+}
+
+@media (max-width: 640px) {
+  .bloc-gallery {
+    margin-top: 12vh;
+    height: 2100px;
+  }
+
+  .pokemon-cards {
+    justify-content: space-around;
+    height: 2000px;
+    padding: 10px;
+  }
+
+  .searchBar {
+    width: 35vw;
+    font-size: 12px;
+    margin-right: 2vw;
+  }
+}*/
