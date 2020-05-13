@@ -42,10 +42,9 @@
 .pokedex {
   background-image: url("/img/pokedex.png");
   height: 220px;
-  background-size: 90% 95%;
+  background-size: 75% 95%;
   background-position: center;
   background-repeat: no-repeat;
-  font-size: 2.5 vh;
   text-align: end;
   padding: 100px 5%;
 }
