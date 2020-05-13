@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import DescriptionPokemon from "./DescriptionPokemon";
 import Vulnerabilities from "./Vulnerabilities";
 import "./styles/FichePokemon.css";
@@ -14,6 +15,8 @@ import "./styles/attacks.css";
 // will allow to set up via the css all the elements
 //MODIFS l.32
 function FichePokemon({ pokemon }) {
+  const [hover, setHover] = useState(false);
+
   const urlSprites = `https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`; //Lien vers les artworks. - Links to the artworks pictures.
 
   //permet de modifier la couleur selon le niveau de stats -- modify the color according to the level of stats
@@ -141,8 +144,11 @@ function FichePokemon({ pokemon }) {
                 console.log("3", obj);
                 return (
                   <div className="listAttak">
-                    <div className="left">
+                    <div className="left" onMouseOver={() => setHover(!hover)}>
                       <p>{obj.name}</p>
+                      <div className={hover ? "descrpMoveOn" : "descrpMoveOff"}>
+                        Hello
+                      </div>
                     </div>
                     <div className="right">
                       <p>{obj.level === 0 ? "Evolution" : obj.level}</p>
