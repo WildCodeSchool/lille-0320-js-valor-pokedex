@@ -21,7 +21,7 @@ function FichePokemon({ pokemon }) {
   const color = (obj) => {
     if (obj.base_stat < 50) {
       return "rouge";
-    } else if (obj.base_stat < 100 && obj.base_stat > 50) {
+    } else if (obj.base_stat < 100 && obj.base_stat >= 50) {
       return "orange";
     } else {
       return "vert";
