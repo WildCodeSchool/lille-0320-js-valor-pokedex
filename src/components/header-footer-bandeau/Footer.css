@@ -1,51 +1,103 @@
 @import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
 
 .footer {
-  width: 100%;
-  margin: 0;
   display: flex;
   justify-content: center;
-  height: 300px;
+
   background-color: #f0f0f0;
 }
 
 .valorLogo {
   height: 10vh;
   position: absolute;
-  bottom: -16vh;
+}
+
+.avatar {
+  width: 100px;
 }
 
 .footerLinks {
   margin-top: 12vh;
   width: 80%;
+
   display: flex;
   font-family: "Aldrich", sans-serif;
   justify-content: space-between;
-  flex-wrap: wrap;
+
   font-size: 1.2em;
   color: darkgray;
 }
 
-.valor {
-  height: 5vh;
-  max-width: 100vw;
-}
-
-.projets,
 .team1,
 .team2 {
-  width: 500px;
+  width: 450px;
   height: 80%;
   text-align: center;
   display: flex;
   justify-content: space-around;
 }
 
+.projets {
+  width: 250px;
+  text-align: center;
+}
+
 .projets ul {
   list-style: none;
 }
 
-.projets h3,
-.team h3 {
+.projets h3 {
   margin-bottom: 0.5em;
+}
+
+@media (max-width: 640px) {
+  .footer {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+
+    text-align: center;
+  }
+  .valorLogo {
+    position: initial;
+    width: 250px;
+    height: 60px;
+  }
+  .team1,
+  .team2 {
+    width: 350px;
+  }
+  .footerLinks {
+    display: block;
+
+    text-align: center;
+    width: 370px;
+    margin-left: auto;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .p {
+    font-size: 15px;
+  }
+
+  .avatar {
+    width: 60px;
+  }
+  .projets h3 {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  .projets li {
+    font-size: 15px;
+  }
+  ul {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+  }
 }

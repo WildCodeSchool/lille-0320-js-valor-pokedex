@@ -49,6 +49,7 @@
 .txtButton {
   width: 270px;
   padding-top: 0.7vh;
+  cursor: pointer;
 }
 
 .shape {
