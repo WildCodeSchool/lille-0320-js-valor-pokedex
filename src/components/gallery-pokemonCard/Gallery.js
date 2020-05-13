@@ -32,7 +32,7 @@ class Gallery extends React.Component {
   getPokemon() {
     //demande de l'API -- API's request
     axios
-      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=50")
+      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=649")
       // extrait les data de l'api et l'enregistre dans reponse -- extract datas from API and register the answers
       .then((response) => response.data.results)
 
@@ -131,27 +131,25 @@ class Gallery extends React.Component {
               }
             >
               <div className="leftBloc">
-                                <div className="comparatif">              </div>
+                <div className="comparatif"></div>                   
+              </div>
+              <div className="rightBloc">
+                                
+                {/*appelle RechercheNom et Filtre en envoyant les props de filtreHandleChange -- call RechercheNom and Filtre sending filtreHandleChange's props*/}
+                                
+                <RechercheNom filtreHandleChange={this.filtreHandleChange} />
+                                
+                <Filtre filtreHandleChange={this.filtreHandleChange} />
+                                
+                {/*we apply the requested changes on this button click*/}
+                                
+                <button
+                  className="filterButton"
+                  onClick={() => this.applyFiltre()}
+                >
+                  GO
+                </button>
                               
-                <div className="rightBloc">
-                                  
-                  {/*appelle RechercheNom et Filtre en envoyant les props de filtreHandleChange -- call RechercheNom and Filtre sending filtreHandleChange's props*/}
-                                  
-                  <RechercheNom filtreHandleChange={this.filtreHandleChange} />
-                                  
-                  <Filtre filtreHandleChange={this.filtreHandleChange} />
-                                  
-                  {/*we apply the requested changes on this button click*/}
-                                  
-                  <button
-                    className="filterButton"
-                    onClick={() => this.applyFiltre()}
-                  >
-                                      GO                 
-                  </button>
-                                
-                </div>
-                                    
               </div>
             </div>
             {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
@@ -182,13 +180,15 @@ class Gallery extends React.Component {
         <div className="gallery">
           <div className="bloc-gallery">
             <div className="pokemon-cards">
-              {this.state.filteredPokemons.slice(0, 50).map((pokemon) => {
-                return (
-                  <Link to={`/Pokemon/${pokemon.name}`}>
-                    <PokemonCard {...pokemon} />
-                  </Link>
-                );
-              })}
+              {this.state.filteredPokemons
+                .slice(this.state.i, this.state.j)
+                .map((pokemon) => {
+                  return (
+                    <Link to={`/Pokemon/${pokemon.name}`}>
+                      <PokemonCard {...pokemon} />
+                    </Link>
+                  );
+                })}
             </div>
           </div>
         </div>
@@ -196,15 +196,12 @@ class Gallery extends React.Component {
                 
         <div className="buttonGallery">
                     
-          <button
-            className="button1"
-            onClick={this.lessOne ? this.lessOne : <p>clic again</p>}
-          >
-                        Prev.           
+          <button className="button1" onClick={this.lessOne}>
+            Prev.           
           </button>
                     
           <button className="button2" onClick={this.addOne}>
-                        Next           
+            Next           
           </button>
                   
         </div>
