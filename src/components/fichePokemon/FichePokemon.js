@@ -28,6 +28,42 @@ function FichePokemon({ pokemon }) {
     }
   };
 
+  let movesMess = [];
+  if (pokemon.moves[1]) {
+    movesMess = pokemon.moves
+      .map((obj) => {
+        const details = obj.version_group_details;
+        return details //renvoies le tableau version_group_details - return the version_group_details array
+          .filter((array) => {
+            //dans version_group_detail, prendre que ce qui contient USUM et level-up uniquement - in version_group_detail, get the USUM and levelup content only
+            return (
+              array.version_group.name === "ultra-sun-ultra-moon" &&
+              array.move_learn_method.name === "level-up"
+            );
+          })
+          .map((array) => {
+            return {
+              level: array.level_learned_at,
+              name: obj.move.name,
+            };
+          });
+      })
+      .filter((obj) => {
+        console.log("1", obj);
+        return obj.length !== 0;
+      });
+
+    let movesAll = [];
+    for (let i = 0; i < movesMess.length; i++) {
+      movesAll.push(...movesMess[i]);
+    }
+
+    movesAll = movesAll.sort((obj1, obj2) => {
+      console.log("2", obj1);
+      return obj1[0].level - obj2[0].level;
+    });
+  }
+
   return (
     <section className="fiche">
       <article className="column">
