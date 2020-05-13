@@ -115,7 +115,7 @@ class Gallery extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="page">
         <div className="recherche-nom">
           <div
             className={
@@ -191,20 +191,20 @@ class Gallery extends React.Component {
                 })}
             </div>
           </div>
+          {/*on peut changer de page pour afficher les 50 pokémon suivants -- we can change the page to see the 50 next pokémon on the list*/}
+          <div className="buttonGallery">
+                      
+            <button className="button1" onClick={this.lessOne}>
+              Prev.           
+            </button>
+                      
+            <button className="button2" onClick={this.addOne}>
+              Next           
+            </button>
+                    
+          </div>
         </div>
-        {/*on peut changer de page pour afficher les 50 pokémon suivants -- we can change the page to see the 50 next pokémon on the list*/}
                 
-        <div className="buttonGallery">
-                    
-          <button className="button1" onClick={this.lessOne}>
-            Prev.           
-          </button>
-                    
-          <button className="button2" onClick={this.addOne}>
-            Next           
-          </button>
-                  
-        </div>
       </div>
     );
   }

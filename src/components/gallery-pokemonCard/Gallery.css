@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
 
+.page {
+  height: 1600px;
+}
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -58,6 +61,7 @@
 .buttonGallery {
   display: flex;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .buttonGallery button {
@@ -66,7 +70,7 @@
   height: 50px;
   border: 0;
   margin: 0 60px 40px 60px;
-  padding-top: 20px;
+  padding-top: 28px;
   background: rgb(204, 0, 0);
   border: 1px solid #000;
   color: rgb(117, 117, 117);
