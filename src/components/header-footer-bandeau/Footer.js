@@ -42,8 +42,8 @@ function Footer() {
           </div>
 
           <div className="projets">
+            <h3>Other web projects:</h3>
             <ul>
-              <h3>Other web projects:</h3>
               <li>V'Lille</li>
               <li>Video Game</li>
             </ul>
