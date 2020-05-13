@@ -64,12 +64,12 @@
 @media (max-width: 640px) {
   .bloc-gallery {
     margin-top: 12vh;
-    height: 2100px;
+    height: 1450px;
   }
 
   .pokemon-cards {
     justify-content: space-around;
-    height: 2000px;
+    height: 1400px;
     padding: 10px;
   }
 
