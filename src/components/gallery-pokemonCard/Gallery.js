@@ -7,7 +7,6 @@ import "./Recherche.css";
 import RechercheNom from "./RechercheNom";
 import Filtre from "./Filtre";
 
-
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +19,6 @@ class Gallery extends React.Component {
       type1: "",
       type2: "",
       pokedexActive: false,
-
     };
     this.filtreHandleChange = this.filtreHandleChange.bind(this);
     this.applyFiltre = this.applyFiltre.bind(this);
@@ -35,7 +33,7 @@ class Gallery extends React.Component {
     //demande de l'API -- API's request
     axios
 
-      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=120")
+      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=649")
 
       // extrait les data de l'api et l'enregistre dans reponse -- extract datas from API and register the answers
       .then((response) => response.data.results)
@@ -146,22 +144,22 @@ class Gallery extends React.Component {
                   : "searchbyName-desactive"
               }
             >
-             <div className="leftBloc">
-              <div className="comparatif"></div>
+              <div className="leftBloc">
+                <div className="comparatif"></div>
+              </div>
+              <div className="rightBloc">
+                {/*appelle RechercheNom et Filtre en envoyant les props de filtreHandleChange -- call RechercheNom and Filtre sending filtreHandleChange's props*/}
+                <RechercheNom filtreHandleChange={this.filtreHandleChange} />
+                <Filtre filtreHandleChange={this.filtreHandleChange} />
+                {/*we apply the requested changes on this button click*/}
+                <button
+                  className="filterButton"
+                  onClick={() => this.applyFiltre()}
+                >
+                  GO
+                </button>
+              </div>
             </div>
-            <div className="rightBloc">
-              {/*appelle RechercheNom et Filtre en envoyant les props de filtreHandleChange -- call RechercheNom and Filtre sending filtreHandleChange's props*/}
-              <RechercheNom filtreHandleChange={this.filtreHandleChange} />
-              <Filtre filtreHandleChange={this.filtreHandleChange} />
-              {/*we apply the requested changes on this button click*/}
-              <button
-                className="filterButton"
-                onClick={() => this.applyFiltre()}
-              >
-                GO
-              </button>
-            </div>
-        </div>
           </div>
           <div className="button hideButton">
             <div
@@ -212,7 +210,6 @@ class Gallery extends React.Component {
           <button className="button2" onClick={this.addOne}>
             Next
           </button>
-
         </div>
       </div>
     );
