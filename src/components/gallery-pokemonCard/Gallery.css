@@ -20,7 +20,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  width: 50%;
+  width: 400px;
+  height: 150px;
 }
 .filterButton {
   border: none;
@@ -29,6 +30,7 @@
   background-color: rgb(33, 33, 231);
   height: 2.5vh;
   width: 10vw;
+  border: 3px solid salmon;
 }
 
 .selectFiltre {
@@ -38,7 +40,9 @@
 
 /*Left Page -- All under that is into this*/
 .leftBloc {
-  width: 50%;
+  width: 400px;
+
+  height: 150px;
 }
 
 .comparatif {
@@ -166,6 +170,7 @@
   margin-top: 3%;
   margin-right: 18%;
   padding: 10px;
+  width: 15vw;
 }
 
 @media (max-width: 640px) {

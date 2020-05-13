@@ -4,12 +4,15 @@
   border-top: 10px solid #363636;
   background-color: #363636;
   background-image: url("/img/bg-pokeball.png");
+
+  /*border: 3px dotted blue;*/
 }
 .pokedex {
   border-bottom: 15px solid #363636;
   height: 250px;
   transition: 1s;
   width: 90vw;
+  /* border: 3px dotted orange;*/
 }
 
 .pokedex-desactive {
@@ -18,7 +21,9 @@
 }
 
 .searchbyName-active {
-  display: block;
+  display: initial;
+
+  height: 300px;
 }
 
 .searchbyName-desactive {
