@@ -12,23 +12,32 @@ function Footer() {
         <div className="footerLinks">
           <div className="team1">
             <div>
-              <p>Bérénice</p>
-              <img src="/img/berenice.png" alt="Berenice" width="100px" />
+              <p className="p">Bérénice</p>
+              <img src="/img/berenice.png" alt="Berenice" className="avatar" />
             </div>
 
             <div>
-              <p>Ghazali</p>
-              <img src="/img/ghazali.png" alt="Ghazali" width="100px" />
+              <p className="p">Ghazali</p>
+              <img src="/img/ghazali.png" alt="Ghazali" className="avatar" />
             </div>
 
             <div>
-              <p>Roxane</p>
-              <img src="/img/roxanne.png" alt="Roxanne" width="100px" />
+              <p className="p">Roxane</p>
+              <img
+                src="/img/roxanne.png"
+                alt="Roxanne"
+                className="avatar"
+                className="avatar"
+              />
             </div>
 
             <div>
-              <p>M. Brassart</p>
-              <img src="/img/mbrassart.png" alt="M Brassart" width="100px" />
+              <p className="p">M. Brassart</p>
+              <img
+                src="/img/mbrassart.png"
+                alt="M Brassart"
+                className="avatar"
+              />
             </div>
           </div>
 
@@ -42,23 +51,23 @@ function Footer() {
 
           <div className="team2">
             <div>
-              <p>Gilles</p>
-              <img src="/img/gilles.png" alt="Gilles" width="100px" />
+              <p className="p">Gilles</p>
+              <img src="/img/gilles.png" alt="Gilles" className="avatar" />
             </div>
 
             <div>
-              <p>Sophie</p>
-              <img src="/img/sophie.png" alt="Sophie" width="100px" />
+              <p className="p">Sophie</p>
+              <img src="/img/sophie.png" alt="Sophie" className="avatar" />
             </div>
 
             <div>
-              <p>Valentin</p>
-              <img src="/img/valentin.png" alt="Valentin" width="100px" />
+              <p className="p">Valentin</p>
+              <img src="/img/valentin.png" alt="Valentin" className="avatar" />
             </div>
 
             <div>
-              <p>Benjamin</p>
-              <img src="/img/benjamin.png" alt="Benjamin" width="100px" />
+              <p className="p">Benjamin</p>
+              <img src="/img/benjamin.png" alt="Benjamin" className="avatar" />
             </div>
           </div>
         </div>

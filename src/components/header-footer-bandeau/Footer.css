@@ -6,27 +6,29 @@
 
   display: flex;
   justify-content: center;
-  /*height: 200px;*/
+  /* height: 200px;*/
   background-color: #f0f0f0;
-  border: 2px solid green;
 }
 
 .valorLogo {
   height: 10vh;
   position: absolute;
-  border: 2px solid magenta;
+}
+
+.avatar {
+  width: 100px;
 }
 
 .footerLinks {
   margin-top: 12vh;
   width: 80%;
+
   display: flex;
   font-family: "Aldrich", sans-serif;
   justify-content: space-between;
-  flex-wrap: wrap;
+
   font-size: 1.2em;
   color: darkgray;
-  border: 2px solid blue;
 }
 
 .team1,
@@ -36,7 +38,6 @@
   text-align: center;
   display: flex;
   justify-content: space-around;
-  border: 2px solid salmon;
 }
 
 .projets {
@@ -48,8 +49,7 @@
   list-style: none;
 }
 
-.projets h3,
-.team h3 {
+.projets h3 {
   margin-bottom: 0.5em;
 }
 
@@ -63,18 +63,37 @@
   }
   .valorLogo {
     position: initial;
+    width: 250px;
+    height: 60px;
   }
   .team1,
   .team2 {
     width: 350px;
-    height: 100px;
   }
   .footerLinks {
     display: block;
-    font-size: 1em;
+
     text-align: center;
     width: 370px;
     margin-left: auto;
     margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .p {
+    font-size: 15px;
+  }
+
+  .avatar {
+    width: 60px;
+  }
+  .projets h3 {
+    font-size: 20px;
+  }
+
+  .projets li {
+    font-size: 15px;
   }
 }

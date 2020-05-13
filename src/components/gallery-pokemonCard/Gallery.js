@@ -87,7 +87,7 @@ class Gallery extends React.Component {
           <div className="button hideButton">
             <div
               className="shape"
-              onClick={(event) => {
+              onClick={() => {
                 const hide = !this.state.pokedexActive;
                 this.setState({ pokedexActive: hide });
               }}
@@ -95,7 +95,7 @@ class Gallery extends React.Component {
             <div className="hideButton">
               <div
                 className="txtButton"
-                onClick={(event) => {
+                onClick={() => {
                   const hide = !this.state.pokedexActive;
                   this.setState({ pokedexActive: hide });
                 }}
