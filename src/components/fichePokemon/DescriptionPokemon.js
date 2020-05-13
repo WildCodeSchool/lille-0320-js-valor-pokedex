@@ -25,7 +25,6 @@ class DescriptionPokemon extends React.Component {
     const url = `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`;
     //demande de l'API -- API's request
     axios.get(url).then(({ data }) => {
-      console.log("data", data);
       this.setState({
         OnePokemon: data,
       });

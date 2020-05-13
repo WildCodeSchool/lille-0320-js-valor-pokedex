@@ -27,7 +27,7 @@ function FichePokemon({ pokemon }) {
       return "vert";
     }
   };
-  console.log("id2");
+
   return (
     <section className="fiche">
       <article className="column">
