@@ -131,7 +131,6 @@
 .bloc-gallery {
   background-color: rgba(255, 255, 255, 0.432);
   width: 80%;
-
   height: 1400px;
   display: flex;
   flex-wrap: wrap;
@@ -166,8 +165,6 @@
   transition: 1s;
   width: 90vw;
 }
-
-@import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
 
 .recherche-nom {
   border-top: 10px solid #363636;
@@ -233,6 +230,9 @@
 }
 
 @media (max-width: 640px) {
+  .gallery {
+    height: 1800px;
+  }
   .pokedex {
     height: 160px;
     margin-top: 70px;
@@ -246,14 +246,15 @@
   .shape {
     width: 100%;
   }
+
   .bloc-gallery {
     margin-top: 12vh;
-    height: 2100px;
+    height: 1400px;
   }
 
   .pokemon-cards {
     justify-content: space-around;
-    height: 2000px;
+    height: 1400px;
     padding: 10px;
   }
   .comparatif {
@@ -283,5 +284,11 @@
     padding-top: 0;
     padding-bottom: 0;
     height: 210px;
+  }
+  .buttonGallery {
+    justify-content: center;
+  }
+  .buttonGallery button {
+    margin: 0;
   }
 }
