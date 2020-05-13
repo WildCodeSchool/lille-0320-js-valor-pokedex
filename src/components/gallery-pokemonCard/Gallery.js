@@ -127,7 +127,7 @@ class Gallery extends React.Component {
               className={
                 this.state.pokedexActive
                   ? "searchByName-active"
-                  : "searchbyName-desactive"
+                  : "searchByName-desactive"
               }
             >
               <div className="leftBloc">
