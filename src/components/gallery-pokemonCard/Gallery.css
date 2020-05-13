@@ -60,7 +60,6 @@
 /*Buttons Next and Previous*/
 .buttonGallery {
   display: flex;
-  justify-content: center;
   margin: 0 auto;
 }
 
@@ -162,24 +161,10 @@
   font-size: 2.5 vh;
   text-align: end;
   padding: 100px 5%;
-
   border-bottom: 15px solid #363636;
   height: 250px;
   transition: 1s;
   width: 90vw;
-}
-
-@media (max-width: 640px) {
-  .bloc-gallery {
-    margin-top: 12vh;
-    height: 2100px;
-  }
-
-  .pokemon-cards {
-    justify-content: space-around;
-    height: 2000px;
-    padding: 10px;
-  }
 }
 
 @import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
@@ -251,6 +236,7 @@
   .pokedex {
     height: 160px;
     margin-top: 70px;
+    transition: 0.4s;
   }
   .pokedex-desactive {
     background-color: #363636;
@@ -259,5 +245,43 @@
 
   .shape {
     width: 100%;
+  }
+  .bloc-gallery {
+    margin-top: 12vh;
+    height: 2100px;
+  }
+
+  .pokemon-cards {
+    justify-content: space-around;
+    height: 2000px;
+    padding: 10px;
+  }
+  .comparatif {
+    width: 60px;
+    height: 20px;
+  }
+  .searchByName-active {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-around;
+  }
+
+  .rightBloc {
+    margin-top: 30px;
+    height: 120px;
+    width: 120px;
+    justify-content: space-between;
+  }
+
+  .selectFiltre {
+    margin: 0;
+  }
+
+  .pokedex {
+    margin-top: 100px;
+    background-size: 95% 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 210px;
   }
 }

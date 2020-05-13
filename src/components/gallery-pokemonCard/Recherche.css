@@ -11,8 +11,8 @@
 }
 @media (max-width: 640px) {
   .searchBar {
-    width: 35vw;
-    font-size: 12px;
+    width: 26.2vw;
+    font-size: 9px;
     margin-right: 2vw;
   }
 }
