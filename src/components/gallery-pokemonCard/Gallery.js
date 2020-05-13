@@ -3,7 +3,7 @@ import axios from "axios";
 import PokemonCard from "./PokemonCard";
 import "./Gallery.css";
 import { Link } from "react-router-dom";
-import "./Recherche.css";
+
 import RechercheNom from "./RechercheNom";
 import Filtre from "./Filtre";
 
