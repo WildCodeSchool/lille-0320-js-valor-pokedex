@@ -32,14 +32,27 @@
   border-top: solid rgb(109, 109, 109) 1px;
 }
 
-.left p {
+.left {
   color: #45a9fa;
   text-align: center;
   width: 9vw;
+  cursor: help;
 }
-.right p {
+.right {
   text-align: center;
   width: 5vw;
+}
+
+.descrpMoveOn {
+  display: initial;
+}
+
+.descrpMoveOff {
+  display: none;
+}
+
+.infoMove {
+  position: absolute;
 }
 @media screen and (max-width: 640px) {
   .titleBoard {

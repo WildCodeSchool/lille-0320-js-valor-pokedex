@@ -144,10 +144,14 @@ function FichePokemon({ pokemon }) {
                 console.log("3", obj);
                 return (
                   <div className="listAttak">
-                    <div className="left" onMouseOver={() => setHover(!hover)}>
+                    <div
+                      className="left"
+                      onMouseOver={() => setHover(true)}
+                      onMouseOut={() => setHover(false)}
+                    >
                       <p>{obj.name}</p>
                       <div className={hover ? "descrpMoveOn" : "descrpMoveOff"}>
-                        Hello
+                        <p className="infoMove">Hello</p>
                       </div>
                     </div>
                     <div className="right">
