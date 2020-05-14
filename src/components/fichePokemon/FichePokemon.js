@@ -136,7 +136,6 @@ function FichePokemon({ pokemon }) {
             </div>
           </div>
         </article>
-        <div> </div>
       </section>
     </div>
   );

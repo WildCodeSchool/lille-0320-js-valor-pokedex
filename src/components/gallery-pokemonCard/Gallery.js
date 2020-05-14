@@ -110,7 +110,7 @@ class Gallery extends React.Component {
         <div className="gallery">
           <div className="bloc-gallery">
             <div className="pokemon-cards">
-              {this.state.filteredPokemons.slice(0, 50).map((pokemon) => {
+              {this.state.filteredPokemons.slice(0, 600).map((pokemon) => {
                 return (
                   <Link to={`/Pokemon/${pokemon.name}`}>
                     <PokemonCard {...pokemon} />
