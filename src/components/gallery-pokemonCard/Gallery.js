@@ -11,8 +11,10 @@ class Gallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      limit: 649,
       pokemons: [],
       filteredPokemons: [],
+      pokeDay: {},
       i: 0,
       j: 50,
       searchBar: "",
@@ -27,12 +29,15 @@ class Gallery extends React.Component {
   //appelle l'APi après le premier rendu pour éviter la page blanche au démarrage -- call the API after the first render to avoid the white page
   componentDidMount() {
     this.getPokemon();
+    this.getPokeDay();
   }
 
   getPokemon() {
     //demande de l'API -- API's request
     axios
-      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=649")
+      .get(
+        `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=${this.state.limit}`
+      )
       // extrait les data de l'api et l'enregistre dans reponse -- extract datas from API and register the answers
       .then((response) => response.data.results)
 
@@ -42,6 +47,16 @@ class Gallery extends React.Component {
           pokemons: data,
           filteredPokemons: data,
         });
+      });
+  }
+
+  getPokeDay() {
+    randomPok = Math.floor(Math.random() * Math.floor(this.state.limit + 1));
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon/${randomPok}`)
+      .then((response) => response.data)
+      .then((data) => {
+        this.setState({ pokeDay: data });
       });
   }
 
