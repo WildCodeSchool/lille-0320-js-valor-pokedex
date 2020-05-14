@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./components/header-footer-bandeau/Header";
-import Footer from "./components/header-footer-bandeau/Footer";
+
 import Homepage from "./components/Homepage";
 import Pokecall from "./components/fichePokemon/PokeCall";
 
@@ -13,14 +13,13 @@ function App() {
   return (
     <Router>
       <Switch>
-        <div>
+        <>
           <Header />
           <main>
             <Route exact path="/" component={Homepage} />
             <Route path="/Pokemon/:pokemonName" component={Pokecall} />
           </main>
-          <Footer />
-        </div>
+        </>
       </Switch>
     </Router>
   );

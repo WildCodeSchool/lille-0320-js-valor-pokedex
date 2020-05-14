@@ -24,7 +24,7 @@ function Footer() {
             <div>
               <p className="p">Roxane</p>
               <img
-                src="/img/roxanne.png"
+                src="/img/roxane.png"
                 alt="Roxanne"
                 className="avatar"
                 className="avatar"
@@ -42,8 +42,8 @@ function Footer() {
           </div>
 
           <div className="projets">
-            <ul>
-              <h3>Other web projects:</h3>
+            <h3>Other web projects:</h3>
+            <ul className="OtherProject">
               <li>V'Lille</li>
               <li>Video Game</li>
             </ul>

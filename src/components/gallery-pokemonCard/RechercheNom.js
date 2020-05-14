@@ -11,7 +11,7 @@ function RechercheNom(props) {
         type="text"
         placeholder="Search by Name"
         name="searchBar"
-        onChange={props.rechercheHandleChange}
+        onChange={props.filtreHandleChange}
       />
     </div>
   );

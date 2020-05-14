@@ -1,12 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
 
 .footer {
-  /* width: 100%;*/
-  /* margin: 0;*/
-
+  width: 100%;
   display: flex;
   justify-content: center;
-  /* height: 200px;*/
   background-color: #f0f0f0;
 }
 
@@ -91,9 +88,16 @@
   }
   .projets h3 {
     font-size: 20px;
+    margin: 0;
   }
 
   .projets li {
     font-size: 15px;
+  }
+  .OtherProject {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
   }
 }

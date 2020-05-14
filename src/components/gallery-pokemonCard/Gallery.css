@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
 
+.page {
+  height: 1600px;
+}
+
 .gallery {
+  font-weight: bold;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -14,11 +19,120 @@
   width: 100%;
   overflow: hidden;
 }
+/*Right Page -- All under that is into this*/
+.rightBloc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 400px;
+  height: 150px;
+  margin-top: 50px;
+}
+.filterButton {
+  border: none;
+  border-radius: 10%;
+  color: white;
+  background-color: rgb(33, 33, 231);
+  height: 2.5vh;
+  width: 10vw;
+}
+
+.selectFiltre {
+  padding: 5px;
+  margin: 5px;
+}
+
+/*Left Page -- All under that is into this*/
+.leftBloc {
+  width: 400px;
+  height: 150px;
+}
+
+.comparatif {
+  width: 45%;
+  height: 70%;
+  background-color: white;
+  border: 15px solid rgb(187, 187, 187);
+  border-bottom: 35px solid rgb(187, 187, 187);
+  border-radius: 10px;
+  margin: 38px 20px 20px 20px;
+}
+
+/*Buttons Next and Previous*/
+.buttonGallery {
+  display: flex;
+  margin: 0 auto;
+}
+
+.buttonGallery button {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: 0;
+  margin: 0 60px 40px 60px;
+  padding-top: 28px;
+  background: rgb(204, 0, 0);
+  border: 1px solid #000;
+  color: rgb(117, 117, 117);
+  font-weight: bold;
+  font-size: 10px;
+  text-transform: uppercase;
+  background-image: url(/img/pokeball.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.button1 {
+  animation: shake 1.5s ease-out infinite;
+  cursor: pointer;
+  transform-origin: center bottom;
+  box-shadow: 2px 1px 5px rgb(53, 53, 53);
+}
+
+.button2 {
+  animation: shake 1.7s ease-in-out infinite;
+  cursor: pointer;
+  transform-origin: center bottom;
+  box-shadow: 2px 1px 5px rgb(53, 53, 53);
+}
+
+.buttonGallery button:hover {
+  color: rgb(0, 0, 0);
+}
+
+.buttonGallery button:active {
+  color: rgb(155, 0, 0);
+}
+
+/* animation on pokeball */
+@keyframes shake {
+  0% {
+    transform: rotate(5deg);
+  }
+  5% {
+    transform: rotate(-5deg);
+  }
+  10% {
+    transform: rotate(5deg);
+  }
+  15% {
+    transform: rotate(-5deg);
+  }
+  20% {
+    transform: rotate(5deg);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 
 .bloc-gallery {
   background-color: rgba(255, 255, 255, 0.432);
   width: 80%;
-  /*height: 200vh;*/
   height: 1400px;
   display: flex;
   flex-wrap: wrap;
@@ -42,40 +156,140 @@
 .pokedex {
   background-image: url("/img/pokedex.png");
   height: 220px;
-  background-size: 90% 95%;
+  background-size: 75% 95%;
   background-position: center;
   background-repeat: no-repeat;
   font-size: 2.5 vh;
   text-align: end;
   padding: 100px 5%;
+
+  height: 250px;
+  transition: 1s;
 }
 
-.searchBar {
-  border: none;
-  background-color: yellowgreen;
-  color: black;
-  width: 20%;
-  font-size: 150%;
-  margin-top: 3%;
-  margin-right: 18%;
-  padding: 10px;
+.recherche-nom {
+  border-top: 10px solid #363636;
+  background-color: #363636;
+  background-image: url("/img/bg-pokeball.png");
+}
+
+.pokedex-desactive {
+  height: 0px;
+  transition: 1s;
+}
+
+.searchByName-active {
+  height: 300px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.searchByName-desactive {
+  display: none;
+}
+
+.button {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  height: 5vh;
+}
+
+.hideButton {
+  height: 5vh;
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: #e0c718;
+  font-family: "Aldrich", sans-serif;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  z-index: 20;
+}
+
+.txtButton {
+  width: 270px;
+  padding-top: 0.7vh;
+  cursor: pointer;
+}
+
+.shape {
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 0;
+  width: 300px;
+  height: 20px;
+  border-top: 50px solid #363636;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: none;
+  z-index: 15;
 }
 
 @media (max-width: 640px) {
+  .gallery {
+    height: 1600px;
+  }
+  .pokedex {
+    height: 160px;
+    margin-top: 70px;
+    transition: 0.4s;
+  }
+  .pokedex-desactive {
+    background-color: #363636;
+    padding-top: 100px;
+  }
+
+  .shape {
+    width: 100%;
+  }
+
   .bloc-gallery {
     margin-top: 12vh;
-    height: 1450px;
+    height: 1400px;
   }
 
   .pokemon-cards {
     justify-content: space-around;
-    height: 1400px;
+    height: 1300px;
     padding: 10px;
   }
+  .comparatif {
+    width: 60px;
+    height: 20px;
+  }
+  .searchByName-active {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-around;
+  }
 
-  .searchBar {
-    width: 35vw;
-    font-size: 12px;
-    margin-right: 2vw;
+  .rightBloc {
+    margin-top: 30px;
+    height: 120px;
+    width: 120px;
+    justify-content: space-between;
+  }
+
+  .selectFiltre {
+    margin: 0;
+  }
+
+  .pokedex {
+    margin-top: 100px;
+    background-size: 95% 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 210px;
+  }
+  .buttonGallery {
+    justify-content: center;
+  }
+  .buttonGallery button {
+    margin: 0;
   }
 }

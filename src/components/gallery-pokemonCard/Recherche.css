@@ -1,82 +1,18 @@
-@import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
-
-.recherche-nom {
-  border-top: 10px solid #363636;
-  background-color: #363636;
-  background-image: url("/img/bg-pokeball.png");
+.searchBar {
+  border: none;
+  background-color: yellowgreen;
+  color: black;
+  width: 20%;
+  font-size: 150%;
+  margin-top: 3%;
+  margin-right: 18%;
+  padding: 10px;
+  width: 15vw;
 }
-.pokedex {
-  border-bottom: 15px solid #363636;
-  height: 250px;
-  transition: 1s;
-}
-
-.pokedex-desactive {
-  height: 0px;
-  transition: 1s;
-}
-
-.searchbyName-active {
-  display: block;
-}
-
-.searchbyName-desactive {
-  display: none;
-}
-
-.button {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
-  height: 5vh;
-}
-
-.hideButton {
-  height: 5vh;
-  width: 100%;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  color: #e0c718;
-  font-family: "Aldrich", sans-serif;
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  z-index: 20;
-}
-
-.txtButton {
-  width: 270px;
-  padding-top: 0.7vh;
-  cursor: pointer;
-}
-
-.shape {
-  text-align: center;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 0;
-  width: 300px;
-  height: 20px;
-  border-top: 50px solid #363636;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: none;
-  z-index: 15;
-}
-
 @media (max-width: 640px) {
-  .pokedex {
-    height: 160px;
-    margin-top: 70px;
-  }
-  .pokedex-desactive {
-    background-color: #363636;
-    padding-top: 100px;
-  }
-
-  .shape {
-    width: 100%;
+  .searchBar {
+    width: 26.2vw;
+    font-size: 9px;
+    margin-right: 2vw;
   }
 }
