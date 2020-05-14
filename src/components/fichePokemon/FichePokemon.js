@@ -118,9 +118,7 @@ function FichePokemon({ pokemon }) {
             {pokemon.stats.reverse().map((obj) => {
               return (
                 <div className="stat" key={obj.stat.name}>
-                  <p className="name">
-                    {obj.stat.name}
-                  </p>
+                  <p className="name">{obj.stat.name}</p>
                   <p> {obj.base_stat}</p>
 
                   <div className="status">
@@ -159,7 +157,6 @@ function FichePokemon({ pokemon }) {
             </div>
           </div>
         </article>
-        <div> </div>
       </section>
       <Footer />
     </div>
