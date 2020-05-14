@@ -23,12 +23,7 @@ function Footer() {
 
             <div>
               <p className="p">Roxane</p>
-              <img
-                src="/img/roxane.png"
-                alt="Roxanne"
-                className="avatar"
-                className="avatar"
-              />
+              <img src="/img/roxane.png" alt="Roxane" className="avatar" />
             </div>
 
             <div>
