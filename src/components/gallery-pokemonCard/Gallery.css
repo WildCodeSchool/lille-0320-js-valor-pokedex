@@ -47,20 +47,21 @@
 .leftBloc {
   width: 400px;
   height: 150px;
+  display: flex;
 }
 
 .pokeDay {
-  width: 55%;
-  height: 85%;
+  width: 20vw;
+  height: 16vw;
   background-color: white;
   border: 15px solid rgb(187, 187, 187);
   border-bottom: 35px solid rgb(187, 187, 187);
   border-radius: 10px;
-  margin: 38px 20px 20px 20px;
+  margin: 38px 40px 20px 20px;
 }
 
 .imgDay {
-  width: 35vh;
+  width: 80%;
   margin-right: 20px;
 }
 
@@ -160,15 +161,13 @@
 
 .pokedex {
   background-image: url("/img/pokedex.png");
-  height: 220px;
   background-size: 75% 95%;
   background-position: center;
   background-repeat: no-repeat;
   font-size: 2.5 vh;
   text-align: end;
   padding: 100px 5%;
-
-  height: 250px;
+  height: 37vh;
   transition: 1s;
 }
 
@@ -270,8 +269,6 @@
 
   .imgDay {
     width: 10vh;
-    margin-left: 5px;
-    margin-top: 2px;
   }
 
   .searchByName-active {
