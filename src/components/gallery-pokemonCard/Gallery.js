@@ -170,25 +170,18 @@ class Gallery extends React.Component {
                     </div>
                   </Link>
                 )}
-                                   
               </div>
               <div className="rightBloc">
-                                
-                {/*appelle RechercheNom et Filtre en envoyant les props de filtreHandleChange -- call RechercheNom and Filtre sending filtreHandleChange's props*/}
-                                
+                {/*appelle RechercheNom et Filtre en envoyant les props de filtreHandleChange -- call RechercheNom and Filtre sending filtreHandleChange's props*/}
                 <RechercheNom filtreHandleChange={this.filtreHandleChange} />
-                                
                 <Filtre filtreHandleChange={this.filtreHandleChange} />
-                                
-                {/*we apply the requested changes on this button click*/}
-                                
+                {/*we apply the requested changes on this button click*/}
                 <button
                   className="filterButton"
                   onClick={() => this.applyFiltre()}
                 >
                   GO
                 </button>
-                              
               </div>
             </div>
             {/*affiche un nouveau tableau à partir du tableau filtré -- pin up a new array based on the filtered array*/}
@@ -216,6 +209,7 @@ class Gallery extends React.Component {
             </div>
           </div>
         </div>
+
         <div className="gallery">
           <div className="bloc-gallery">
             <div className="pokemon-cards">
