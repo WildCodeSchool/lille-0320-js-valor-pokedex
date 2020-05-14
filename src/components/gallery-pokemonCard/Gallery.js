@@ -27,7 +27,7 @@ class Gallery extends React.Component {
   getPokemon() {
     //demande de l'API -- API's request
     axios
-      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=50")
+      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=649")
       // extrait les data de l'api et l'enregistre dans reponse -- extract datas from API and register the answers
       .then((response) => response.data.results)
 
@@ -110,7 +110,7 @@ class Gallery extends React.Component {
         <div className="gallery">
           <div className="bloc-gallery">
             <div className="pokemon-cards">
-              {this.state.filteredPokemons.slice(0, 50).map((pokemon) => {
+              {this.state.filteredPokemons.slice(0, 649).map((pokemon) => {
                 return (
                   <Link to={`/Pokemon/${pokemon.name}`}>
                     <PokemonCard {...pokemon} />
