@@ -11,8 +11,10 @@ class Gallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      limit: 649,
       pokemons: [],
       filteredPokemons: [],
+      pokeDay: {},
       i: 0,
       j: 50,
       searchBar: "",
@@ -27,12 +29,15 @@ class Gallery extends React.Component {
   //appelle l'APi après le premier rendu pour éviter la page blanche au démarrage -- call the API after the first render to avoid the white page
   componentDidMount() {
     this.getPokemon();
+    this.getPokeDay();
   }
 
   getPokemon() {
     //demande de l'API -- API's request
     axios
-      .get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=649")
+      .get(
+        `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=${this.state.limit}`
+      )
       // extrait les data de l'api et l'enregistre dans reponse -- extract datas from API and register the answers
       .then((response) => response.data.results)
 
@@ -42,6 +47,18 @@ class Gallery extends React.Component {
           pokemons: data,
           filteredPokemons: data,
         });
+      });
+  }
+  // pokemon random dans le pokedex
+  getPokeDay() {
+    const randomPok = Math.floor(
+      Math.random() * Math.floor(this.state.limit + 1)
+    );
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon/${randomPok}`)
+      .then((response) => response.data)
+      .then((data) => {
+        this.setState({ pokeDay: data });
       });
   }
 
@@ -131,7 +148,28 @@ class Gallery extends React.Component {
               }
             >
               <div className="leftBloc">
-                <div className="comparatif"></div>
+                {this.state.pokeDay.name && (
+                  <Link to={`/Pokemon/${this.state.pokeDay.name}`}>
+                    <div className="pokeDay">
+                      <img
+                        src={`https://pokeres.bastionbot.org/images/pokemon/${this.state.pokeDay.id}.png`}
+                        alt={this.state.pokeDay.name}
+                        className="imgDay"
+                      />
+                      <p className="pokeDayName">
+                        {this.state.pokeDay.name.includes("-") &&
+                        this.state.pokeDay.name !== "porygon-z"
+                          ? this.state.pokeDay.name.charAt(0).toUpperCase() +
+                            this.state.pokeDay.name
+                              .substring(1)
+                              .toLowerCase()
+                              .slice(0, this.state.pokeDay.name.indexOf("-"))
+                          : this.state.pokeDay.name.charAt(0).toUpperCase() +
+                            this.state.pokeDay.name.substring(1).toLowerCase()}
+                      </p>
+                    </div>
+                  </Link>
+                )}
               </div>
               <div className="rightBloc">
                 {/*appelle RechercheNom et Filtre en envoyant les props de filtreHandleChange -- call RechercheNom and Filtre sending filtreHandleChange's props*/}

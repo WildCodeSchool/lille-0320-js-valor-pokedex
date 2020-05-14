@@ -17,7 +17,6 @@ class DescriptionPokemon extends React.Component {
 
   componentDidMount() {
     const pokemonId = this.props.id;
-
     this.getPokemon(pokemonId);
   }
 

@@ -39,6 +39,7 @@ function Footer() {
 
             <div>
               <p className="p">Roxane</p>
+
               <a
                 href="https://github.com/RoxaneDrelon"
                 target="_blank"
@@ -46,6 +47,8 @@ function Footer() {
               >
                 <img src="/img/roxane.png" alt="Roxane" className="avatar" />
               </a>
+
+              
             </div>
 
             <div>

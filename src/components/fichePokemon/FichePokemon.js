@@ -70,7 +70,15 @@ function FichePokemon({ pokemon }) {
             <div className="PokemonName">
               <div className="shape2"></div>
               <p className="nomId">
-                {pokemon.name} - N°{pokemon.id}
+                {pokemon.name.includes("-") && pokemon.name !== "porygon-z"
+                  ? pokemon.name.charAt(0).toUpperCase() +
+                    pokemon.name
+                      .substring(1)
+                      .toLowerCase()
+                      .slice(0, pokemon.name.indexOf("-"))
+                  : pokemon.name.charAt(0).toUpperCase() +
+                    pokemon.name.substring(1).toLowerCase()}
+                - N°{pokemon.id}
               </p>
             </div>
             <div className="Infos">
@@ -154,5 +162,4 @@ function FichePokemon({ pokemon }) {
     </div>
   );
 }
-
 export default FichePokemon;
