@@ -266,6 +266,10 @@
     height: 1400px;
   }
 
+  .leftBloc {
+    margin-top: 20px;
+  }
+
   .pokemon-cards {
     justify-content: space-around;
     height: 1300px;
@@ -287,7 +291,7 @@
   }
 
   .rightBloc {
-    margin-top: 30px;
+    margin-top: 60px;
     height: 120px;
     width: 120px;
     justify-content: space-between;
