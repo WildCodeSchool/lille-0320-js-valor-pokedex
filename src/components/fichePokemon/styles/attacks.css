@@ -43,14 +43,6 @@
   width: 5vw;
 }
 
-.descrpMoveOn {
-  display: initial;
-}
-
-.descrpMoveOff {
-  display: none;
-}
-
 .infoMove {
   position: absolute;
 }

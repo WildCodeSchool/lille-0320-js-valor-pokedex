@@ -141,13 +141,15 @@ function FichePokemon({ pokemon }) {
                   <div className="listAttak" key={i}>
                     <div
                       className="left"
-                      onMouseOver={() => setHover(true)}
-                      onMouseOut={() => setHover(false)}
+                      onMouseEnter={() => setHover(true)}
+                      onMouseLeave={() => setHover(false)}
                     >
                       <p>{obj.name}</p>
-                      <div className={hover ? "descrpMoveOn" : "descrpMoveOff"}>
-                        <p className="infoMove">Hello</p>
-                      </div>
+                      {hover && (
+                        <div>
+                          <p className="infoMove">Hello</p>
+                        </div>
+                      )}
                     </div>
                     <div className="right">
                       <p>{obj.level === 0 ? "Evolution" : obj.level}</p>
