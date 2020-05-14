@@ -76,7 +76,14 @@ class PokemonCard extends React.Component {
               />
             </div>
             <p className="titre">
-              {this.state.data.id} {this.state.data.name}
+              {this.state.data.id}{" "}
+              {this.state.data.name.includes("-") &&
+              this.state.data.name !== "porygon-z"
+                ? this.state.data.name.slice(
+                    0,
+                    this.state.data.name.indexOf("-")
+                  )
+                : this.state.data.name}
             </p>
           </div>
         ) : (

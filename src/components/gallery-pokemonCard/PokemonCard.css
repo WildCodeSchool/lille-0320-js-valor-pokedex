@@ -11,6 +11,7 @@
 .titre {
   background-color: rgba(128, 128, 128, 0.678);
   text-align: center;
+  text-transform: capitalize;
   margin: 0;
   border-radius: 0 0 10px 10px;
   font-size: 15px;
