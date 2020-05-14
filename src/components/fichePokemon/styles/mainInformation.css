@@ -13,7 +13,7 @@
 
 /*dimensionne la section nom et Id de infoBase - Crop the session with the name + infoBase's Id*/
 
-.shape {
+.shape2 {
   margin-top: 0;
   width: 300px;
   height: 20px;
@@ -26,12 +26,11 @@
 
 .nomId {
   text-align: center;
-  /* background-color: black;*/
   color: white;
   margin-top: 18px;
   margin-bottom: 40px;
-  /* width: 50%;*/
   position: relative;
+  z-index: 20;
 }
 
 /*sous catégorie de principal - Subcategory*/
@@ -183,7 +182,7 @@
   .mainInformation {
     width: 74vw;
   }
-  .shape {
+  .shape2 {
     width: 30vw;
   }
   .Infos {

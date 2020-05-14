@@ -8,7 +8,7 @@ class DescriptionPokemon extends React.Component {
     super(props);
     this.state = {
       OnePokemon: {
-        id: 1,
+        id: "",
       },
     };
   }
@@ -16,7 +16,7 @@ class DescriptionPokemon extends React.Component {
   //#3 //#7
 
   componentDidMount() {
-    const pokemonId = 1;
+    const pokemonId = this.props.id;
 
     this.getPokemon(pokemonId);
   }

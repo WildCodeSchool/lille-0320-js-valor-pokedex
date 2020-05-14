@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./components/header-footer-bandeau/Header";
-import Footer from "./components/header-footer-bandeau/Footer";
+
 import Homepage from "./components/Homepage";
 import Pokecall from "./components/fichePokemon/PokeCall";
 
@@ -19,7 +19,6 @@ function App() {
             <Route exact path="/" component={Homepage} />
             <Route path="/Pokemon/:pokemonName" component={Pokecall} />
           </main>
-          <Footer className="Footer" />
         </>
       </Switch>
     </Router>
