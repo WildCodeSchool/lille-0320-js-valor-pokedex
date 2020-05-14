@@ -101,7 +101,6 @@ function FichePokemon({ pokemon }) {
               );
             })}
           </div>
-          <div className="blackline"></div>
           <div className="attacks">
             <p className="sousTitre">Attacks learned by level</p>
             <div className="titleBoard">
