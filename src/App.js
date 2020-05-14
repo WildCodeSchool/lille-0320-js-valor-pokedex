@@ -13,13 +13,13 @@ function App() {
   return (
     <Router>
       <Switch>
-        <div>
+        <>
           <Header />
           <main>
             <Route exact path="/" component={Homepage} />
             <Route path="/Pokemon/:pokemonName" component={Pokecall} />
           </main>
-        </div>
+        </>
       </Switch>
     </Router>
   );
