@@ -94,7 +94,7 @@
   .projets li {
     font-size: 15px;
   }
-  ul {
+  .OtherProject {
     display: flex;
     justify-content: center;
     justify-content: space-evenly;
