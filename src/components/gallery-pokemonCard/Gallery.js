@@ -156,7 +156,17 @@ class Gallery extends React.Component {
                         alt={this.state.pokeDay.name}
                         className="imgDay"
                       />
-                      <p>{this.state.pokeDay.name}</p>
+                      <p>
+                        {this.state.pokeDay.name.includes("-") &&
+                        this.state.pokeDay.name !== "porygon-z"
+                          ? this.state.pokeDay.name.charAt(0).toUpperCase() +
+                            this.state.pokeDay.name
+                              .substring(1)
+                              .toLowerCase()
+                              .slice(0, this.state.pokeDay.name.indexOf("-"))
+                          : this.state.pokeDay.name.charAt(0).toUpperCase() +
+                            this.state.pokeDay.name.substring(1).toLowerCase()}
+                      </p>
                     </div>
                   </Link>
                 )}
