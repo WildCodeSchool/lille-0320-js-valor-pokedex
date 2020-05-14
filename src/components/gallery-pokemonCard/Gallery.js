@@ -51,7 +51,9 @@ class Gallery extends React.Component {
   }
 
   getPokeDay() {
-    randomPok = Math.floor(Math.random() * Math.floor(this.state.limit + 1));
+    const randomPok = Math.floor(
+      Math.random() * Math.floor(this.state.limit + 1)
+    );
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${randomPok}`)
       .then((response) => response.data)
@@ -146,7 +148,18 @@ class Gallery extends React.Component {
               }
             >
               <div className="leftBloc">
-                <div className="comparatif"></div>                   
+                {this.state.pokeDay.name && (
+                  <Link to={`/Pokemon/${this.state.pokeDay.name}`}>
+                    <div className="pokeDay">
+                      <img
+                        src={`https://pokeres.bastionbot.org/images/pokemon/${this.state.pokeDay.id}.png`}
+                        alt={this.state.pokeDay.name}
+                        className="imgDay"
+                      />
+                    </div>
+                  </Link>
+                )}
+                                   
               </div>
               <div className="rightBloc">
                                 
