@@ -163,7 +163,10 @@ class Gallery extends React.Component {
                             this.state.pokeDay.name
                               .substring(1)
                               .toLowerCase()
-                              .slice(0, this.state.pokeDay.name.indexOf("-"))
+                              .slice(
+                                0,
+                                this.state.pokeDay.name.indexOf("-") - 1
+                              )
                           : this.state.pokeDay.name.charAt(0).toUpperCase() +
                             this.state.pokeDay.name.substring(1).toLowerCase()}
                       </p>

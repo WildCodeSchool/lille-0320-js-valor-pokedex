@@ -77,7 +77,7 @@ function FichePokemon({ pokemon }) {
                       .toLowerCase()
                       .slice(0, pokemon.name.indexOf("-") - 1)
                   : pokemon.name.charAt(0).toUpperCase() +
-                    pokemon.name.substring(1).toLowerCase()}
+                    pokemon.name.substring(1).toLowerCase()}{" "}
                 - N°{pokemon.id}
               </p>
             </div>
