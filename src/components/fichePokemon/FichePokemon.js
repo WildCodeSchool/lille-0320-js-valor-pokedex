@@ -50,7 +50,6 @@ function FichePokemon({ pokemon }) {
           });
       })
       .filter((obj) => {
-        console.log("1", obj);
         return obj.length !== 0;
       });
 
@@ -59,7 +58,6 @@ function FichePokemon({ pokemon }) {
     }
 
     movesAll = movesAll.sort((obj1, obj2) => {
-      console.log("2", obj1);
       return obj1.level - obj2.level;
     });
   }
@@ -110,10 +108,8 @@ function FichePokemon({ pokemon }) {
           <p className="sousTitre">Basic statistics</p>
           {pokemon.stats.reverse().map((obj) => {
             return (
-              <div className="stat">
-                <p className="name" key={obj.stat.name}>
-                  {obj.stat.name}
-                </p>
+              <div className="stat" key={obj.stat.name}>
+                <p className="name">{obj.stat.name}</p>
                 <p> {obj.base_stat}</p>
 
                 <div className="status">
@@ -137,10 +133,9 @@ function FichePokemon({ pokemon }) {
           </div>
           <div>
             {movesAll[1] &&
-              movesAll.map((obj) => {
-                console.log("3", obj);
+              movesAll.map((obj, i) => {
                 return (
-                  <div className="listAttak">
+                  <div className="listAttak" key={i}>
                     <div className="left">
                       <p>{obj.name}</p>
                     </div>

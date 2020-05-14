@@ -7,7 +7,6 @@ import "./Recherche.css";
 import RechercheNom from "./RechercheNom";
 import Filtre from "./Filtre";
 
-
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +19,6 @@ class Gallery extends React.Component {
       type1: "",
       type2: "",
       pokedexActive: false,
-
     };
     this.filtreHandleChange = this.filtreHandleChange.bind(this);
     this.applyFiltre = this.applyFiltre.bind(this);
@@ -146,22 +144,22 @@ class Gallery extends React.Component {
                   : "searchbyName-desactive"
               }
             >
-             <div className="leftBloc">
-              <div className="comparatif"></div>
+              <div className="leftBloc">
+                <div className="comparatif"></div>
+              </div>
+              <div className="rightBloc">
+                {/*appelle RechercheNom et Filtre en envoyant les props de filtreHandleChange -- call RechercheNom and Filtre sending filtreHandleChange's props*/}
+                <RechercheNom filtreHandleChange={this.filtreHandleChange} />
+                <Filtre filtreHandleChange={this.filtreHandleChange} />
+                {/*we apply the requested changes on this button click*/}
+                <button
+                  className="filterButton"
+                  onClick={() => this.applyFiltre()}
+                >
+                  GO
+                </button>
+              </div>
             </div>
-            <div className="rightBloc">
-              {/*appelle RechercheNom et Filtre en envoyant les props de filtreHandleChange -- call RechercheNom and Filtre sending filtreHandleChange's props*/}
-              <RechercheNom filtreHandleChange={this.filtreHandleChange} />
-              <Filtre filtreHandleChange={this.filtreHandleChange} />
-              {/*we apply the requested changes on this button click*/}
-              <button
-                className="filterButton"
-                onClick={() => this.applyFiltre()}
-              >
-                GO
-              </button>
-            </div>
-        </div>
           </div>
           <div className="button hideButton">
             <div
@@ -191,9 +189,9 @@ class Gallery extends React.Component {
             /*on coupe la liste de pokémon afin de n'en afficher qu'un certain nombre par page -- we slice into the pokemon list to display only a few of them per page*/
             this.state.filteredPokemons
               .slice(this.state.i, this.state.j)
-              .map((pokemon, i) => {
+              .map((pokemon, index) => {
                 return (
-                  <Link to={`/Pokemon/${pokemon.name}`}>
+                  <Link to={`/Pokemon/${pokemon.name}`} key={index}>
                     <PokemonCard {...pokemon} />
                   </Link>
                 );
@@ -212,7 +210,6 @@ class Gallery extends React.Component {
           <button className="button2" onClick={this.addOne}>
             Next
           </button>
-
         </div>
       </div>
     );
