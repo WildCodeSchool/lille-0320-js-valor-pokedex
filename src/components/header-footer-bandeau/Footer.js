@@ -16,7 +16,7 @@ function Footer() {
               <a
                 href="https://github.com/berenice89"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
               >
                 <img
                   src="/img/berenice.png"
@@ -31,7 +31,7 @@ function Footer() {
               <a
                 href="https://github.com/Ghazi-1"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
               >
                 <img src="/img/ghazali.png" alt="Ghazali" className="avatar" />
               </a>
@@ -42,7 +42,7 @@ function Footer() {
               <a
                 href="https://github.com/RoxaneDrelon"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
               >
                 <img src="/img/roxane.png" alt="Roxane" className="avatar" />
               </a>
@@ -77,7 +77,7 @@ function Footer() {
               <a
                 href="https://github.com/snefrou2"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
               >
                 <img src="/img/sophie.png" alt="Sophie" className="avatar" />
               </a>
@@ -88,7 +88,7 @@ function Footer() {
               <a
                 href="https://github.com/ValentinV3"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
               >
                 <img
                   src="/img/valentin.png"
@@ -103,7 +103,7 @@ function Footer() {
               <a
                 href="https://github.com/narudb"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
               >
                 <img
                   src="/img/benjamin.png"
