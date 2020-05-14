@@ -156,6 +156,7 @@ class Gallery extends React.Component {
                         alt={this.state.pokeDay.name}
                         className="imgDay"
                       />
+                      <p>{this.state.pokeDay.name}</p>
                     </div>
                   </Link>
                 )}
