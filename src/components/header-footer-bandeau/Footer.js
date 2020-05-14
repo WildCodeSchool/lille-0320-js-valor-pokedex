@@ -43,7 +43,7 @@ function Footer() {
 
           <div className="projets">
             <h3>Other web projects:</h3>
-            <ul>
+            <ul className="OtherProject">
               <li>V'Lille</li>
               <li>Video Game</li>
             </ul>

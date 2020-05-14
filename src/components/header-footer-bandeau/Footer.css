@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
 
 .footer {
+  width: 100%;
   display: flex;
   justify-content: center;
-
   background-color: #f0f0f0;
 }
 
@@ -94,7 +94,7 @@
   .projets li {
     font-size: 15px;
   }
-  ul {
+  .OtherProject {
     display: flex;
     justify-content: center;
     justify-content: space-evenly;

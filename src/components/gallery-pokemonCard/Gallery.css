@@ -1,11 +1,11 @@
-@font-face {
-  font-family: "RetroGaming";
-  src: url("/RetroGaming.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
+@import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
+
+.page {
+  height: 1600px;
 }
 
 .gallery {
+  font-weight: bold;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -19,70 +19,16 @@
   width: 100%;
   overflow: hidden;
 }
-
-.bloc-gallery {
-  background-color: rgba(255, 255, 255, 0.432);
-  width: 80%;
-
-  height: 1400px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  overflow: auto;
-  margin-top: 10vh;
-  margin-bottom: 5vh;
-  margin-right: auto;
-  margin-left: auto;
-  border-radius: 20px;
-}
-
-.pokemon-cards {
-  padding: 0 50px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  height: 1300px;
-}
-
-.pokedex {
-  display: flex;
-  background-image: url("/img/pokedex.png");
-
-  height: 38vh;
-  background-size: 90% 95%;
-  background-position: center;
-  background-repeat: no-repeat;
-  font-family: "RetroGaming";
-  padding: 75px 5%;
-
-}
-
 /*Right Page -- All under that is into this*/
 .rightBloc {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  width: 50%;
+  width: 400px;
+  height: 150px;
+  margin-top: 50px;
 }
-
-.recherche-nom {
-  background-image: url("/img/bg-pokeball.png");
-  background-color: #363636;
-  border-top: 10px solid #ebc715;
-  border-bottom: 10px solid #ebc715;
-}
-
-.searchBar {
-  border: none;
-  background-color: yellowgreen;
-  color: black;
-  font-size: 150%;
-  margin-top: 3%;
-  padding: 10px;
-  font-family: "RetroGaming";
-}
-
 .filterButton {
   border: none;
   border-radius: 10%;
@@ -99,7 +45,8 @@
 
 /*Left Page -- All under that is into this*/
 .leftBloc {
-  width: 50%;
+  width: 400px;
+  height: 150px;
 }
 
 .comparatif {
@@ -115,7 +62,7 @@
 /*Buttons Next and Previous*/
 .buttonGallery {
   display: flex;
-  justify-content: center;
+  margin: 0 auto;
 }
 
 .buttonGallery button {
@@ -124,7 +71,7 @@
   height: 50px;
   border: 0;
   margin: 0 60px 40px 60px;
-  padding-top: 20px;
+  padding-top: 28px;
   background: rgb(204, 0, 0);
   border: 1px solid #000;
   color: rgb(117, 117, 117);
@@ -181,24 +128,168 @@
   100% {
     transform: rotate(0deg);
   }
+}
 
+.bloc-gallery {
+  background-color: rgba(255, 255, 255, 0.432);
+  width: 80%;
+  height: 1400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: auto;
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 20px;
+}
+
+.pokemon-cards {
+  padding: 0 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 1300px;
+}
+
+.pokedex {
+  background-image: url("/img/pokedex.png");
+  height: 220px;
+  background-size: 75% 95%;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-size: 2.5 vh;
+  text-align: end;
+  padding: 100px 5%;
+
+  height: 250px;
+  transition: 1s;
+}
+
+.recherche-nom {
+  border-top: 10px solid #363636;
+  background-color: #363636;
+  background-image: url("/img/bg-pokeball.png");
+}
+
+.pokedex-desactive {
+  height: 0px;
+  transition: 1s;
+}
+
+.searchByName-active {
+  height: 300px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.searchByName-desactive {
+  display: none;
+}
+
+.button {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  height: 5vh;
+}
+
+.hideButton {
+  height: 5vh;
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: #e0c718;
+  font-family: "Aldrich", sans-serif;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  z-index: 20;
+}
+
+.txtButton {
+  width: 270px;
+  padding-top: 0.7vh;
+  cursor: pointer;
+}
+
+.shape {
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 0;
+  width: 300px;
+  height: 20px;
+  border-top: 50px solid #363636;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: none;
+  z-index: 15;
 }
 
 @media (max-width: 640px) {
+  .gallery {
+    height: 1600px;
+  }
+  .pokedex {
+    height: 160px;
+    margin-top: 70px;
+    transition: 0.4s;
+  }
+  .pokedex-desactive {
+    background-color: #363636;
+    padding-top: 100px;
+  }
+
+  .shape {
+    width: 100%;
+  }
+
   .bloc-gallery {
     margin-top: 12vh;
-    height: 2100px;
+    height: 1400px;
   }
 
   .pokemon-cards {
     justify-content: space-around;
-    height: 2000px;
+    height: 1380px;
     padding: 10px;
   }
+  .comparatif {
+    width: 60px;
+    height: 20px;
+  }
+  .searchByName-active {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-around;
+  }
 
-  .searchBar {
-    width: 35vw;
-    font-size: 12px;
-    margin-right: 2vw;
+  .rightBloc {
+    margin-top: 30px;
+    height: 120px;
+    width: 120px;
+    justify-content: space-between;
+  }
+
+  .selectFiltre {
+    margin: 0;
+  }
+
+  .pokedex {
+    margin-top: 100px;
+    background-size: 95% 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 210px;
+  }
+  .buttonGallery {
+    justify-content: center;
+  }
+  .buttonGallery button {
+    margin: 0;
   }
 }
