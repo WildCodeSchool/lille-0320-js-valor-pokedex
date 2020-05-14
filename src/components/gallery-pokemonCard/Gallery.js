@@ -49,7 +49,7 @@ class Gallery extends React.Component {
         });
       });
   }
-
+  // pokemon random dans le pokedex
   getPokeDay() {
     const randomPok = Math.floor(
       Math.random() * Math.floor(this.state.limit + 1)
@@ -156,7 +156,7 @@ class Gallery extends React.Component {
                         alt={this.state.pokeDay.name}
                         className="imgDay"
                       />
-                      <p>
+                      <p className="pokeDayName">
                         {this.state.pokeDay.name.includes("-") &&
                         this.state.pokeDay.name !== "porygon-z"
                           ? this.state.pokeDay.name.charAt(0).toUpperCase() +
