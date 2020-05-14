@@ -13,22 +13,39 @@ function Footer() {
           <div className="team1">
             <div>
               <p className="p">Bérénice</p>
-              <img src="/img/berenice.png" alt="Berenice" className="avatar" />
+              <a
+                href="https://github.com/berenice89"
+                target="_blank"
+                rel="noopener"
+              >
+                <img
+                  src="/img/berenice.png"
+                  alt="Berenice"
+                  className="avatar"
+                />
+              </a>
             </div>
 
             <div>
               <p className="p">Ghazali</p>
-              <img src="/img/ghazali.png" alt="Ghazali" className="avatar" />
+              <a
+                href="https://github.com/Ghazi-1"
+                target="_blank"
+                rel="noopener"
+              >
+                <img src="/img/ghazali.png" alt="Ghazali" className="avatar" />
+              </a>
             </div>
 
             <div>
               <p className="p">Roxane</p>
-              <img
-                src="/img/roxane.png"
-                alt="Roxanne"
-                className="avatar"
-                className="avatar"
-              />
+              <a
+                href="https://github.com/RoxaneDrelon"
+                target="_blank"
+                rel="noopener"
+              >
+                <img src="/img/roxane.png" alt="Roxane" className="avatar" />
+              </a>
             </div>
 
             <div>
@@ -57,17 +74,43 @@ function Footer() {
 
             <div>
               <p className="p">Sophie</p>
-              <img src="/img/sophie.png" alt="Sophie" className="avatar" />
+              <a
+                href="https://github.com/snefrou2"
+                target="_blank"
+                rel="noopener"
+              >
+                <img src="/img/sophie.png" alt="Sophie" className="avatar" />
+              </a>
             </div>
 
             <div>
               <p className="p">Valentin</p>
-              <img src="/img/valentin.png" alt="Valentin" className="avatar" />
+              <a
+                href="https://github.com/ValentinV3"
+                target="_blank"
+                rel="noopener"
+              >
+                <img
+                  src="/img/valentin.png"
+                  alt="Valentin"
+                  className="avatar"
+                />
+              </a>
             </div>
 
             <div>
               <p className="p">Benjamin</p>
-              <img src="/img/benjamin.png" alt="Benjamin" className="avatar" />
+              <a
+                href="https://github.com/narudb"
+                target="_blank"
+                rel="noopener"
+              >
+                <img
+                  src="/img/benjamin.png"
+                  alt="Benjamin"
+                  className="avatar"
+                />
+              </a>
             </div>
           </div>
         </div>
