@@ -9,7 +9,7 @@ function Header() {
     <header>
       <nav className="header">
         <Link to={`/`}>
-          <img src="/img/logo.png" alt="mon pokedex logo" className="logo" />
+          <img src="/img/logo2.png" alt="mon pokedex logo" className="logo" />
         </Link>
       </nav>
     </header>
