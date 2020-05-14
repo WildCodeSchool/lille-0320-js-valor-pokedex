@@ -50,8 +50,8 @@
 }
 
 .pokeDay {
-  width: 45%;
-  height: 70%;
+  width: 55%;
+  height: 85%;
   background-color: white;
   border: 15px solid rgb(187, 187, 187);
   border-bottom: 35px solid rgb(187, 187, 187);
@@ -59,8 +59,9 @@
   margin: 38px 20px 20px 20px;
 }
 
-.pokeday img {
-  width: 100;
+.imgDay {
+  width: 35vh;
+  margin-right: 20px;
 }
 
 /*Buttons Next and Previous*/
@@ -262,10 +263,17 @@
     height: 1380px;
     padding: 10px;
   }
-  .comparatif {
-    width: 60px;
-    height: 20px;
+  .pokeDay {
+    width: 20vw;
+    height: 20vw;
   }
+
+  .imgDay {
+    width: 10vh;
+    margin-left: 5px;
+    margin-top: 2px;
+  }
+
   .searchByName-active {
     margin-left: auto;
     margin-right: auto;
