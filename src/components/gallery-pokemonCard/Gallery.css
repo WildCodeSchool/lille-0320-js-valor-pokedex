@@ -3,7 +3,9 @@
 .page {
   height: 1600px;
 }
+
 .gallery {
+  font-weight: bold;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -160,10 +162,9 @@
   font-size: 2.5 vh;
   text-align: end;
   padding: 100px 5%;
-  border-bottom: 15px solid #363636;
+
   height: 250px;
   transition: 1s;
-  width: 90vw;
 }
 
 .recherche-nom {

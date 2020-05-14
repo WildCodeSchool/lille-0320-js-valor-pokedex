@@ -3,9 +3,9 @@ import axios from "axios";
 import PokemonCard from "./PokemonCard";
 import "./Gallery.css";
 import { Link } from "react-router-dom";
-
 import RechercheNom from "./RechercheNom";
 import Filtre from "./Filtre";
+import Footer from "../header-footer-bandeau/Footer";
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -197,14 +197,14 @@ class Gallery extends React.Component {
             <button className="button1" onClick={this.lessOne}>
               Prev.           
             </button>
-                      
+                     
             <button className="button2" onClick={this.addOne}>
               Next           
             </button>
-                    
+                 
           </div>
         </div>
-                
+        <Footer />
       </div>
     );
   }
